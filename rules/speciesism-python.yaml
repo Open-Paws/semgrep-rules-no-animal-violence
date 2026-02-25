@@ -1,0 +1,244 @@
+rules:
+  # ============================================================
+  # Python-specific rules targeting string literals
+  # Semgrep in language mode matches AST nodes (strings, function calls, etc.)
+  # but NOT comments. Use the generic ruleset for comment coverage.
+  # ============================================================
+
+  - id: speciesism.python.string.kill-two-birds
+    patterns:
+      - pattern: $S
+      - metavariable-regex:
+          metavariable: $S
+          regex: '.*[Kk]ill(?:ing)?\s+two\s+birds\s+with\s+one\s+stone.*'
+    fix-regex:
+      regex: '[Kk]ill(?:ing)?\s+two\s+birds\s+with\s+one\s+stone'
+      replacement: accomplish two things at once
+    message: >-
+      Speciesist language in string: "kill two birds with one stone".
+      Consider: "accomplish two things at once" (autofix available).
+    languages: [python]
+    severity: WARNING
+    metadata:
+      category: inclusive-language
+      subcategory: speciesism
+      alternative: accomplish two things at once
+
+  - id: speciesism.python.string.beat-dead-horse
+    patterns:
+      - pattern: $S
+      - metavariable-regex:
+          metavariable: $S
+          regex: '.*[Bb]eat(?:ing)?\s+a\s+dead\s+horse.*'
+    fix-regex:
+      regex: '[Bb]eat(?:ing)?\s+a\s+dead\s+horse'
+      replacement: belaboring the point
+    message: >-
+      Speciesist language in string: "beating a dead horse".
+      Consider: "belaboring the point" (autofix available).
+    languages: [python]
+    severity: WARNING
+    metadata:
+      category: inclusive-language
+      subcategory: speciesism
+      alternative: belaboring the point
+
+  - id: speciesism.python.string.guinea-pig
+    patterns:
+      - pattern: $S
+      - metavariable-regex:
+          metavariable: $S
+          regex: '.*[Gg]uinea[\s_-]?[Pp]ig(?:s|ged|ging)?.*'
+    message: >-
+      Speciesist language in string: "guinea pig" (as metaphor for test subject).
+      Consider: "test subject", "beta tester", or "early adopter".
+    languages: [python]
+    severity: WARNING
+    metadata:
+      category: inclusive-language
+      subcategory: speciesism
+      alternative: test subject
+
+  - id: speciesism.python.string.sacred-cow
+    patterns:
+      - pattern: $S
+      - metavariable-regex:
+          metavariable: $S
+          regex: '.*[Ss]acred\s+[Cc]ow.*'
+    fix-regex:
+      regex: '[Ss]acred\s+[Cc]ow'
+      replacement: protected assumption
+    message: >-
+      Speciesist language in string: "sacred cow".
+      Consider: "protected assumption" or "unquestioned convention" (autofix available).
+    languages: [python]
+    severity: WARNING
+    metadata:
+      category: inclusive-language
+      subcategory: speciesism
+      alternative: protected assumption
+
+  - id: speciesism.python.string.canary-deployment
+    patterns:
+      - pattern: $S
+      - metavariable-regex:
+          metavariable: $S
+          regex: '.*[Cc]anary\s+(?:[Dd]eploy(?:ment)?|[Rr]elease|[Tt]est(?:ing)?).*'
+    message: >-
+      Speciesist tech jargon in string: "canary deployment".
+      Consider: "incremental rollout", "phased deployment", or "sentinel deployment".
+    languages: [python]
+    severity: INFO
+    metadata:
+      category: inclusive-language
+      subcategory: speciesism
+      alternative: incremental rollout
+
+  - id: speciesism.python.string.monkey-patch
+    patterns:
+      - pattern: $S
+      - metavariable-regex:
+          metavariable: $S
+          regex: '.*[Mm]onkey[\s_-]?[Pp]atch(?:ing|ed|es)?.*'
+    fix-regex:
+      regex: '[Mm]onkey[\s_-]?[Pp]atch(?:ing|ed|es)?'
+      replacement: runtime patch
+    message: >-
+      Speciesist tech jargon in string: "monkey patch".
+      Consider: "runtime patch" or "dynamic patch" (autofix available).
+    languages: [python]
+    severity: INFO
+    metadata:
+      category: inclusive-language
+      subcategory: speciesism
+      alternative: runtime patch
+
+  - id: speciesism.python.string.dogfooding
+    patterns:
+      - pattern: $S
+      - metavariable-regex:
+          metavariable: $S
+          regex: '.*[Dd]og[\s_-]?[Ff]ood(?:ing|ed|s)?.*'
+    fix-regex:
+      regex: '[Dd]og[\s_-]?[Ff]ood(?:ing|ed|s)?'
+      replacement: self-hosting
+    message: >-
+      Speciesist tech jargon in string: "dogfooding".
+      Consider: "self-hosting" or "internal testing" (autofix available).
+    languages: [python]
+    severity: INFO
+    metadata:
+      category: inclusive-language
+      subcategory: speciesism
+      alternative: self-hosting
+
+  - id: speciesism.python.string.cattle-vs-pets
+    patterns:
+      - pattern: $S
+      - metavariable-regex:
+          metavariable: $S
+          regex: '.*[Cc]attle[\s,]+(?:not|vs\.?|versus)\s+[Pp]ets.*'
+    message: >-
+      Speciesist tech jargon in string: "cattle vs pets".
+      Consider: "ephemeral vs persistent", "numbered vs named", or "fleet vs snowflake".
+    languages: [python]
+    severity: WARNING
+    metadata:
+      category: inclusive-language
+      subcategory: speciesism
+      alternative: ephemeral vs persistent
+
+  - id: speciesism.python.string.more-than-one-way-to-skin-a-cat
+    patterns:
+      - pattern: $S
+      - metavariable-regex:
+          metavariable: $S
+          regex: '.*[Mm]ore\s+than\s+one\s+way\s+to\s+skin\s+a\s+cat.*'
+    fix-regex:
+      regex: '[Mm]ore\s+than\s+one\s+way\s+to\s+skin\s+a\s+cat'
+      replacement: more than one way to solve this
+    message: >-
+      Speciesist language in string: "more than one way to skin a cat".
+      Consider: "more than one way to solve this" (autofix available).
+    languages: [python]
+    severity: WARNING
+    metadata:
+      category: inclusive-language
+      subcategory: speciesism
+      alternative: more than one way to solve this
+
+  - id: speciesism.python.string.bring-home-the-bacon
+    patterns:
+      - pattern: $S
+      - metavariable-regex:
+          metavariable: $S
+          regex: '.*[Bb]ring(?:ing)?\s+home\s+the\s+bacon.*'
+    fix-regex:
+      regex: '[Bb]ring(?:ing)?\s+home\s+the\s+bacon'
+      replacement: bring home the bagels
+    message: >-
+      Speciesist language in string: "bring home the bacon".
+      Consider: "bring home the bagels" or "earn a living" (autofix available).
+    languages: [python]
+    severity: WARNING
+    metadata:
+      category: inclusive-language
+      subcategory: speciesism
+      alternative: bring home the bagels
+
+  - id: speciesism.python.string.bigger-fish-to-fry
+    patterns:
+      - pattern: $S
+      - metavariable-regex:
+          metavariable: $S
+          regex: '.*[Bb]igger\s+fish\s+to\s+fry.*'
+    fix-regex:
+      regex: '[Bb]igger\s+fish\s+to\s+fry'
+      replacement: bigger problems to solve
+    message: >-
+      Speciesist language in string: "bigger fish to fry".
+      Consider: "bigger problems to solve" (autofix available).
+    languages: [python]
+    severity: WARNING
+    metadata:
+      category: inclusive-language
+      subcategory: speciesism
+      alternative: bigger problems to solve
+
+  - id: speciesism.python.string.like-lambs-to-slaughter
+    patterns:
+      - pattern: $S
+      - metavariable-regex:
+          metavariable: $S
+          regex: '.*[Ll]ike\s+[Ll]ambs?\s+to\s+(?:the\s+)?[Ss]laughter.*'
+    fix-regex:
+      regex: '[Ll]ike\s+[Ll]ambs?\s+to\s+(?:the\s+)?[Ss]laughter'
+      replacement: without resistance
+    message: >-
+      Speciesist language in string: "like lambs to the slaughter".
+      Consider: "without resistance" or "blindly following" (autofix available).
+    languages: [python]
+    severity: WARNING
+    metadata:
+      category: inclusive-language
+      subcategory: speciesism
+      alternative: without resistance
+
+  - id: speciesism.python.string.dead-cat-bounce
+    patterns:
+      - pattern: $S
+      - metavariable-regex:
+          metavariable: $S
+          regex: '.*[Dd]ead[\s_-]?[Cc]at[\s_-]?[Bb]ounce.*'
+    fix-regex:
+      regex: '[Dd]ead[\s_-]?[Cc]at[\s_-]?[Bb]ounce'
+      replacement: temporary rebound
+    message: >-
+      Speciesist language in string: "dead cat bounce".
+      Consider: "temporary rebound" or "false recovery" (autofix available).
+    languages: [python]
+    severity: WARNING
+    metadata:
+      category: inclusive-language
+      subcategory: speciesism
+      alternative: temporary rebound

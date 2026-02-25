@@ -1,0 +1,516 @@
+rules:
+  # ============================================================
+  # IDIOMS & PHRASES — speciesist metaphors with direct alternatives
+  # ============================================================
+
+  - id: speciesism.kill-two-birds
+    pattern-regex: '[Kk]ill(?:ing)?\s+two\s+birds\s+with\s+one\s+stone'
+    message: >-
+      Speciesist language: "kill two birds with one stone".
+      Consider: "get two birds with one scone", "accomplish two things at once",
+      or "solve two problems with one action".
+    languages: [generic]
+    severity: WARNING
+    metadata:
+      category: inclusive-language
+      subcategory: speciesism
+      alternative: accomplish two things at once
+      references:
+        - https://doi.org/10.1007/s43681-023-00380-w
+
+  - id: speciesism.beat-dead-horse
+    pattern-regex: '[Bb]eat(?:ing)?\s+a\s+dead\s+horse'
+    message: >-
+      Speciesist language: "beating a dead horse".
+      Consider: "beating a dead battery", "belaboring the point",
+      or "going over old ground".
+    languages: [generic]
+    severity: WARNING
+    metadata:
+      category: inclusive-language
+      subcategory: speciesism
+      alternative: belaboring the point
+      references:
+        - https://doi.org/10.1007/s43681-023-00380-w
+
+  - id: speciesism.guinea-pig
+    pattern-regex: '[Gg]uinea[\s_-]?[Pp]ig(?:s|ged|ging)?'
+    message: >-
+      Speciesist language: "guinea pig" (used as a verb or metaphor for test subject).
+      Consider: "test subject", "beta tester", "early adopter", or "volunteer".
+      Note: references to the actual animal are fine — this flags metaphorical use
+      in code comments, variable names, and strings.
+    languages: [generic]
+    severity: WARNING
+    metadata:
+      category: inclusive-language
+      subcategory: speciesism
+      alternative: test subject
+      references:
+        - https://doi.org/10.1007/s43681-023-00380-w
+
+  - id: speciesism.more-than-one-way-to-skin-a-cat
+    pattern-regex: '[Mm]ore\s+than\s+one\s+way\s+to\s+skin\s+a\s+cat'
+    message: >-
+      Speciesist language: "more than one way to skin a cat".
+      Consider: "more than one way to solve this", "multiple approaches available",
+      or "there is more than one way to peel a potato".
+    languages: [generic]
+    severity: WARNING
+    metadata:
+      category: inclusive-language
+      subcategory: speciesism
+      alternative: more than one way to solve this
+      references:
+        - https://doi.org/10.1007/s43681-023-00380-w
+
+  - id: speciesism.let-the-cat-out-of-the-bag
+    pattern-regex: '[Ll]et(?:ting)?\s+the\s+cat\s+out\s+of\s+the\s+bag'
+    message: >-
+      Speciesist language: "let the cat out of the bag".
+      Consider: "spill the beans", "reveal the secret", or "give it away".
+    languages: [generic]
+    severity: WARNING
+    metadata:
+      category: inclusive-language
+      subcategory: speciesism
+      alternative: spill the beans
+      references:
+        - https://doi.org/10.1007/s43681-023-00380-w
+
+  - id: speciesism.open-a-can-of-worms
+    pattern-regex: '[Oo]pen(?:ing|ed)?\s+a\s+can\s+of\s+worms'
+    message: >-
+      Speciesist language: "open a can of worms".
+      Consider: "open Pandora's box", "create a complex situation",
+      or "uncover a hornets' nest of issues".
+    languages: [generic]
+    severity: WARNING
+    metadata:
+      category: inclusive-language
+      subcategory: speciesism
+      alternative: open Pandora's box
+      references:
+        - https://doi.org/10.1007/s43681-023-00380-w
+
+  - id: speciesism.wild-goose-chase
+    pattern-regex: '[Ww]ild[\s-]?[Gg]oose[\s-]?[Cc]hase'
+    message: >-
+      Speciesist language: "wild goose chase".
+      Consider: "fool's errand", "pointless pursuit", or "snipe hunt".
+    languages: [generic]
+    severity: WARNING
+    metadata:
+      category: inclusive-language
+      subcategory: speciesism
+      alternative: pointless pursuit
+      references:
+        - https://doi.org/10.1007/s43681-023-00380-w
+
+  - id: speciesism.hold-your-horses
+    pattern-regex: '[Hh]old\s+your\s+horses'
+    message: >-
+      Speciesist language: "hold your horses".
+      Consider: "hold on", "wait a moment", or "slow down".
+    languages: [generic]
+    severity: WARNING
+    metadata:
+      category: inclusive-language
+      subcategory: speciesism
+      alternative: hold on
+      references:
+        - https://doi.org/10.1007/s43681-023-00380-w
+
+  - id: speciesism.straight-from-the-horses-mouth
+    pattern-regex: "[Ss]traight\s+from\s+the\s+horse(?:'?s)\s+mouth"
+    message: >-
+      Speciesist language: "straight from the horse's mouth".
+      Consider: "from the original source", "firsthand", or "directly from the authority".
+    languages: [generic]
+    severity: WARNING
+    metadata:
+      category: inclusive-language
+      subcategory: speciesism
+      alternative: from the original source
+      references:
+        - https://doi.org/10.1007/s43681-023-00380-w
+
+  - id: speciesism.elephant-in-the-room
+    pattern-regex: '[Ee]lephant\s+in\s+the\s+room'
+    message: >-
+      Speciesist language: "elephant in the room".
+      Consider: "the obvious issue", "the unaddressed problem",
+      or "the thing no one is talking about".
+    languages: [generic]
+    severity: WARNING
+    metadata:
+      category: inclusive-language
+      subcategory: speciesism
+      alternative: the obvious issue
+      references:
+        - https://doi.org/10.1007/s43681-023-00380-w
+
+  - id: speciesism.like-herding-cats
+    pattern-regex: '[Ll]ike\s+[Hh]erding\s+[Cc]ats'
+    message: >-
+      Speciesist language: "like herding cats".
+      Consider: "like organizing chaos", "like juggling",
+      or "like nailing jelly to a wall".
+    languages: [generic]
+    severity: WARNING
+    metadata:
+      category: inclusive-language
+      subcategory: speciesism
+      alternative: like organizing chaos
+      references:
+        - https://doi.org/10.1007/s43681-023-00380-w
+
+  - id: speciesism.take-the-bull-by-the-horns
+    pattern-regex: '[Tt]ake\s+the\s+bull\s+by\s+the\s+horns'
+    message: >-
+      Speciesist language: "take the bull by the horns".
+      Consider: "take charge", "face the challenge head-on",
+      or "seize the opportunity".
+    languages: [generic]
+    severity: WARNING
+    metadata:
+      category: inclusive-language
+      subcategory: speciesism
+      alternative: face the challenge head-on
+      references:
+        - https://doi.org/10.1007/s43681-023-00380-w
+
+  - id: speciesism.the-whole-nine-yards-of-animals
+    pattern-regex: '[Bb]ring(?:ing)?\s+home\s+the\s+bacon'
+    message: >-
+      Speciesist language: "bring home the bacon".
+      Consider: "bring home the bread", "earn a living",
+      or "bring home the results".
+    languages: [generic]
+    severity: WARNING
+    metadata:
+      category: inclusive-language
+      subcategory: speciesism
+      alternative: bring home the bagels
+      references:
+        - https://doi.org/10.1007/s43681-023-00380-w
+
+  - id: speciesism.sacred-cow
+    pattern-regex: '[Ss]acred\s+[Cc]ow'
+    message: >-
+      Speciesist language: "sacred cow" (something exempt from criticism).
+      Consider: "untouchable topic", "protected assumption",
+      or "unquestioned convention".
+      This phrase also has culturally insensitive connotations regarding Hindu beliefs.
+    languages: [generic]
+    severity: WARNING
+    metadata:
+      category: inclusive-language
+      subcategory: speciesism
+      alternative: protected assumption
+      references:
+        - https://doi.org/10.1007/s43681-023-00380-w
+
+  - id: speciesism.scapegoat
+    pattern-regex: '[Ss]cape[Gg]oat(?:ed|ing|s)?'
+    message: >-
+      Speciesist language: "scapegoat" (originates from the ritual sacrifice of goats).
+      Consider: "blame target", "fall person", or "whipping post".
+    languages: [generic]
+    severity: INFO
+    metadata:
+      category: inclusive-language
+      subcategory: speciesism
+      alternative: blame target
+      references:
+        - https://doi.org/10.1007/s43681-023-00380-w
+
+  - id: speciesism.rat-race
+    pattern-regex: '[Rr]at\s+[Rr]ace'
+    message: >-
+      Speciesist language: "rat race" (derogatory use of animals as metaphor for futility).
+      Consider: "daily grind", "competitive treadmill", or "endless hustle".
+    languages: [generic]
+    severity: INFO
+    metadata:
+      category: inclusive-language
+      subcategory: speciesism
+      alternative: daily grind
+      references:
+        - https://doi.org/10.1007/s43681-023-00380-w
+
+  # ============================================================
+  # TECH-SPECIFIC TERMS — speciesist metaphors embedded in tech jargon
+  # ============================================================
+
+  - id: speciesism.tech.canary-deployment
+    pattern-regex: '[Cc]anary\s+(?:[Dd]eploy(?:ment)?|[Rr]elease|[Tt]est(?:ing)?|[Bb]uild)'
+    message: >-
+      Speciesist tech jargon: "canary deployment" (references canaries sent into
+      coal mines to die as gas detectors). Consider: "incremental rollout",
+      "phased deployment", "early access deployment", or "sentinel deployment".
+    languages: [generic]
+    severity: INFO
+    metadata:
+      category: inclusive-language
+      subcategory: speciesism
+      alternative: incremental rollout
+      references:
+        - https://doi.org/10.1007/s43681-023-00380-w
+
+  - id: speciesism.tech.monkey-patch
+    pattern-regex: '[Mm]onkey[\s_-]?[Pp]atch(?:ing|ed|es)?'
+    message: >-
+      Speciesist tech jargon: "monkey patch".
+      Consider: "runtime patch", "dynamic patch", "hot patch", or "guerrilla patch".
+    languages: [generic]
+    severity: INFO
+    metadata:
+      category: inclusive-language
+      subcategory: speciesism
+      alternative: runtime patch
+      references:
+        - https://doi.org/10.1007/s43681-023-00380-w
+
+  - id: speciesism.tech.monkey-test
+    pattern-regex: '[Mm]onkey[\s_-]?[Tt]est(?:ing|s|ed)?'
+    message: >-
+      Speciesist tech jargon: "monkey testing".
+      Consider: "random testing", "fuzz testing", "chaos testing", or "exploratory testing".
+    languages: [generic]
+    severity: INFO
+    metadata:
+      category: inclusive-language
+      subcategory: speciesism
+      alternative: random testing
+      references:
+        - https://doi.org/10.1007/s43681-023-00380-w
+
+  - id: speciesism.tech.dogfooding
+    pattern-regex: '[Dd]og[\s_-]?[Ff]ood(?:ing|ed|s)?'
+    message: >-
+      Speciesist tech jargon: "dogfooding" (using your own product internally).
+      Consider: "self-hosting", "internal testing", "eating our own cooking",
+      or "using our own product".
+    languages: [generic]
+    severity: INFO
+    metadata:
+      category: inclusive-language
+      subcategory: speciesism
+      alternative: self-hosting
+      references:
+        - https://doi.org/10.1007/s43681-023-00380-w
+
+  - id: speciesism.tech.cattle-vs-pets
+    pattern-regex: '[Cc]attle[\s,]+(?:not|vs\.?|versus)\s+[Pp]ets'
+    message: >-
+      Speciesist tech jargon: "cattle vs pets" (server management metaphor that
+      normalizes treating animals as disposable). Consider: "numbered vs named",
+      "ephemeral vs persistent", "fungible vs unique", or "fleet vs snowflake".
+    languages: [generic]
+    severity: WARNING
+    metadata:
+      category: inclusive-language
+      subcategory: speciesism
+      alternative: ephemeral vs persistent
+      references:
+        - https://doi.org/10.1007/s43681-023-00380-w
+
+  - id: speciesism.tech.pets-vs-cattle
+    pattern-regex: '[Pp]ets[\s,]+(?:not|vs\.?|versus)\s+[Cc]attle'
+    message: >-
+      Speciesist tech jargon: "pets vs cattle" (server management metaphor that
+      normalizes treating animals as disposable). Consider: "named vs numbered",
+      "persistent vs ephemeral", "snowflake vs fleet", or "unique vs fungible".
+    languages: [generic]
+    severity: WARNING
+    metadata:
+      category: inclusive-language
+      subcategory: speciesism
+      alternative: persistent vs ephemeral
+      references:
+        - https://doi.org/10.1007/s43681-023-00380-w
+
+  - id: speciesism.tech.duck-typing
+    pattern-regex: '[Dd]uck[\s_-]?[Tt]yp(?:ing|ed|e)'
+    message: >-
+      Speciesist tech jargon: "duck typing" (if it walks like a duck and quacks
+      like a duck...). Consider: "structural typing", "behavioral typing",
+      or "interface-based typing". Note: this is deeply embedded in programming
+      culture and may be difficult to change — flagged as INFO.
+    languages: [generic]
+    severity: INFO
+    metadata:
+      category: inclusive-language
+      subcategory: speciesism
+      alternative: structural typing
+      references:
+        - https://doi.org/10.1007/s43681-023-00380-w
+
+  - id: speciesism.tech.rubber-duck-debugging
+    pattern-regex: '[Rr]ubber[\s_-]?[Dd]uck(?:[\s_-]?[Dd]ebugging)?'
+    message: >-
+      Tech jargon: "rubber duck debugging". While the rubber duck is an
+      inanimate object, the metaphor derives from and reinforces treating ducks
+      as objects. Consider: "talk-through debugging", "explain-aloud debugging",
+      or "narration debugging". Flagged as INFO due to low severity.
+    languages: [generic]
+    severity: INFO
+    metadata:
+      category: inclusive-language
+      subcategory: speciesism
+      alternative: talk-through debugging
+      references:
+        - https://doi.org/10.1007/s43681-023-00380-w
+
+  - id: speciesism.tech.bug
+    pattern-regex: '[Dd]ead[\s_-]?[Cc]at[\s_-]?[Bb]ounce'
+    message: >-
+      Speciesist language: "dead cat bounce" (financial/tech term describing a
+      brief recovery in a declining trend). Consider: "temporary rebound",
+      "false recovery", or "brief uptick".
+    languages: [generic]
+    severity: WARNING
+    metadata:
+      category: inclusive-language
+      subcategory: speciesism
+      alternative: temporary rebound
+      references:
+        - https://doi.org/10.1007/s43681-023-00380-w
+
+  - id: speciesism.tech.war-on-bugs
+    pattern-regex: '[Bb]ug[\s_-]?[Hh]unt(?:ing|er|s)?'
+    message: >-
+      Tech jargon: "bug hunting" (normalizes hunting metaphors).
+      Consider: "bug finding", "defect discovery", or "issue triage".
+      Flagged as INFO due to the indirect nature of the metaphor.
+    languages: [generic]
+    severity: INFO
+    metadata:
+      category: inclusive-language
+      subcategory: speciesism
+      alternative: defect discovery
+      references:
+        - https://doi.org/10.1007/s43681-023-00380-w
+
+  # ============================================================
+  # DEROGATORY ANIMAL COMPARISONS — using animal names as insults
+  # ============================================================
+
+  - id: speciesism.derogatory.pig-insult
+    pattern-regex: '(?:you|what\s+a|such\s+a|like\s+a|filthy|dirty|fat|greedy)\s+[Pp]ig(?:s)?(?!\s*(?:eon|ment|tail|latin))'
+    message: >-
+      Speciesist language: using "pig" as an insult devalues pigs as sentient beings.
+      Consider describing the specific behavior you object to instead.
+    languages: [generic]
+    severity: WARNING
+    metadata:
+      category: inclusive-language
+      subcategory: speciesism
+      alternative: (describe the specific behavior)
+      references:
+        - https://doi.org/10.1007/s43681-023-00380-w
+
+  - id: speciesism.derogatory.chicken-coward
+    pattern-regex: "(?:[Dd]on(?:')?t\s+be\s+(?:a\s+)?(?:such\s+a\s+)?|[Yy]ou(?:'re)?\s+(?:such\s+)?a\s+|[Ww]hat\s+a\s+)[Cc]hicken"
+    message: >-
+      Speciesist language: using "chicken" as a synonym for coward devalues
+      chickens as sentient beings. Consider: "coward", "timid", or "risk-averse".
+    languages: [generic]
+    severity: WARNING
+    metadata:
+      category: inclusive-language
+      subcategory: speciesism
+      alternative: coward
+      references:
+        - https://doi.org/10.1007/s43681-023-00380-w
+
+  # ============================================================
+  # VIOLENCE-NORMALIZING PHRASES
+  # ============================================================
+
+  - id: speciesism.violence.shoot-fish-in-barrel
+    pattern-regex: '[Ss]hoot(?:ing)?\s+fish\s+in\s+a\s+barrel'
+    message: >-
+      Speciesist language: "shooting fish in a barrel".
+      Consider: "easy target", "low-hanging fruit", or "trivially simple".
+    languages: [generic]
+    severity: WARNING
+    metadata:
+      category: inclusive-language
+      subcategory: speciesism
+      alternative: trivially simple
+      references:
+        - https://doi.org/10.1007/s43681-023-00380-w
+
+  - id: speciesism.violence.flog-dead-horse
+    pattern-regex: '[Ff]log(?:ging)?\s+a\s+dead\s+horse'
+    message: >-
+      Speciesist language: "flogging a dead horse".
+      Consider: "belaboring the point" or "going over old ground".
+    languages: [generic]
+    severity: WARNING
+    metadata:
+      category: inclusive-language
+      subcategory: speciesism
+      alternative: belaboring the point
+      references:
+        - https://doi.org/10.1007/s43681-023-00380-w
+
+  - id: speciesism.violence.like-lambs-to-slaughter
+    pattern-regex: '[Ll]ike\s+[Ll]ambs?\s+to\s+(?:the\s+)?[Ss]laughter'
+    message: >-
+      Speciesist language: "like lambs to the slaughter".
+      Consider: "without resistance", "blindly following", or "unknowingly walking into danger".
+    languages: [generic]
+    severity: WARNING
+    metadata:
+      category: inclusive-language
+      subcategory: speciesism
+      alternative: without resistance
+      references:
+        - https://doi.org/10.1007/s43681-023-00380-w
+
+  - id: speciesism.violence.there-are-bigger-fish-to-fry
+    pattern-regex: '[Bb]igger\s+fish\s+to\s+fry'
+    message: >-
+      Speciesist language: "bigger fish to fry" (normalizes killing fish).
+      Consider: "bigger problems to solve", "more important priorities",
+      or "more pressing matters".
+    languages: [generic]
+    severity: WARNING
+    metadata:
+      category: inclusive-language
+      subcategory: speciesism
+      alternative: bigger problems to solve
+      references:
+        - https://doi.org/10.1007/s43681-023-00380-w
+
+  - id: speciesism.violence.no-room-to-swing-a-cat
+    pattern-regex: '[Nn]o\s+room\s+to\s+swing\s+a\s+cat'
+    message: >-
+      Speciesist language: "no room to swing a cat".
+      Consider: "very cramped", "extremely tight space", or "barely any room".
+    languages: [generic]
+    severity: WARNING
+    metadata:
+      category: inclusive-language
+      subcategory: speciesism
+      alternative: very cramped
+      references:
+        - https://doi.org/10.1007/s43681-023-00380-w
+
+  - id: speciesism.violence.like-shooting-fish
+    pattern-regex: '[Oo]pen(?:ing)?\s+(?:a\s+)?[Ss]eason\s+on'
+    message: >-
+      Speciesist language: "open season on" (references hunting seasons).
+      Consider: "free rein to criticize", "unrestricted targeting of",
+      or "open criticism of".
+    languages: [generic]
+    severity: WARNING
+    metadata:
+      category: inclusive-language
+      subcategory: speciesism
+      alternative: unrestricted criticism of
+      references:
+        - https://doi.org/10.1007/s43681-023-00380-w
