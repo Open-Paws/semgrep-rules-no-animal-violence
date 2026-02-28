@@ -229,6 +229,159 @@ rules:
     alternative: distraction
     references:
     - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.curiosity-killed-the-cat
+  pattern-regex: curiosity\s+killed\s+the\s+cat
+  message: 'Animal violence language: "curiosity killed the cat". Consider: "curiosity backfired", "being nosy caused trouble",
+    "curiosity led to trouble".'
+  languages:
+  - generic
+  severity: ERROR
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: curiosity backfired
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.like-a-chicken-with-its-head-cut-off
+  pattern-regex: like\s+a\s+chicken\s+with\s+(its|their)\s+head\s+cut\s+off
+  message: 'Animal violence language: "like a chicken with its head cut off". Consider: "in a panic", "running around chaotically",
+    "in complete disarray".'
+  languages:
+  - generic
+  severity: ERROR
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: in a panic
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.your-goose-is-cooked
+  pattern-regex: (your|their|his|her)\s+goose\s+is\s+cooked
+  message: 'Animal violence language: "your goose is cooked". Consider: "you''re in trouble", "your fate is sealed", "it''s
+    over for you".'
+  languages:
+  - generic
+  severity: ERROR
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: you're in trouble
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.throw-someone-to-the-wolves
+  pattern-regex: throw(ing|n)?\s+\w+\s+to\s+the\s+wolves
+  message: 'Animal violence language: "throw someone to the wolves". Consider: "abandon to criticism", "leave to face hostility
+    alone", "sacrifice someone".'
+  languages:
+  - generic
+  severity: ERROR
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: abandon to criticism
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.hook,-line,-and-sinker
+  pattern-regex: hook,?\s+line,?\s+and\s+sinker
+  message: 'Animal violence language: "hook, line, and sinker". Consider: "completely", "without question", "fell for it entirely".'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: completely
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.clip-someones-wings
+  pattern-regex: clip(ping|ped)?\s+(\w+('s)?\s+)?wings
+  message: 'Animal violence language: "clip someone''s wings". Consider: "restrict someone''s freedom", "limit someone''s
+    options", "hold someone back".'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: restrict someone's freedom
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.the-straw-that-broke-the-camels-back
+  pattern-regex: (the\s+)?straw\s+that\s+broke\s+the\s+camel'?s\s+back
+  message: 'Animal violence language: "the straw that broke the camel''s back". Consider: "the tipping point", "the breaking
+    point", "the final provocation".'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: the tipping point
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.a-bird-in-the-hand-is-worth-two-in-the-bush
+  pattern-regex: bird\s+in\s+(the|a)\s+hand\s+(is\s+)?worth\s+two\s+in\s+the\s+bush
+  message: 'Animal violence language: "a bird in the hand is worth two in the bush". Consider: "a sure thing beats a possibility",
+    "certainty over speculation".'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: a sure thing beats a possibility
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.eat-crow
+  pattern-regex: eat(ing)?\s+crow
+  message: 'Animal violence language: "eat crow". Consider: "admit being wrong", "swallow one''s pride", "accept humiliation".'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: admit being wrong
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.fight-like-cats-and-dogs
+  pattern-regex: fight(ing)?\s+like\s+cats\s+and\s+dogs
+  message: 'Animal violence language: "fight like cats and dogs". Consider: "constantly argue", "clash frequently", "have
+    constant conflict".'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: constantly argue
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.take-the-bait
+  pattern-regex: take?(ing|ook)?\s+the\s+bait
+  message: 'Animal violence language: "take the bait". Consider: "fall for it", "be lured in", "be deceived".'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: fall for it
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.dont-count-your-chickens-before-they-hatch
+  pattern-regex: don'?t\s+count\s+your\s+chickens
+  message: 'Animal violence language: "don''t count your chickens before they hatch". Consider: "don''t assume success prematurely",
+    "wait for confirmed results", "don''t get ahead of yourself".'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: don't assume success prematurely
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
 - id: animal-violence.dont-be-a-chicken
   pattern-regex: don'?t\s+be\s+a\s+chicken
   message: 'Animal violence language: "don''t be a chicken". Consider: "don''t hesitate", "be brave", "go for it".'
@@ -276,6 +429,30 @@ rules:
     category: inclusive-language
     subcategory: animal-violence
     alternative: developer
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.badger-someone
+  pattern-regex: badger(ed|ing|s)?
+  message: 'Animal violence language: "badger someone". Consider: "pester", "pressure", "harass".'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: pester
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.ferret-out
+  pattern-regex: ferret(ed|ing)?\s+out
+  message: 'Animal violence language: "ferret out". Consider: "uncover", "discover", "dig up".'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: uncover
     references:
     - https://doi.org/10.1007/s43681-023-00380-w
 - id: animal-violence.cattle-vs-pets
@@ -425,6 +602,79 @@ rules:
     alternative: recurring problem
     references:
     - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.cash-cow
+  pattern-regex: cash\s+cows?
+  message: 'Animal violence language: "cash cow". Consider: "profit center", "reliable revenue source", "money maker".'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: profit center
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.sacrificial-lamb
+  pattern-regex: sacrificial\s+lambs?
+  message: 'Animal violence language: "sacrificial lamb". Consider: "expendable person", "person set up to fail", "someone
+    sacrificed for others".'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: expendable person
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.sitting-duck
+  pattern-regex: sitting\s+ducks?
+  message: 'Animal violence language: "sitting duck". Consider: "easy target", "vulnerable target", "exposed".'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: easy target
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.open-season
+  pattern-regex: open\s+season
+  message: 'Animal violence language: "open season". Consider: "free-for-all", "unrestricted criticism", "no holds barred".'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: free-for-all
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.put-out-to-pasture
+  pattern-regex: put(ting)?\s+(\w+\s+)?out\s+to\s+pasture
+  message: 'Animal violence language: "put out to pasture". Consider: "retire", "phase out", "sunset".'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: retire
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.dead-duck
+  pattern-regex: dead\s+ducks?
+  message: 'Animal violence language: "dead duck". Consider: "lost cause", "doomed effort", "foregone conclusion".'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: lost cause
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
 - id: animal-violence.kill-process
   pattern-regex: kill\s+(the\s+)?process
   message: 'Animal violence language: "kill process". Consider: "terminate the process", "stop the process", "end the process".'
@@ -472,6 +722,18 @@ rules:
     category: inclusive-language
     subcategory: animal-violence
     alternative: cancel
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.cull
+  pattern-regex: cull(ed|ing|s)?
+  message: 'Animal violence language: "cull". Consider: "remove", "prune", "trim".'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: remove
     references:
     - https://doi.org/10.1007/s43681-023-00380-w
 - id: animal-violence.master-slave
