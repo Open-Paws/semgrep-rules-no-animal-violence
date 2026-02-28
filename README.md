@@ -1,4 +1,4 @@
-# semgrep-rules-speciesism
+# semgrep-rules-no-animal-violence
 
 Semgrep rules for detecting speciesist language in code comments, strings, and documentation.
 
@@ -10,22 +10,22 @@ Language shapes thought. Speciesist idioms — "kill two birds with one stone", 
 
 ```bash
 # Scan your project with all rules (generic + language-specific)
-semgrep --config https://github.com/Open-Paws/semgrep-rules-speciesism/blob/main/rules/
+semgrep --config https://github.com/Open-Paws/semgrep-rules-no-animal-violence/blob/main/rules/
 
 # Generic rules only (works across all file types — comments, strings, docs)
-semgrep --config https://github.com/Open-Paws/semgrep-rules-speciesism/blob/main/rules/speciesism-generic.yaml
+semgrep --config https://github.com/Open-Paws/semgrep-rules-no-animal-violence/blob/main/rules/no-animal-violence-generic.yaml
 
 # Language-specific rules (AST-aware string matching with autofix support)
-semgrep --config https://github.com/Open-Paws/semgrep-rules-speciesism/blob/main/rules/speciesism-python.yaml
-semgrep --config https://github.com/Open-Paws/semgrep-rules-speciesism/blob/main/rules/speciesism-javascript.yaml
-semgrep --config https://github.com/Open-Paws/semgrep-rules-speciesism/blob/main/rules/speciesism-go.yaml
+semgrep --config https://github.com/Open-Paws/semgrep-rules-no-animal-violence/blob/main/rules/no-animal-violence-python.yaml
+semgrep --config https://github.com/Open-Paws/semgrep-rules-no-animal-violence/blob/main/rules/no-animal-violence-javascript.yaml
+semgrep --config https://github.com/Open-Paws/semgrep-rules-no-animal-violence/blob/main/rules/no-animal-violence-go.yaml
 ```
 
 ### Clone and run locally
 
 ```bash
-git clone https://github.com/Open-Paws/semgrep-rules-speciesism.git
-semgrep --config semgrep-rules-speciesism/rules/ /path/to/your/project
+git clone https://github.com/Open-Paws/semgrep-rules-no-animal-violence.git
+semgrep --config semgrep-rules-no-animal-violence/rules/ /path/to/your/project
 ```
 
 ### With autofix
@@ -33,17 +33,17 @@ semgrep --config semgrep-rules-speciesism/rules/ /path/to/your/project
 The language-specific rules (Python, JavaScript/TypeScript, Go) include `fix-regex` autofixes for many patterns. Run with `--autofix` to apply them:
 
 ```bash
-semgrep --config semgrep-rules-speciesism/rules/speciesism-python.yaml --autofix /path/to/your/project
+semgrep --config semgrep-rules-no-animal-violence/rules/no-animal-violence-python.yaml --autofix /path/to/your/project
 ```
 
 ## Rule Files
 
 | File | Languages | Targets | Autofix |
 |------|-----------|---------|---------|
-| `speciesism-generic.yaml` | All (generic mode) | Comments, strings, docs, any text | No |
-| `speciesism-python.yaml` | Python | String literals (AST-aware) | Yes |
-| `speciesism-javascript.yaml` | JavaScript, TypeScript | String literals (AST-aware) | Yes |
-| `speciesism-go.yaml` | Go | String literals (AST-aware) | Yes |
+| `no-animal-violence-generic.yaml` | All (generic mode) | Comments, strings, docs, any text | No |
+| `no-animal-violence-python.yaml` | Python | String literals (AST-aware) | Yes |
+| `no-animal-violence-javascript.yaml` | JavaScript, TypeScript | String literals (AST-aware) | Yes |
+| `no-animal-violence-go.yaml` | Go | String literals (AST-aware) | Yes |
 
 **Why both generic and language-specific rules?**
 
@@ -53,7 +53,7 @@ semgrep --config semgrep-rules-speciesism/rules/speciesism-python.yaml --autofix
 For maximum coverage, use both:
 
 ```bash
-semgrep --config semgrep-rules-speciesism/rules/ /path/to/your/project
+semgrep --config semgrep-rules-no-animal-violence/rules/ /path/to/your/project
 ```
 
 ## Detected Patterns
@@ -108,7 +108,7 @@ semgrep --config semgrep-rules-speciesism/rules/ /path/to/your/project
 ### GitHub Actions
 
 ```yaml
-name: Speciesist Language Check
+name: Inclusive Language Check
 on: [pull_request]
 
 jobs:
@@ -119,9 +119,9 @@ jobs:
       - uses: returntocorp/semgrep-action@v1
         with:
           config: >-
-            https://github.com/Open-Paws/semgrep-rules-speciesism/blob/main/rules/speciesism-generic.yaml
-            https://github.com/Open-Paws/semgrep-rules-speciesism/blob/main/rules/speciesism-python.yaml
-            https://github.com/Open-Paws/semgrep-rules-speciesism/blob/main/rules/speciesism-javascript.yaml
+            https://github.com/Open-Paws/semgrep-rules-no-animal-violence/blob/main/rules/no-animal-violence-generic.yaml
+            https://github.com/Open-Paws/semgrep-rules-no-animal-violence/blob/main/rules/no-animal-violence-python.yaml
+            https://github.com/Open-Paws/semgrep-rules-no-animal-violence/blob/main/rules/no-animal-violence-javascript.yaml
 ```
 
 ### Pre-commit hook
@@ -135,7 +135,7 @@ repos:
       - id: semgrep
         args:
           - --config
-          - https://github.com/Open-Paws/semgrep-rules-speciesism/blob/main/rules/speciesism-generic.yaml
+          - https://github.com/Open-Paws/semgrep-rules-no-animal-violence/blob/main/rules/no-animal-violence-generic.yaml
           - --error
 ```
 
@@ -163,7 +163,7 @@ Research has shown that speciesist language in AI training data and codebases re
 
 Contributions welcome. To add new rules:
 
-1. Add the pattern to `rules/speciesism-generic.yaml` (always)
+1. Add the pattern to `rules/no-animal-violence-generic.yaml` (always)
 2. Add AST-aware versions to the relevant language files (if applicable)
 3. Include `message` with the speciesist term and at least one alternative
 4. Include `metadata` with `category: inclusive-language` and `subcategory: speciesism`
