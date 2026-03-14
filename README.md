@@ -13,12 +13,12 @@ Language shapes thought. Speciesist idioms — "kill two birds with one stone", 
 semgrep --config https://github.com/Open-Paws/semgrep-rules-no-animal-violence/blob/main/rules/
 
 # Generic rules only (works across all file types — comments, strings, docs)
-semgrep --config https://github.com/Open-Paws/semgrep-rules-no-animal-violence/blob/main/rules/no-animal-violence-generic.yaml
+semgrep --config https://github.com/Open-Paws/semgrep-rules-no-animal-violence/blob/main/rules/animal-violence-generic.yaml
 
 # Language-specific rules (AST-aware string matching with autofix support)
-semgrep --config https://github.com/Open-Paws/semgrep-rules-no-animal-violence/blob/main/rules/no-animal-violence-python.yaml
-semgrep --config https://github.com/Open-Paws/semgrep-rules-no-animal-violence/blob/main/rules/no-animal-violence-javascript.yaml
-semgrep --config https://github.com/Open-Paws/semgrep-rules-no-animal-violence/blob/main/rules/no-animal-violence-go.yaml
+semgrep --config https://github.com/Open-Paws/semgrep-rules-no-animal-violence/blob/main/rules/animal-violence-python.yaml
+semgrep --config https://github.com/Open-Paws/semgrep-rules-no-animal-violence/blob/main/rules/animal-violence-javascript.yaml
+semgrep --config https://github.com/Open-Paws/semgrep-rules-no-animal-violence/blob/main/rules/animal-violence-go.yaml
 ```
 
 ### Clone and run locally
@@ -33,17 +33,17 @@ semgrep --config semgrep-rules-no-animal-violence/rules/ /path/to/your/project
 The language-specific rules (Python, JavaScript/TypeScript, Go) include `fix-regex` autofixes for many patterns. Run with `--autofix` to apply them:
 
 ```bash
-semgrep --config semgrep-rules-no-animal-violence/rules/no-animal-violence-python.yaml --autofix /path/to/your/project
+semgrep --config semgrep-rules-no-animal-violence/rules/animal-violence-python.yaml --autofix /path/to/your/project
 ```
 
 ## Rule Files
 
 | File | Languages | Targets | Autofix |
 |------|-----------|---------|---------|
-| `no-animal-violence-generic.yaml` | All (generic mode) | Comments, strings, docs, any text | No |
-| `no-animal-violence-python.yaml` | Python | String literals (AST-aware) | Yes |
-| `no-animal-violence-javascript.yaml` | JavaScript, TypeScript | String literals (AST-aware) | Yes |
-| `no-animal-violence-go.yaml` | Go | String literals (AST-aware) | Yes |
+| `animal-violence-generic.yaml` | All (generic mode) | Comments, strings, docs, any text | No |
+| `animal-violence-python.yaml` | Python | String literals (AST-aware) | Yes |
+| `animal-violence-javascript.yaml` | JavaScript, TypeScript | String literals (AST-aware) | Yes |
+| `animal-violence-go.yaml` | Go | String literals (AST-aware) | Yes |
 
 **Why both generic and language-specific rules?**
 
@@ -58,50 +58,89 @@ semgrep --config semgrep-rules-no-animal-violence/rules/ /path/to/your/project
 
 ## Detected Patterns
 
-### Idioms & Phrases (WARNING)
+The full canonical dictionary contains 62 entries across four categories.
 
-| Speciesist Phrase | Suggested Alternative |
+### Violent Idioms (ERROR)
+
+| Phrase | Suggested Alternative |
 |---|---|
 | kill two birds with one stone | accomplish two things at once |
-| beat/flog a dead horse | belaboring the point |
-| guinea pig (as metaphor) | test subject, beta tester |
+| beat a dead horse | belabor the point |
+| flog a dead horse | belabor the point |
 | more than one way to skin a cat | more than one way to solve this |
-| let the cat out of the bag | spill the beans, reveal the secret |
-| open a can of worms | open Pandora's box |
-| wild goose chase | pointless pursuit |
-| hold your horses | hold on, slow down |
-| straight from the horse's mouth | from the original source |
-| elephant in the room | the obvious issue |
-| like herding cats | like organizing chaos |
-| take the bull by the horns | face the challenge head-on |
-| bring home the bacon | bring home the bagels |
-| sacred cow | protected assumption |
+| like shooting fish in a barrel | trivially easy |
+| bring home the bacon | bring home the results |
 | like lambs to the slaughter | without resistance |
-| bigger fish to fry | bigger problems to solve |
-| shooting fish in a barrel | trivially simple |
+| curiosity killed the cat | curiosity backfired |
+| like a chicken with its head cut off | in a panic |
+| your goose is cooked | you're in trouble |
+| throw someone to the wolves | abandon to criticism |
+
+### Speciesist Idioms (WARNING)
+
+| Phrase | Suggested Alternative |
+|---|---|
+| let the cat out of the bag | reveal the secret |
+| open a can of worms | create a complicated situation |
+| wild goose chase | futile search |
+| guinea pig | test subject |
+| hold your horses | wait a moment |
+| straight from the horse's mouth | directly from the source |
+| take the bull by the horns | face the challenge head-on |
 | no room to swing a cat | very cramped |
+| hook, line, and sinker | completely |
+| clip someone's wings | restrict someone's freedom |
+| the straw that broke the camel's back | the tipping point |
+| a bird in the hand is worth two in the bush | a sure thing beats a possibility |
+| eat crow | admit being wrong |
+| fight like cats and dogs | constantly argue |
+| take the bait | fall for it |
+| don't count your chickens before they hatch | don't assume success prematurely |
+| don't be a chicken | don't hesitate |
+| bigger fish to fry | more important matters to address |
+| herding cats | coordinating independent contributors |
+| sacred cow | unquestioned belief |
+| scapegoat | blame target |
+| rat race | daily grind |
 | dead cat bounce | temporary rebound |
-| open season on | unrestricted criticism of |
+| dog-eat-dog | ruthlessly competitive |
+| whack-a-mole | recurring problem |
+| cash cow | profit center |
+| sacrificial lamb | expendable person |
+| sitting duck | easy target |
+| open season | free-for-all |
+| put out to pasture | retire |
+| dead duck | lost cause |
+| fishing expedition | exploratory investigation |
+| badger someone | pester |
+| ferret out | uncover |
+| pig (as insult) | resource-intensive |
 
-### Tech Jargon (INFO/WARNING)
+### Speciesist Idioms (INFO)
 
-| Speciesist Term | Suggested Alternative |
+| Phrase | Suggested Alternative |
 |---|---|
-| canary deployment | incremental rollout, phased deployment |
-| monkey patch | runtime patch, dynamic patch |
-| monkey testing | random testing, fuzz testing |
-| dogfooding | self-hosting, internal testing |
-| cattle vs pets | ephemeral vs persistent, fleet vs snowflake |
-| duck typing | structural typing, behavioral typing |
-| rubber duck debugging | talk-through debugging |
-| bug hunting | defect discovery, issue triage |
+| the elephant in the room | the obvious issue |
+| red herring | distraction |
+| pet project | side project |
 
-### Derogatory Animal Comparisons (WARNING)
+### Tech & Infrastructure Jargon (WARNING/INFO)
 
-| Pattern | Note |
+| Term | Suggested Alternative |
 |---|---|
-| "pig" as insult | Using animal names as insults devalues them as sentient beings |
-| "chicken" as coward | Using animal names as insults devalues them as sentient beings |
+| cattle vs. pets | ephemeral vs. persistent |
+| canary in a coal mine | early warning signal |
+| dogfooding | self-hosting |
+| cowboy coding | undisciplined coding |
+| code monkey | developer |
+| kill process | terminate the process |
+| kill the server | stop the server |
+| nuke (it/the/everything) | delete completely |
+| cull | remove |
+| master/slave | primary/replica |
+| whitelist/blacklist | allowlist/denylist |
+| grandfathered | legacy |
+| abort | cancel |
 
 ## CI/CD Integration
 
@@ -119,9 +158,9 @@ jobs:
       - uses: returntocorp/semgrep-action@v1
         with:
           config: >-
-            https://github.com/Open-Paws/semgrep-rules-no-animal-violence/blob/main/rules/no-animal-violence-generic.yaml
-            https://github.com/Open-Paws/semgrep-rules-no-animal-violence/blob/main/rules/no-animal-violence-python.yaml
-            https://github.com/Open-Paws/semgrep-rules-no-animal-violence/blob/main/rules/no-animal-violence-javascript.yaml
+            https://github.com/Open-Paws/semgrep-rules-no-animal-violence/blob/main/rules/animal-violence-generic.yaml
+            https://github.com/Open-Paws/semgrep-rules-no-animal-violence/blob/main/rules/animal-violence-python.yaml
+            https://github.com/Open-Paws/semgrep-rules-no-animal-violence/blob/main/rules/animal-violence-javascript.yaml
 ```
 
 ### Pre-commit hook
@@ -135,7 +174,7 @@ repos:
       - id: semgrep
         args:
           - --config
-          - https://github.com/Open-Paws/semgrep-rules-no-animal-violence/blob/main/rules/no-animal-violence-generic.yaml
+          - https://github.com/Open-Paws/semgrep-rules-no-animal-violence/blob/main/rules/animal-violence-generic.yaml
           - --error
 ```
 
@@ -163,7 +202,7 @@ Research has shown that speciesist language in AI training data and codebases re
 
 Contributions welcome. To add new rules:
 
-1. Add the pattern to `rules/no-animal-violence-generic.yaml` (always)
+1. Add the pattern to `rules/animal-violence-generic.yaml` (always)
 2. Add AST-aware versions to the relevant language files (if applicable)
 3. Include `message` with the speciesist term and at least one alternative
 4. Include `metadata` with `category: inclusive-language` and `subcategory: speciesism`
