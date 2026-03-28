@@ -476,6 +476,175 @@ rules:
     category: inclusive-language
     subcategory: animal-violence
     alternative: don't assume success prematurely
+- id: animal-violence.go.string.livestock
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: .*livestock.*
+  message: 'Animal violence language in string: "livestock". Consider: "farmed animals", "animals raised for food". (autofix
+    available).'
+  languages: *id001
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: farmed animals
+  fix-regex:
+    regex: livestock
+    replacement: farmed animals
+- id: animal-violence.go.string.poultry
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: .*poultry.*
+  message: 'Animal violence language in string: "poultry". Consider: "farmed birds", "chickens", "chickens and turkeys". (autofix
+    available).'
+  languages: *id001
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: farmed birds
+  fix-regex:
+    regex: poultry
+    replacement: farmed birds
+- id: animal-violence.go.string.gestation-crate
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: .*gestation crates?.*
+  message: 'Animal violence language in string: "gestation crate". Consider: "pregnancy cage", "pregnancy cages". (autofix
+    available).'
+  languages: *id001
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: pregnancy cage
+  fix-regex:
+    regex: gestation crates?
+    replacement: pregnancy cage
+- id: animal-violence.go.string.depopulation
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: .*depopulat(ion|ed|ing).*
+  message: 'Animal violence language in string: "depopulation". Consider: "mass killing", "killed en masse", "killing en masse".
+    (autofix available).'
+  languages: *id001
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: mass killing
+  fix-regex:
+    regex: depopulat(ion|ed|ing)
+    replacement: mass killing
+- id: animal-violence.go.string.processing-plant
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: .*processing (plants?|facilit(y|ies)).*
+  message: 'Animal violence language in string: "processing plant". Consider: "slaughterhouse", "slaughterhouses". (autofix
+    available).'
+  languages: *id001
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: slaughterhouse
+  fix-regex:
+    regex: processing (plants?|facilit(y|ies))
+    replacement: slaughterhouse
+- id: animal-violence.go.string.farrowing-crate
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: .*farrowing crates?.*
+  message: 'Animal violence language in string: "farrowing crate". Consider: "birthing cage", "birthing cages". (autofix available).'
+  languages: *id001
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: birthing cage
+  fix-regex:
+    regex: farrowing crates?
+    replacement: birthing cage
+- id: animal-violence.go.string.battery-cage
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: .*battery cages?.*
+  message: 'Animal violence language in string: "battery cage". Consider: "small wire cage", "small wire cages", "confined
+    cage". (autofix available).'
+  languages: *id001
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: small wire cage
+  fix-regex:
+    regex: battery cages?
+    replacement: small wire cage
+- id: animal-violence.go.string.spent-hen
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: .*spent hens?.*
+  message: 'Animal violence language in string: "spent hen". Consider: "discarded hen", "discarded hens", "hen killed after
+    egg production declines". (autofix available).'
+  languages: *id001
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: discarded hen
+  fix-regex:
+    regex: spent hens?
+    replacement: discarded hen
+- id: animal-violence.go.string.humane-slaughter
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: .*(humane(ly)? (slaughter(ed)?|kill(ing|ed))).*
+  message: 'Animal violence language in string: "humane slaughter". Consider: "slaughter", "slaughtered", "killing". (autofix
+    available).'
+  languages: *id001
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: slaughter
+  fix-regex:
+    regex: (humane(ly)? (slaughter(ed)?|kill(ing|ed)))
+    replacement: slaughter
+- id: animal-violence.go.string.broiler
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: .*broilers?.*
+  message: 'Animal violence language in string: "broiler". Consider: "chicken raised for meat", "chickens raised for meat",
+    "meat chicken". (autofix available).'
+  languages: *id001
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: chicken raised for meat
+  fix-regex:
+    regex: broilers?
+    replacement: chicken raised for meat
 - id: animal-violence.go.string.dont-be-a-chicken
   patterns:
   - pattern: $S

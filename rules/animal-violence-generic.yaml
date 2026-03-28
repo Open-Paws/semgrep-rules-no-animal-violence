@@ -382,6 +382,127 @@ rules:
     alternative: don't assume success prematurely
     references:
     - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.livestock
+  pattern-regex: livestock
+  message: 'Animal violence language: "livestock". Consider: "farmed animals", "animals raised for food".'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: farmed animals
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.poultry
+  pattern-regex: poultry
+  message: 'Animal violence language: "poultry". Consider: "farmed birds", "chickens", "chickens and turkeys".'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: farmed birds
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.gestation-crate
+  pattern-regex: gestation crates?
+  message: 'Animal violence language: "gestation crate". Consider: "pregnancy cage", "pregnancy cages".'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: pregnancy cage
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.depopulation
+  pattern-regex: depopulat(ion|ed|ing)
+  message: 'Animal violence language: "depopulation". Consider: "mass killing", "killed en masse", "killing en masse".'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: mass killing
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.processing-plant
+  pattern-regex: processing (plants?|facilit(y|ies))
+  message: 'Animal violence language: "processing plant". Consider: "slaughterhouse", "slaughterhouses".'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: slaughterhouse
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.farrowing-crate
+  pattern-regex: farrowing crates?
+  message: 'Animal violence language: "farrowing crate". Consider: "birthing cage", "birthing cages".'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: birthing cage
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.battery-cage
+  pattern-regex: battery cages?
+  message: 'Animal violence language: "battery cage". Consider: "small wire cage", "small wire cages", "confined cage".'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: small wire cage
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.spent-hen
+  pattern-regex: spent hens?
+  message: 'Animal violence language: "spent hen". Consider: "discarded hen", "discarded hens", "hen killed after egg production
+    declines".'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: discarded hen
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.humane-slaughter
+  pattern-regex: (humane(ly)? (slaughter(ed)?|kill(ing|ed)))
+  message: 'Animal violence language: "humane slaughter". Consider: "slaughter", "slaughtered", "killing".'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: slaughter
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.broiler
+  pattern-regex: broilers?
+  message: 'Animal violence language: "broiler". Consider: "chicken raised for meat", "chickens raised for meat", "meat chicken".'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: chicken raised for meat
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
 - id: animal-violence.dont-be-a-chicken
   pattern-regex: don'?t\s+be\s+a\s+chicken
   message: 'Animal violence language: "don''t be a chicken". Consider: "don''t hesitate", "be brave", "go for it".'
