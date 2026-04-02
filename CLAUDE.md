@@ -130,7 +130,6 @@ This repo contains `open-paws-strategy` as a git submodule (declared in `.gitmod
 **Decisions affecting this repo:**
 - 2026-03-25: Every org repo runs `semgrep --config semgrep-no-animal-violence.yaml` on all code/docs edits as a universal quality gate.
 - 2026-04-01: Rule maintenance should sync from the `no-animal-violence` canonical dictionary — avoid independent drift.
-
 ## Related Repos
 
 | Repo | Role |
