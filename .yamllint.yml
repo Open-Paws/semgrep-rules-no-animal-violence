@@ -1,0 +1,14 @@
+# yamllint configuration for semgrep rules YAML files.
+# Rules files are auto-generated and use semgrep's own YAML style:
+# 2-space indentation, long lines, no document-start marker.
+extends: default
+rules:
+  line-length:
+    max: 200
+    level: warning
+  indentation:
+    indent-sequences: false
+  document-start: disable
+  truthy:
+    allowed-values: ["true", "false", "on", "off"]
+    check-keys: false
