@@ -51,6 +51,8 @@ metadata:
     - https://doi.org/10.1007/s43681-023-00380-w
 ```
 
+The `references:` field cites peer-reviewed research on AI speciesism (Hagendorff et al. 2023–2025, Takeshita et al. 2022, Leach et al. 2023). These citations are surfaced to developers who read rule metadata and give the suite credibility for Lever 3 outreach to AI labs and development teams.
+
 Severity levels: `ERROR` (violent idioms), `WARNING` (speciesist idioms + tech jargon), `INFO` (embedded jargon where alternatives are still emerging).
 
 ## Development
@@ -122,6 +124,10 @@ This repo contains `open-paws-strategy` as a git submodule (declared in `.gitmod
 
 **Strategic role (Lever 1 + Lever 3):** Multi-language CI scanner for speciesist language. Upstream dependency: `no-animal-violence` (canonical rule dictionary). Downstream consumers: `desloppify` (embeds as scoring dimension), `project-compassionate-code` (uses to identify and fix speciesist language in open-source repos), `open-paws-platform` CI.
 
+**MCP ecosystem integrations:**
+- `mcp-server-nav-language` — loads these YAML rule files at startup to power the content pipeline NAV gate (PR #7 open as of 2026-04-09). If you modify rules here, the MCP server picks up changes on its next restart. The generic ruleset (`animal-violence-generic.yaml`) is the primary file it loads.
+- `lbr8-mcp-constraints` — bundles 12 offline NAV patterns sourced from the canonical `no-animal-violence` dictionary (not directly from this repo), but these patterns mirror a subset of the rules here. Relevant if you are auditing rule coverage gaps between the full Semgrep ruleset and the offline subset.
+
 **Current org priorities relevant to this repo:**
 - Platform CI integration planned but not yet shipped. This ruleset should be added to `open-paws-platform` CI and bootcamp setup instructions. See `ecosystem/integration-todos.md` §27a.
 - Suite maintenance has **no named owner** as of 2026-04-02. Rule additions, false-positive tuning, and new language coverage (Rust, Ruby, Java) are F/E-rank Guild quests.
@@ -130,6 +136,7 @@ This repo contains `open-paws-strategy` as a git submodule (declared in `.gitmod
 **Decisions affecting this repo:**
 - 2026-03-25: Every org repo runs `semgrep --config semgrep-no-animal-violence.yaml` on all code/docs edits as a universal quality gate.
 - 2026-04-01: Rule maintenance should sync from the `no-animal-violence` canonical dictionary — avoid independent drift.
+
 ## Related Repos
 
 | Repo | Role |
