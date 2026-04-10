@@ -137,6 +137,15 @@ This repo contains `open-paws-strategy` as a git submodule (declared in `.gitmod
 - 2026-03-25: Every org repo runs `semgrep --config semgrep-no-animal-violence.yaml` on all code/docs edits as a universal quality gate.
 - 2026-04-01: Rule maintenance should sync from the `no-animal-violence` canonical dictionary — avoid independent drift.
 
+## MCP Integrations (live 2026-04-09)
+
+The YAML rule files in this repo are now loaded directly by live MCP infrastructure:
+
+- **mcp-server-nav-language** — Pure regex MCP server that loads the `rules/animal-violence-generic.yaml` (and language-specific YAMLs) from this repo at startup. Exposes three tools: `check_language` (check a string), `check_file` (check a file path), `list_rules` (enumerate loaded rules). Sub-10ms response. Integrated into Gary MCP hub Phase 3. **Do not change rule IDs or YAML structure without checking this server's parser first.**
+- **lbr8-mcp-constraints** — Wraps any MCP tool handler with NAV constraint middleware. `StaticConstraintSource` bundles 12 offline NAV patterns sourced from this repo's generic rules file.
+- **mcp-server-aha-evaluation** — Uses the NAV rules from this repo as Stage 1 of a two-stage content evaluation pipeline. Stage 1 catches speciesist language before content reaches Stage 2 (semantic evaluation).
+- **Audit-to-dispatch (decision #37, 2026-04-11)** — NAV violations found during ecosystem audits (via the semgrep rules in this repo) now auto-dispatch as agent fix tasks. Violations are keyed by the rule IDs defined here.
+
 ## Related Repos
 
 | Repo | Role |
@@ -192,3 +201,7 @@ This repo contains `open-paws-strategy` as a git submodule (declared in `.gitmod
 ### Structured Coding Reference
 
 For tool-specific AI coding instructions (Claude Code rules, Cursor MDC, Copilot, Windsurf, etc.), copy the corresponding directory from `structured-coding-with-ai` into this project root.
+
+## Decisions Reviewed
+
+Last reviewed: 2026-04-11 (decisions #37 audit-to-dispatch, mcp-server-nav-language live)
