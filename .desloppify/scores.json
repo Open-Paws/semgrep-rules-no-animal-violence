@@ -1,0 +1,39 @@
+{
+  "assessments": {
+    "naming_quality": 95.0,
+    "logic_clarity": 93.0,
+    "type_safety": 88.0,
+    "contract_coherence": 90.0,
+    "error_consistency": 88.0,
+    "abstraction_fitness": 90.0,
+    "ai_generated_debt": 88.0,
+    "high_level_elegance": 90.0,
+    "mid_level_elegance": 88.0,
+    "low_level_elegance": 90.0,
+    "cross_module_architecture": 92.0,
+    "initialization_coupling": 95.0,
+    "convention_outlier": 92.0,
+    "dependency_health": 90.0,
+    "test_strategy": 72.0,
+    "api_surface_coherence": 90.0,
+    "authorization_consistency": 90.0,
+    "incomplete_migration": 95.0,
+    "package_organization": 93.0,
+    "design_coherence": 92.0,
+    "advocacy_language_quality": 98.0,
+    "advocacy_security_posture": 88.0,
+    "advocacy_terminology_consistency": 97.0,
+    "advocacy_data_sovereignty": 88.0,
+    "advocacy_ux_inclusivity": 90.0,
+    "advocacy_tool_integration": 95.0
+  },
+  "issues": [],
+  "dimension_notes": {
+    "test_strategy": "Tests only validate YAML structure (valid YAML, has rules key, required fields). They do not run semgrep against test fixtures to verify rules correctly catch target patterns or avoid false positives. Semantic correctness of regex patterns is entirely untested.",
+    "high_level_elegance": "Repo purpose is sharply defined: detect speciesist language via semgrep rules. The four-file split (generic, python, javascript, go) is clean and principled. The generic/AST split is well-explained and architecturally sound.",
+    "advocacy_language_quality": "This repo IS the advocacy language tooling. Every rule has a human-readable message with alternatives, referenced to academic literature. The pattern corpus covers 60+ idioms with consistent structure.",
+    "advocacy_terminology_consistency": "Rule IDs follow a strict namespace convention (animal-violence.{idiom}). Alternatives use movement-appropriate language throughout."
+  },
+  "dimension_judgment": {},
+  "context_updates": {}
+}
