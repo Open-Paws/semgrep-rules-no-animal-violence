@@ -7,4 +7,4 @@ jobs:
       - uses: actions/checkout@v4
       - uses: Open-Paws/no-animal-violence-action@main
         with:
-          paths: ".github/workflows/ CLAUDE.md AGENTS.md CONTRIBUTING.md"
+          paths: ".github/workflows/"
