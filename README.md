@@ -222,7 +222,7 @@ yamllint -c .yamllint.yml rules/      # YAML lint
 
 ## Code Quality
 
-<img src="scorecard.png" width="100%">
+<img src="scorecard.png" width="100%" alt="Desloppify scorecard showing code quality dimensions including advocacy language, security, test strategy, and engineering quality scores">
 
 ## Contributing
 
