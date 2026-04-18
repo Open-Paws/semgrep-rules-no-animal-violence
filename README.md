@@ -11,7 +11,7 @@
 [![Rules](https://img.shields.io/badge/rules-62%2B%20patterns-green)](rules/)
 [![Languages](https://img.shields.io/badge/languages-generic%20%7C%20Python%20%7C%20JS%2FTS%20%7C%20Go-informational)](rules/)
 [![Pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen)](https://pre-commit.com)
-[![Open Paws](https://img.shields.io/badge/Open%20Paws-AI%20for%20animal%20liberation-orange)](https://openpaws.ai)
+[![desloppify score](https://img.shields.io/badge/desloppify-92.8%2F100-brightgreen)](scorecard.png)
 
 Semgrep rules for detecting speciesist language — idioms, metaphors, and tech jargon that normalize harm to animals — in code, comments, documentation, and configuration files. Covers 62+ patterns across four severity levels for generic text, Python, JavaScript/TypeScript, and Go.
 
@@ -219,6 +219,10 @@ yamllint -c .yamllint.yml rules/      # YAML lint
 ```
 
 </details>
+
+## Code Quality
+
+<img src="scorecard.png" width="100%">
 
 ## Contributing
 
