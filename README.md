@@ -1,69 +1,127 @@
 # semgrep-rules-no-animal-violence
 
-Semgrep rules for detecting speciesist language in code comments, strings, and documentation.
+> **Status: Active Development** — Rules are auto-generated from the canonical [no-animal-violence](https://github.com/Open-Paws/no-animal-violence) dictionary and live in production CI. The toolset has no named maintainer; new language coverage (Rust, Ruby, Java) is an open contribution opportunity.
 
-Language shapes thought. Speciesist idioms — "kill two birds with one stone", "beat a dead horse", "guinea pig" — normalize violence against animals. These rules help development teams identify and replace speciesist language with inclusive alternatives.
+Part of the [Open Paws no-animal-violence ecosystem](https://github.com/Open-Paws/no-animal-violence).
 
-## Quick Start
+---
 
-### Run directly from GitHub
+## What is this?
+
+[Semgrep](https://semgrep.dev/) is an open-source static analysis tool that runs pattern-matching rules against source code. Unlike linters that require language-specific plugins, Semgrep can scan **any file type** using generic text patterns, and can also do **AST-aware** matching for precise detection within specific programming languages.
+
+This repo provides a set of Semgrep rules that detect **speciesist language** — idioms, metaphors, and tech jargon that normalize harm to animals — in codebases, documentation, comments, and configuration files. The rules cover 62+ patterns across four severity levels and four target languages.
+
+Language shapes thought. When a codebase treats phrases like "kill two birds with one stone" or "cattle vs. pets" as neutral technical vocabulary, it reinforces assumptions worth questioning. These rules help teams identify and replace that language with clear, inclusive alternatives.
+
+Research supports this: speciesist language in AI training data encodes anthropocentric biases into language models (Coghlan & Parker, 2023). Cleaner language in code contributes to less biased systems.
+
+---
+
+## The no-animal-violence ecosystem
+
+This repo is one of nine tools in the no-animal-violence suite. Each tool targets a different integration point:
+
+| Tool | Integration point |
+|------|------------------|
+| [no-animal-violence](https://github.com/Open-Paws/no-animal-violence) | Canonical pattern dictionary — source of truth |
+| **semgrep-rules-no-animal-violence** (this repo) | Semgrep CI scanner — multi-language, all file types |
+| [eslint-plugin-no-animal-violence](https://github.com/Open-Paws/eslint-plugin-no-animal-violence) | ESLint — JavaScript/TypeScript only |
+| [vale-no-animal-violence](https://github.com/Open-Paws/vale-no-animal-violence) | Vale — prose and documentation |
+| [no-animal-violence-pre-commit](https://github.com/Open-Paws/no-animal-violence-pre-commit) | Pre-commit hook wrapping these Semgrep rules |
+| [no-animal-violence-action](https://github.com/Open-Paws/no-animal-violence-action) | GitHub Action wrapping these rules for PR checks |
+| [vscode-no-animal-violence](https://github.com/Open-Paws/vscode-no-animal-violence) | VS Code extension for real-time detection |
+| [reviewdog-no-animal-violence](https://github.com/Open-Paws/reviewdog-no-animal-violence) | Reviewdog — inline PR annotations |
+| [danger-plugin-no-animal-violence](https://github.com/Open-Paws/danger-plugin-no-animal-violence) | Danger.js — PR review automation |
+
+---
+
+## Quick start
+
+### Prerequisites
 
 ```bash
-# Scan your project with all rules (generic + language-specific)
-semgrep --config https://github.com/Open-Paws/semgrep-rules-no-animal-violence/blob/main/rules/
+pip install semgrep
+```
 
-# Generic rules only (works across all file types — comments, strings, docs)
-semgrep --config https://github.com/Open-Paws/semgrep-rules-no-animal-violence/blob/main/rules/animal-violence-generic.yaml
+### Run directly from GitHub (no clone needed)
 
-# Language-specific rules (AST-aware string matching with autofix support)
-semgrep --config https://github.com/Open-Paws/semgrep-rules-no-animal-violence/blob/main/rules/animal-violence-python.yaml
-semgrep --config https://github.com/Open-Paws/semgrep-rules-no-animal-violence/blob/main/rules/animal-violence-javascript.yaml
-semgrep --config https://github.com/Open-Paws/semgrep-rules-no-animal-violence/blob/main/rules/animal-violence-go.yaml
+```bash
+# Scan with all rules (generic + all language-specific)
+semgrep --config https://github.com/Open-Paws/semgrep-rules-no-animal-violence/blob/master/rules/ /path/to/your/project
+
+# Generic rules only — works across all file types (comments, strings, docs, configs)
+semgrep --config https://github.com/Open-Paws/semgrep-rules-no-animal-violence/blob/master/rules/animal-violence-generic.yaml /path/to/project
+
+# Python projects
+semgrep --config https://github.com/Open-Paws/semgrep-rules-no-animal-violence/blob/master/rules/animal-violence-python.yaml /path/to/project
+
+# JavaScript / TypeScript projects
+semgrep --config https://github.com/Open-Paws/semgrep-rules-no-animal-violence/blob/master/rules/animal-violence-javascript.yaml /path/to/project
+
+# Go projects
+semgrep --config https://github.com/Open-Paws/semgrep-rules-no-animal-violence/blob/master/rules/animal-violence-go.yaml /path/to/project
 ```
 
 ### Clone and run locally
 
 ```bash
 git clone https://github.com/Open-Paws/semgrep-rules-no-animal-violence.git
-semgrep --config semgrep-rules-no-animal-violence/rules/ /path/to/your/project
+cd semgrep-rules-no-animal-violence
+
+# Scan a project
+semgrep --config rules/ /path/to/your/project
+
+# Validate rule syntax (no project needed)
+semgrep --config rules/ --validate
+
+# Run with autofix (language-specific rules only)
+semgrep --config rules/animal-violence-python.yaml --autofix /path/to/project
+semgrep --config rules/animal-violence-javascript.yaml --autofix /path/to/project
+semgrep --config rules/animal-violence-go.yaml --autofix /path/to/project
 ```
 
-### With autofix
-
-The language-specific rules (Python, JavaScript/TypeScript, Go) include `fix-regex` autofixes for many patterns. Run with `--autofix` to apply them:
+### Maximum coverage: always combine generic + language-specific
 
 ```bash
-semgrep --config semgrep-rules-no-animal-violence/rules/animal-violence-python.yaml --autofix /path/to/your/project
+semgrep \
+  --config rules/animal-violence-generic.yaml \
+  --config rules/animal-violence-python.yaml \
+  /path/to/python/project
 ```
 
-## Rule Files
+The generic rules catch language in comments and docs. The language-specific rules catch language in string literals with autofix. Together they give full coverage.
 
-| File | Languages | Targets | Autofix |
-|------|-----------|---------|---------|
-| `animal-violence-generic.yaml` | All (generic mode) | Comments, strings, docs, any text | No |
-| `animal-violence-python.yaml` | Python | String literals (AST-aware) | Yes |
-| `animal-violence-javascript.yaml` | JavaScript, TypeScript | String literals (AST-aware) | Yes |
-| `animal-violence-go.yaml` | Go | String literals (AST-aware) | Yes |
+---
 
-**Why both generic and language-specific rules?**
+## Rule files
 
-- **Generic rules** use `languages: [generic]` which treats files as plain text. This catches speciesist language in comments, documentation, config files, and any text. However, it may produce more matches.
-- **Language-specific rules** use Semgrep's AST parsing to target only string literals. This is more precise and supports autofix, but cannot match comments (Semgrep's language mode excludes comments from the AST).
+| File | Mode | Targets | Autofix | Rules |
+|------|------|---------|---------|-------|
+| `rules/animal-violence-generic.yaml` | Generic (plain text) | All file types: comments, strings, docs, configs | No | 62+ |
+| `rules/animal-violence-python.yaml` | Python AST | String literals only | Yes | 62+ |
+| `rules/animal-violence-javascript.yaml` | JS/TS AST | String literals only | Yes | 62+ |
+| `rules/animal-violence-go.yaml` | Go AST | String literals only | Yes | 62+ |
 
-For maximum coverage, use both:
+**Why two modes?**
 
-```bash
-semgrep --config semgrep-rules-no-animal-violence/rules/ /path/to/your/project
-```
+- **Generic rules** (`languages: [generic]`) treat files as plain text. They catch speciesist language everywhere — comments, documentation, config files, Markdown. They produce more matches because they are not AST-aware.
+- **Language-specific rules** use Semgrep's AST parser with `metavariable-regex` to target only string literals. This reduces false positives (no matches inside comments or import paths) and enables `fix-regex` autofix. However, AST mode cannot match inside comments — that is why combining both modes gives full coverage.
 
-## Detected Patterns
+**Note on rule generation:** All four rule YAML files are auto-generated by [project-compassionate-code](https://github.com/Open-Paws/project-compassionate-code) from the canonical dictionary in [no-animal-violence](https://github.com/Open-Paws/no-animal-violence). Do not edit them directly — changes will be overwritten on the next sync.
 
-The full canonical dictionary contains 62 entries across four categories.
+---
 
-### Violent Idioms (ERROR)
+## Detected patterns
 
-| Phrase | Suggested Alternative |
-|---|---|
+The full canonical dictionary contains 62+ entries across four categories.
+
+### Violent idioms (severity: ERROR)
+
+These phrases directly invoke harm to animals as metaphors. They have clear, widely-accepted alternatives.
+
+| Phrase | Suggested alternative |
+|--------|-----------------------|
 | kill two birds with one stone | accomplish two things at once |
 | beat a dead horse | belabor the point |
 | flog a dead horse | belabor the point |
@@ -76,10 +134,12 @@ The full canonical dictionary contains 62 entries across four categories.
 | your goose is cooked | you're in trouble |
 | throw someone to the wolves | abandon to criticism |
 
-### Speciesist Idioms (WARNING)
+### Speciesist idioms (severity: WARNING)
 
-| Phrase | Suggested Alternative |
-|---|---|
+These phrases treat animals as instruments or objects without moral consideration.
+
+| Phrase | Suggested alternative |
+|--------|-----------------------|
 | let the cat out of the bag | reveal the secret |
 | open a can of worms | create a complicated situation |
 | wild goose chase | futile search |
@@ -116,18 +176,22 @@ The full canonical dictionary contains 62 entries across four categories.
 | ferret out | uncover |
 | pig (as insult) | resource-intensive |
 
-### Speciesist Idioms (INFO)
+### Embedded idioms (severity: INFO)
 
-| Phrase | Suggested Alternative |
-|---|---|
+Deeply embedded in everyday language; alternatives exist but adoption is still growing. Flagged for awareness rather than enforcement.
+
+| Phrase | Suggested alternative |
+|--------|-----------------------|
 | the elephant in the room | the obvious issue |
 | red herring | distraction |
 | pet project | side project |
 
-### Tech & Infrastructure Jargon (WARNING/INFO)
+### Tech and infrastructure jargon (severity: WARNING or INFO)
 
-| Term | Suggested Alternative |
-|---|---|
+Industry terms that use animal metaphors or treat animals as commodities.
+
+| Term | Suggested alternative |
+|------|-----------------------|
 | cattle vs. pets | ephemeral vs. persistent |
 | canary in a coal mine | early warning signal |
 | dogfooding | self-hosting |
@@ -142,9 +206,19 @@ The full canonical dictionary contains 62 entries across four categories.
 | grandfathered | legacy |
 | abort | cancel |
 
-## CI/CD Integration
+---
 
-### GitHub Actions
+## Severity levels
+
+- **ERROR** — Direct animal-harming idioms. These have clear, widely-accepted alternatives and should be fixed.
+- **WARNING** — Speciesist idioms and tech jargon. These have well-established alternatives and are recommended for replacement.
+- **INFO** — Deeply embedded jargon where alternatives exist but adoption is still growing. Flagged for awareness.
+
+---
+
+## CI integration
+
+### GitHub Actions — using the official action
 
 ```yaml
 name: Inclusive Language Check
@@ -158,15 +232,44 @@ jobs:
       - uses: returntocorp/semgrep-action@v1
         with:
           config: >-
-            https://github.com/Open-Paws/semgrep-rules-no-animal-violence/blob/main/rules/animal-violence-generic.yaml
-            https://github.com/Open-Paws/semgrep-rules-no-animal-violence/blob/main/rules/animal-violence-python.yaml
-            https://github.com/Open-Paws/semgrep-rules-no-animal-violence/blob/main/rules/animal-violence-javascript.yaml
+            https://github.com/Open-Paws/semgrep-rules-no-animal-violence/blob/master/rules/animal-violence-generic.yaml
+            https://github.com/Open-Paws/semgrep-rules-no-animal-violence/blob/master/rules/animal-violence-python.yaml
+            https://github.com/Open-Paws/semgrep-rules-no-animal-violence/blob/master/rules/animal-violence-javascript.yaml
+            https://github.com/Open-Paws/semgrep-rules-no-animal-violence/blob/master/rules/animal-violence-go.yaml
+```
+
+### GitHub Actions — using the dedicated wrapper action
+
+The [no-animal-violence-action](https://github.com/Open-Paws/no-animal-violence-action) wraps these rules in a purpose-built GitHub Action:
+
+```yaml
+name: Inclusive Language Check
+on: [pull_request]
+
+jobs:
+  nav-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: Open-Paws/no-animal-violence-action@v1
 ```
 
 ### Pre-commit hook
 
+Add to your `.pre-commit-config.yaml`:
+
 ```yaml
-# .pre-commit-config.yaml
+repos:
+  - repo: https://github.com/Open-Paws/no-animal-violence-pre-commit
+    rev: v1.0.0
+    hooks:
+      - id: no-animal-violence
+        files: \.(py|ts|js|md|yaml|yml)$
+```
+
+Or use Semgrep's own pre-commit integration directly:
+
+```yaml
 repos:
   - repo: https://github.com/returntocorp/semgrep
     rev: v1.56.0
@@ -174,23 +277,152 @@ repos:
       - id: semgrep
         args:
           - --config
-          - https://github.com/Open-Paws/semgrep-rules-no-animal-violence/blob/main/rules/animal-violence-generic.yaml
+          - https://github.com/Open-Paws/semgrep-rules-no-animal-violence/blob/master/rules/animal-violence-generic.yaml
           - --error
 ```
 
-## Severity Levels
+### Install pre-commit hooks for this repo
 
-- **WARNING** — Direct speciesist idioms and violence-normalizing phrases. These have clear, widely-accepted alternatives.
-- **INFO** — Deeply embedded tech jargon where alternatives exist but adoption is still growing. Flagged for awareness rather than enforcement.
+```bash
+pip install pre-commit
+pre-commit install
+```
 
-## Why This Matters
+---
 
-Research has shown that speciesist language in AI training data and codebases reinforces anthropocentric biases in language models (Coghlan & Parker, 2023). By detecting and replacing speciesist language in code, we:
+## Rule anatomy
 
-1. **Reduce harm** — Language that normalizes violence against animals contributes to their exploitation
-2. **Improve inclusivity** — Many people find speciesist language alienating or offensive
-3. **Set precedent** — Just as the tech industry moved away from "master/slave" and "whitelist/blacklist", we can move past speciesist metaphors
-4. **Build better AI** — Cleaner training data means less biased models
+Each rule follows this structure:
+
+```yaml
+rules:
+  - id: animal-violence.kill-two-birds-with-one-stone
+    languages: [generic]
+    severity: ERROR
+    message: |
+      "kill two birds with one stone" uses violence against animals as a metaphor.
+      Use "accomplish two things at once" instead.
+    patterns:
+      - pattern-regex: (?i)kill(ing)?\s+two\s+birds\s+with\s+one\s+stone
+    metadata:
+      category: inclusive-language
+      subcategory: animal-violence
+      alternative: accomplish two things at once
+      references:
+        - https://doi.org/10.1007/s43681-023-00380-w
+```
+
+Language-specific rules add `fix-regex` for autofix:
+
+```yaml
+rules:
+  - id: animal-violence.python.string.kill-two-birds-with-one-stone
+    languages: [python]
+    severity: ERROR
+    message: ...
+    patterns:
+      - pattern: $STR
+        metavariable-regex:
+          metavariable: $STR
+          regex: (?i)".*kill(ing)?\s+two\s+birds\s+with\s+one\s+stone.*"
+    fix-regex:
+      regex: (?i)kill(ing)?\s+two\s+birds\s+with\s+one\s+stone
+      replacement: accomplish two things at once
+    metadata:
+      category: inclusive-language
+      subcategory: animal-violence
+      alternative: accomplish two things at once
+```
+
+### Rule ID naming convention
+
+```
+animal-violence.<language>.<target>.<idiom-slug>
+```
+
+- Generic: `animal-violence.kill-two-birds-with-one-stone`
+- Python: `animal-violence.python.string.kill-two-birds-with-one-stone`
+- JS/TS: `animal-violence.js.string.kill-two-birds-with-one-stone`
+- Go: `animal-violence.go.string.kill-two-birds-with-one-stone`
+
+---
+
+## Relationship to the canonical dictionary
+
+The canonical list of speciesist terms lives in [no-animal-violence](https://github.com/Open-Paws/no-animal-violence). This repo's rule files are generated from that dictionary by [project-compassionate-code](https://github.com/Open-Paws/project-compassionate-code).
+
+To add a new pattern or change an existing one:
+
+1. Submit a PR to [no-animal-violence](https://github.com/Open-Paws/no-animal-violence) to update the canonical dictionary.
+2. The [project-compassionate-code](https://github.com/Open-Paws/project-compassionate-code) generator will regenerate all four rule YAML files.
+3. A PR will be opened in this repo with the updated rules.
+
+Do not edit `rules/*.yaml` files directly — they will be overwritten.
+
+---
+
+## Testing rules
+
+Semgrep has a built-in test framework. Test files live alongside rule files and use annotation comments:
+
+```python
+# Good: no issue
+result = process_items(tasks)
+
+# ruleid: animal-violence.python.string.guinea-pig
+label = "guinea pig test"
+
+# ok: animal-violence.python.string.guinea-pig
+comment = "the guinea pig is a small animal"  # in a biological context
+```
+
+Run the tests:
+
+```bash
+semgrep --config rules/ --test
+```
+
+Run structural tests (YAML validity, required fields):
+
+```bash
+pip install pytest pyyaml
+pytest tests/ -v
+```
+
+---
+
+## Contributing
+
+Rule YAML files are auto-generated — do not edit them directly. What you can contribute:
+
+- Improvements to CI (`.github/workflows/`)
+- Pre-commit hook configuration (`.pre-commit-config.yaml`)
+- Test improvements (`tests/`)
+- Documentation updates
+
+### Development setup
+
+```bash
+git clone https://github.com/Open-Paws/semgrep-rules-no-animal-violence.git
+cd semgrep-rules-no-animal-violence
+pip install pytest pyyaml yamllint ruff semgrep
+pre-commit install
+```
+
+### Before submitting a PR
+
+```bash
+semgrep --config rules/ --validate    # Rule syntax check
+pytest tests/ -v                       # Structural tests
+yamllint -c .yamllint.yml rules/       # YAML lint
+ruff check . --config ruff.toml       # Python lint
+```
+
+### Language guide
+
+All contributions must use non-speciesist language in code, comments, commit messages, and documentation. See the [canonical language guide](https://github.com/Open-Paws/no-animal-violence) for the full pattern list.
+
+---
 
 ## References
 
@@ -198,15 +430,7 @@ Research has shown that speciesist language in AI training data and codebases re
 - PETA. "Not Your Metaphor: Speciesist Language and How to Avoid It." [peta.org](https://www.peta.org/features/animal-friendly-idioms/)
 - Dunayer, J. (2001). *Animal Equality: Language and Liberation*. Ryce Publishing.
 
-## Contributing
-
-Contributions welcome. To add new rules:
-
-1. Add the pattern to `rules/animal-violence-generic.yaml` (always)
-2. Add AST-aware versions to the relevant language files (if applicable)
-3. Include `message` with the speciesist term and at least one alternative
-4. Include `metadata` with `category: inclusive-language` and `subcategory: speciesism`
-5. Test your rule: `semgrep --config your-rule.yaml --test`
+---
 
 ## License
 
