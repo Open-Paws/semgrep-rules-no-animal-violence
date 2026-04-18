@@ -1,0 +1,6 @@
+{
+  "exclude": [
+    "rules/",
+    "tests/"
+  ]
+}
