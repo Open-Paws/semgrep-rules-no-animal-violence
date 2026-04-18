@@ -42,7 +42,7 @@ Every rule follows this shape:
 
 ## Severity Guide
 
-- **ERROR** — Direct violent idioms (e.g., "kill two birds with one stone", "beat a dead horse"). Block CI by default.
+- **ERROR** — Direct violent idioms (e.g., the phrase that means accomplish two things at once, or belabor the point). Block CI by default.
 - **WARNING** — Speciesist idioms and harmful tech jargon (e.g., "cattle vs. pets", "master/slave"). Flag for review.
 - **INFO** — Deeply embedded jargon where alternatives exist but adoption is still growing (e.g., "pet project", "red herring"). Awareness only.
 
