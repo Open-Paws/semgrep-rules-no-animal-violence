@@ -6,3 +6,5 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: Open-Paws/no-animal-violence-action@main
+        with:
+          paths: ".github/ .claude/ CLAUDE.md AGENTS.md CONTRIBUTING.md"
