@@ -3,7 +3,7 @@
 rules:
 - id: animal-violence.kill-two-birds-with-one-stone
   pattern-regex: 'kill\s+two\s+birds\s+with\s+one\s+stone'
-  message: 'Animal violence language: "kill two birds with one stone". Consider: "accomplish two things at once", "solve two problems with one action", "hit two targets with one shot" (autofix available).'
+  message: 'Animal violence language: "kill two birds with one stone". This phrase frames killing animals as a routine way to solve a problem. Plain alternatives like ''accomplish two things at once'' carry the same meaning without invoking harm. Consider: "accomplish two things at once", "solve two problems with one action", "hit two targets with one shot" (autofix available).'
   languages:
   - generic
   severity: ERROR
@@ -11,9 +11,12 @@ rules:
     category: inclusive-language
     subcategory: animal-violence
     alternative: 'accomplish two things at once'
+    reason: 'This phrase frames killing animals as a routine way to solve a problem. Plain alternatives like ''accomplish two things at once'' carry the same meaning without invoking harm.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
 - id: animal-violence.beat-a-dead-horse
   pattern-regex: 'beat(ing)?\s+a\s+dead\s+horse'
-  message: 'Animal violence language: "beat a dead horse". Consider: "belabor the point", "go over old ground", "repeat unnecessarily" (autofix available).'
+  message: 'Animal violence language: "beat a dead horse". This phrase uses an image of striking an animal''s body as a metaphor for wasted effort. ''Belabor the point'' is clearer and skips the imagery. Consider: "belabor the point", "go over old ground", "repeat unnecessarily" (autofix available).'
   languages:
   - generic
   severity: ERROR
@@ -21,19 +24,25 @@ rules:
     category: inclusive-language
     subcategory: animal-violence
     alternative: 'belabor the point'
-- id: animal-violence.more-than-one-way-to-skin-a-cat
-  pattern-regex: '(?:more\s+than\s+one|many|other)\s+ways?\s+to\s+skin\s+a\s+cat'
-  message: 'Animal violence language: "more than one way to skin a cat". Consider: "more than one way to solve this", "multiple approaches available", "several ways to accomplish this" (autofix available).'
+    reason: 'This phrase uses an image of striking an animal''s body as a metaphor for wasted effort. ''Belabor the point'' is clearer and skips the imagery.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.skin-a-cat
+  pattern-regex: '(more\s+than\s+one|another|different|several)\s+way[s]?\s+to\s+skin\s+a\s+cat'
+  message: 'Animal violence language: "more than one way to skin a cat". Cat skinning as a metaphor for having options. ''Multiple approaches available'' or ''more than one way to peel an orange'' carries the same meaning. Consider: "more than one way to peel an orange", "multiple approaches available", "several ways to do this" (autofix available).'
   languages:
   - generic
   severity: ERROR
   metadata:
     category: inclusive-language
     subcategory: animal-violence
-    alternative: 'more than one way to solve this'
+    alternative: 'more than one way to peel an orange'
+    reason: 'Cat skinning as a metaphor for having options. ''Multiple approaches available'' or ''more than one way to peel an orange'' carries the same meaning.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
 - id: animal-violence.let-the-cat-out-of-the-bag
   pattern-regex: 'let\s+the\s+cat\s+out\s+of\s+the\s+bag'
-  message: 'Animal violence language: "let the cat out of the bag". Consider: "reveal the secret", "disclose prematurely", "let it slip".'
+  message: 'Animal violence language: "let the cat out of the bag". Traced to fraudulent livestock markets and implies trapping animals. ''Reveal the secret'' says the same thing more directly. Consider: "reveal the secret", "disclose prematurely", "let it slip".'
   languages:
   - generic
   severity: INFO
@@ -41,9 +50,12 @@ rules:
     category: inclusive-language
     subcategory: animal-violence
     alternative: 'reveal the secret'
+    reason: 'Traced to fraudulent livestock markets and implies trapping animals. ''Reveal the secret'' says the same thing more directly.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
 - id: animal-violence.open-a-can-of-worms
   pattern-regex: 'open(ing)?\s+a\s+can\s+of\s+worms'
-  message: 'Animal violence language: "open a can of worms". Consider: "create a complicated situation", "uncover hidden problems", "open Pandora''s box".'
+  message: 'Animal violence language: "open a can of worms". References worms packaged as live bait to catch and kill fish. ''Open a difficult topic'' or ''uncover hidden problems'' is more precise. Consider: "create a complicated situation", "uncover hidden problems", "open Pandora''s box".'
   languages:
   - generic
   severity: INFO
@@ -51,9 +63,12 @@ rules:
     category: inclusive-language
     subcategory: animal-violence
     alternative: 'create a complicated situation'
+    reason: 'References worms packaged as live bait to catch and kill fish. ''Open a difficult topic'' or ''uncover hidden problems'' is more precise.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
 - id: animal-violence.wild-goose-chase
   pattern-regex: 'wild\s+goose\s+chase'
-  message: 'Animal violence language: "wild goose chase". Consider: "futile search", "pointless pursuit", "fool''s errand".'
+  message: 'Animal violence language: "wild goose chase". Casts pursuing a living bird as a pointless annoyance. ''Futile search'' or ''fool''s errand'' says the same thing without the hunting framing. Consider: "futile search", "pointless pursuit", "fool''s errand".'
   languages:
   - generic
   severity: INFO
@@ -61,9 +76,12 @@ rules:
     category: inclusive-language
     subcategory: animal-violence
     alternative: 'futile search'
-- id: animal-violence.like-shooting-fish-in-a-barrel
-  pattern-regex: 'like\s+shooting\s+fish\s+in\s+a\s+barrel'
-  message: 'Animal violence language: "like shooting fish in a barrel". Consider: "trivially easy", "like taking candy from a baby", "effortless" (autofix available).'
+    reason: 'Casts pursuing a living bird as a pointless annoyance. ''Futile search'' or ''fool''s errand'' says the same thing without the hunting framing.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.shooting-fish-in-a-barrel
+  pattern-regex: '(like\s+)?shoot(ing)?\s+fish\s+in\s+a\s+barrel'
+  message: 'Animal violence language: "shooting fish in a barrel". Mass-killing imagery used to mean ''easy.'' ''Trivially easy'' or ''a sure thing'' says the same thing without it. Consider: "trivially easy", "a sure thing", "no challenge at all" (autofix available).'
   languages:
   - generic
   severity: ERROR
@@ -71,9 +89,12 @@ rules:
     category: inclusive-language
     subcategory: animal-violence
     alternative: 'trivially easy'
+    reason: 'Mass-killing imagery used to mean ''easy.'' ''Trivially easy'' or ''a sure thing'' says the same thing without it.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
 - id: animal-violence.flog-a-dead-horse
   pattern-regex: 'flog(ging)?\s+a\s+dead\s+horse'
-  message: 'Animal violence language: "flog a dead horse". Consider: "belabor the point", "waste effort on a settled matter", "repeat unnecessarily" (autofix available).'
+  message: 'Animal violence language: "flog a dead horse". Describes whipping an animal''s corpse — the same image as ''beat a dead horse''. ''Belabor the point'' is a direct replacement. Consider: "belabor the point", "waste effort on a settled matter", "repeat unnecessarily" (autofix available).'
   languages:
   - generic
   severity: ERROR
@@ -81,9 +102,12 @@ rules:
     category: inclusive-language
     subcategory: animal-violence
     alternative: 'belabor the point'
-- id: animal-violence.there-are-bigger-fish-to-fry
-  pattern-regex: 'bigger\s+fish\s+to\s+fry'
-  message: 'Animal violence language: "there are bigger fish to fry". Consider: "more important matters to address", "higher priorities", "bigger issues at hand".'
+    reason: 'Describes whipping an animal''s corpse — the same image as ''beat a dead horse''. ''Belabor the point'' is a direct replacement.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.bigger-fish-to-fry
+  pattern-regex: '(bigger|other)\s+fish\s+to\s+fry'
+  message: 'Animal violence language: "bigger fish to fry". Fish-as-food commodification for ''more important things.'' ''More important matters'' says the same thing. Consider: "more important matters to address", "bigger fish to free".'
   languages:
   - generic
   severity: INFO
@@ -91,9 +115,12 @@ rules:
     category: inclusive-language
     subcategory: animal-violence
     alternative: 'more important matters to address'
+    reason: 'Fish-as-food commodification for ''more important things.'' ''More important matters'' says the same thing.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
 - id: animal-violence.guinea-pig
-  pattern-regex: 'guinea\s+pig'
-  message: 'Animal violence language: "guinea pig". Consider: "test subject", "first to try", "early adopter" (autofix available).'
+  pattern-regex: '\b(?:guinea\s+pig)\b'
+  message: 'Animal violence language: "guinea pig". Refers to using guinea pigs as expendable test subjects in harmful experiments. ''Test subject'' or ''early adopter'' is more precise in technical contexts. Consider: "test subject", "first to try", "early adopter" (autofix available).'
   languages:
   - generic
   severity: WARNING
@@ -101,39 +128,12 @@ rules:
     category: inclusive-language
     subcategory: animal-violence
     alternative: 'test subject'
-- id: animal-violence.hold-your-horses
-  pattern-regex: 'hold\s+your\s+horses'
-  message: 'Animal violence language: "hold your horses". Consider: "wait a moment", "slow down", "be patient".'
-  languages:
-  - generic
-  severity: INFO
-  metadata:
-    category: inclusive-language
-    subcategory: animal-violence
-    alternative: 'wait a moment'
-- id: animal-violence.the-elephant-in-the-room
-  pattern-regex: 'the\s+elephant\s+in\s+the\s+room'
-  message: 'Animal violence language: "the elephant in the room". Consider: "the obvious issue", "the unaddressed problem".'
-  languages:
-  - generic
-  severity: INFO
-  metadata:
-    category: inclusive-language
-    subcategory: animal-violence
-    alternative: 'the obvious issue'
-- id: animal-violence.straight-from-the-horses-mouth
-  pattern-regex: 'straight\s+from\s+the\s+horse''?s\s+mouth'
-  message: 'Animal violence language: "straight from the horse''s mouth". Consider: "directly from the source", "firsthand", "from the authority".'
-  languages:
-  - generic
-  severity: INFO
-  metadata:
-    category: inclusive-language
-    subcategory: animal-violence
-    alternative: 'directly from the source'
+    reason: 'Refers to using guinea pigs as expendable test subjects in harmful experiments. ''Test subject'' or ''early adopter'' is more precise in technical contexts.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
 - id: animal-violence.bring-home-the-bacon
   pattern-regex: '(?:bring(?:ing|s)?|brought)\s+home\s+the\s+bacon'
-  message: 'Animal violence language: "bring home the bacon". Consider: "bring home the results", "earn a living", "win the prize" (autofix available).'
+  message: 'Animal violence language: "bring home the bacon". Describes slaughtered pig flesh as the fruit of success. ''Bring home the results'' or ''earn a living'' carries the same meaning. Consider: "bring home the results", "earn a living", "win the prize" (autofix available).'
   languages:
   - generic
   severity: ERROR
@@ -141,19 +141,25 @@ rules:
     category: inclusive-language
     subcategory: animal-violence
     alternative: 'bring home the results'
-- id: animal-violence.take-the-bull-by-the-horns
-  pattern-regex: '(?:take|taking|took)\s+the\s+bull\s+by\s+the\s+horns'
-  message: 'Animal violence language: "take the bull by the horns". Consider: "face the challenge head-on", "tackle the problem directly", "seize the opportunity" (autofix available).'
+    reason: 'Describes slaughtered pig flesh as the fruit of success. ''Bring home the results'' or ''earn a living'' carries the same meaning.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.take-the-bull-by-horns
+  pattern-regex: 'tak(e|ing|es|en)\s+the\s+bull\s+by\s+the\s+horns|took\s+the\s+bull\s+by\s+the\s+horns'
+  message: 'Animal violence language: "take the bull by the horns". Bullfighting/rodeo imagery. ''Tackle the problem directly'' or ''face it head-on'' is cleaner. Consider: "tackle the problem directly", "face it head-on", "confront the issue" (autofix available).'
   languages:
   - generic
   severity: WARNING
   metadata:
     category: inclusive-language
     subcategory: animal-violence
-    alternative: 'face the challenge head-on'
-- id: animal-violence.like-lambs-to-the-slaughter
-  pattern-regex: 'like\s+lambs?\s+to\s+(the\s+)?slaughter'
-  message: 'Animal violence language: "like lambs to the slaughter". Consider: "without resistance", "blindly following", "unknowingly walking into danger" (autofix available).'
+    alternative: 'tackle the problem directly'
+    reason: 'Bullfighting/rodeo imagery. ''Tackle the problem directly'' or ''face it head-on'' is cleaner.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.lambs-to-slaughter
+  pattern-regex: '(like\s+(a\s+)?)?lambs?\s+to\s+the\s+slaughter'
+  message: 'Animal violence language: "lambs to the slaughter". Direct slaughter imagery. ''Without resistance'' or ''unknowingly walking into danger'' captures the same meaning. Consider: "without resistance", "unknowingly walking into danger", "defenseless" (autofix available).'
   languages:
   - generic
   severity: ERROR
@@ -161,19 +167,25 @@ rules:
     category: inclusive-language
     subcategory: animal-violence
     alternative: 'without resistance'
+    reason: 'Direct slaughter imagery. ''Without resistance'' or ''unknowingly walking into danger'' captures the same meaning.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
 - id: animal-violence.no-room-to-swing-a-cat
-  pattern-regex: 'no\s+room\s+to\s+swing\s+a\s+cat'
-  message: 'Animal violence language: "no room to swing a cat". Consider: "very cramped", "extremely tight space", "barely any room" (autofix available).'
+  pattern-regex: '(no|not\s+enough)\s+room\s+to\s+swing\s+a\s+cat'
+  message: 'Animal violence language: "no room to swing a cat". Violent animal imagery for ''cramped.'' ''Extremely tight space'' says it directly. Consider: "extremely tight space", "very cramped" (autofix available).'
   languages:
   - generic
   severity: WARNING
   metadata:
     category: inclusive-language
     subcategory: animal-violence
-    alternative: 'very cramped'
+    alternative: 'extremely tight space'
+    reason: 'Violent animal imagery for ''cramped.'' ''Extremely tight space'' says it directly.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
 - id: animal-violence.red-herring
-  pattern-regex: 'red\s+herring'
-  message: 'Animal violence language: "red herring". Consider: "distraction", "false lead", "misleading clue".'
+  pattern-regex: '\b(?:red\s+herring)\b'
+  message: 'Animal violence language: "red herring". Originates from dead, smoked fish reportedly used to train hunting dogs. ''Distraction'' or ''false lead'' communicates the idea directly. Consider: "distraction", "false lead", "misleading clue".'
   languages:
   - generic
   severity: INFO
@@ -181,9 +193,12 @@ rules:
     category: inclusive-language
     subcategory: animal-violence
     alternative: 'distraction'
+    reason: 'Originates from dead, smoked fish reportedly used to train hunting dogs. ''Distraction'' or ''false lead'' communicates the idea directly.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
 - id: animal-violence.curiosity-killed-the-cat
   pattern-regex: 'curiosity\s+killed\s+the\s+cat'
-  message: 'Animal violence language: "curiosity killed the cat". Consider: "curiosity backfired", "being nosy caused trouble", "curiosity led to trouble" (autofix available).'
+  message: 'Animal violence language: "curiosity killed the cat". A direct reference to killing a cat, used as a cautionary phrase. ''Curiosity backfired'' or ''being nosy caused trouble'' says the same thing. Consider: "curiosity backfired", "being nosy caused trouble", "curiosity led to trouble" (autofix available).'
   languages:
   - generic
   severity: ERROR
@@ -191,19 +206,25 @@ rules:
     category: inclusive-language
     subcategory: animal-violence
     alternative: 'curiosity backfired'
-- id: animal-violence.like-a-chicken-with-its-head-cut-off
-  pattern-regex: 'like\s+a\s+chicken\s+with\s+(its|their)\s+head\s+cut\s+off'
-  message: 'Animal violence language: "like a chicken with its head cut off". Consider: "in a panic", "running around chaotically", "in complete disarray" (autofix available).'
+    reason: 'A direct reference to killing a cat, used as a cautionary phrase. ''Curiosity backfired'' or ''being nosy caused trouble'' says the same thing.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.chicken-head-cut-off
+  pattern-regex: '(running\s+around\s+)?like\s+a\s+chicken\s+with\s+(its|their)\s+head\s+cut\s+off'
+  message: 'Animal violence language: "like a chicken with its head cut off". Graphic slaughter imagery used to describe panic. ''In a panic'' or ''like your hair is on fire'' captures the same thing. Consider: "like your hair is on fire", "in a panic", "frantic and aimless" (autofix available).'
   languages:
   - generic
   severity: ERROR
   metadata:
     category: inclusive-language
     subcategory: animal-violence
-    alternative: 'in a panic'
-- id: animal-violence.your-goose-is-cooked
-  pattern-regex: '(your|their|his|her)\s+goose\s+is\s+cooked'
-  message: 'Animal violence language: "your goose is cooked". Consider: "you''re in trouble", "your fate is sealed", "it''s over for you" (autofix available).'
+    alternative: 'like your hair is on fire'
+    reason: 'Graphic slaughter imagery used to describe panic. ''In a panic'' or ''like your hair is on fire'' captures the same thing.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.goose-is-cooked
+  pattern-regex: '(your|their|his|her|my|our)\s+goose\s+is\s+cooked'
+  message: 'Animal violence language: "your goose is cooked". Killing-and-cooking imagery used to mean someone is in trouble. ''You''re in trouble'' says it directly. Consider: "you''re in trouble", "you''re done for", "you''re dead in the water" (autofix available).'
   languages:
   - generic
   severity: ERROR
@@ -211,9 +232,12 @@ rules:
     category: inclusive-language
     subcategory: animal-violence
     alternative: 'you''re in trouble'
-- id: animal-violence.throw-someone-to-the-wolves
-  pattern-regex: 'throw(ing|n)?\s+\w+\s+to\s+the\s+wolves'
-  message: 'Animal violence language: "throw someone to the wolves". Consider: "abandon to criticism", "leave to face hostility alone", "sacrifice someone" (autofix available).'
+    reason: 'Killing-and-cooking imagery used to mean someone is in trouble. ''You''re in trouble'' says it directly.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.throw-to-wolves
+  pattern-regex: 'thr(ow|owing|own|ew)(\s+(someone|them|him|her|us|me))?\s+to\s+the\s+wolves'
+  message: 'Animal violence language: "throw someone to the wolves". Frames a person as prey. ''Abandon to criticism'' or ''leave exposed'' carries the same meaning without the imagery. Consider: "abandon to criticism", "sacrifice someone", "leave exposed" (autofix available).'
   languages:
   - generic
   severity: ERROR
@@ -221,9 +245,12 @@ rules:
     category: inclusive-language
     subcategory: animal-violence
     alternative: 'abandon to criticism'
+    reason: 'Frames a person as prey. ''Abandon to criticism'' or ''leave exposed'' carries the same meaning without the imagery.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
 - id: animal-violence.hook-line-and-sinker
   pattern-regex: 'hook,?\s+line,?\s+and\s+sinker'
-  message: 'Animal violence language: "hook, line, and sinker". Consider: "completely", "without question", "fell for it entirely" (autofix available).'
+  message: 'Animal violence language: "hook, line, and sinker". References the equipment used to hook and kill fish. ''Completely'' or ''without question'' conveys total buy-in without the fishing imagery. Consider: "completely", "without question", "fell for it entirely" (autofix available).'
   languages:
   - generic
   severity: WARNING
@@ -231,29 +258,38 @@ rules:
     category: inclusive-language
     subcategory: animal-violence
     alternative: 'completely'
-- id: animal-violence.clip-someones-wings
-  pattern-regex: 'clip(ping|ped)?\s+(\w+(''s)?\s+)?wings'
-  message: 'Animal violence language: "clip someone''s wings". Consider: "restrict someone''s freedom", "limit someone''s options", "hold someone back" (autofix available).'
+    reason: 'References the equipment used to hook and kill fish. ''Completely'' or ''without question'' conveys total buy-in without the fishing imagery.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.clip-wings
+  pattern-regex: 'clip(s|ped|ping)?\s+(someone''s|their|his|her)?\s*wings'
+  message: 'Animal violence language: "clip someone''s wings". Wing-clipping is a real physical mutilation done to captive birds. ''Restrict freedom'' or ''limit options'' says the same thing directly. Consider: "restrict freedom", "limit options", "hold back" (autofix available).'
   languages:
   - generic
   severity: WARNING
   metadata:
     category: inclusive-language
     subcategory: animal-violence
-    alternative: 'restrict someone''s freedom'
-- id: animal-violence.the-straw-that-broke-the-camels-back
-  pattern-regex: '(the\s+)?straw\s+that\s+broke\s+the\s+camel''?s\s+back'
-  message: 'Animal violence language: "the straw that broke the camel''s back". Consider: "the tipping point", "the breaking point", "the final provocation" (autofix available).'
+    alternative: 'restrict freedom'
+    reason: 'Wing-clipping is a real physical mutilation done to captive birds. ''Restrict freedom'' or ''limit options'' says the same thing directly.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.straw-that-broke-camels-back
+  pattern-regex: 'straw\s+that\s+broke\s+the\s+camel''?s\s+back|last\s+straw'
+  message: 'Animal violence language: "straw that broke the camel''s back". Overloading a pack animal until its back breaks. ''Tipping point'' or ''breaking point'' carries the same meaning. Consider: "tipping point", "breaking point", "final blow" (autofix available).'
   languages:
   - generic
   severity: WARNING
   metadata:
     category: inclusive-language
     subcategory: animal-violence
-    alternative: 'the tipping point'
-- id: animal-violence.a-bird-in-the-hand-is-worth-two-in-the-bush
-  pattern-regex: 'bird\s+in\s+(the|a)\s+hand\s+(is\s+)?worth\s+two\s+in\s+the\s+bush'
-  message: 'Animal violence language: "a bird in the hand is worth two in the bush". Consider: "a sure thing beats a possibility", "certainty over speculation".'
+    alternative: 'tipping point'
+    reason: 'Overloading a pack animal until its back breaks. ''Tipping point'' or ''breaking point'' carries the same meaning.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.a-bird-in-the-hand
+  pattern-regex: '(a\s+)?bird\s+in\s+the\s+hand(\s+is\s+worth)?'
+  message: 'Animal violence language: "a bird in the hand". References trapping wild birds. ''A sure thing beats a possibility'' carries the same meaning. Consider: "a sure thing beats a possibility", "a guaranteed outcome is worth more".'
   languages:
   - generic
   severity: INFO
@@ -261,9 +297,12 @@ rules:
     category: inclusive-language
     subcategory: animal-violence
     alternative: 'a sure thing beats a possibility'
+    reason: 'References trapping wild birds. ''A sure thing beats a possibility'' carries the same meaning.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
 - id: animal-violence.eat-crow
-  pattern-regex: 'eat(ing)?\s+crow'
-  message: 'Animal violence language: "eat crow". Consider: "admit being wrong", "swallow one''s pride", "accept humiliation" (autofix available).'
+  pattern-regex: '\b(?:eat(ing)?\s+crow)\b'
+  message: 'Animal violence language: "eat crow". References eating a killed bird as humiliating punishment. ''Admit being wrong'' or ''swallow one''s pride'' says the same thing directly. Consider: "admit being wrong", "swallow one''s pride", "accept humiliation" (autofix available).'
   languages:
   - generic
   severity: WARNING
@@ -271,9 +310,12 @@ rules:
     category: inclusive-language
     subcategory: animal-violence
     alternative: 'admit being wrong'
+    reason: 'References eating a killed bird as humiliating punishment. ''Admit being wrong'' or ''swallow one''s pride'' says the same thing directly.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
 - id: animal-violence.fight-like-cats-and-dogs
-  pattern-regex: 'fight(ing)?\s+like\s+cats\s+and\s+dogs'
-  message: 'Animal violence language: "fight like cats and dogs". Consider: "constantly argue", "clash frequently", "have constant conflict" (autofix available).'
+  pattern-regex: 'f(ight|ights|ighting|ought)\s+like\s+cats\s+and\s+dogs'
+  message: 'Animal violence language: "fight like cats and dogs". Animal-fighting imagery. ''Constantly argue'' or ''clash frequently'' says it directly. Consider: "constantly argue", "clash frequently" (autofix available).'
   languages:
   - generic
   severity: WARNING
@@ -281,9 +323,12 @@ rules:
     category: inclusive-language
     subcategory: animal-violence
     alternative: 'constantly argue'
+    reason: 'Animal-fighting imagery. ''Constantly argue'' or ''clash frequently'' says it directly.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
 - id: animal-violence.take-the-bait
   pattern-regex: '(?:take|taking|took)\s+the\s+bait'
-  message: 'Animal violence language: "take the bait". Consider: "fall for it", "be lured in", "be deceived".'
+  message: 'Animal violence language: "take the bait". References baiting hooks and traps to catch and kill animals. ''Fall for it'' or ''be deceived'' is more direct. Consider: "fall for it", "be lured in", "be deceived".'
   languages:
   - generic
   severity: INFO
@@ -291,9 +336,12 @@ rules:
     category: inclusive-language
     subcategory: animal-violence
     alternative: 'fall for it'
-- id: animal-violence.dont-count-your-chickens-before-they-hatch
-  pattern-regex: 'don''?t\s+count\s+your\s+chickens'
-  message: 'Animal violence language: "don''t count your chickens before they hatch". Consider: "don''t assume success prematurely", "wait for confirmed results", "don''t get ahead of yourself".'
+    reason: 'References baiting hooks and traps to catch and kill animals. ''Fall for it'' or ''be deceived'' is more direct.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.dont-count-your-chickens
+  pattern-regex: '(don''?t\s+)?count(ing)?\s+your\s+chickens(\s+before)?'
+  message: 'Animal violence language: "don''t count your chickens". Commodity framing of chickens as a yield to be counted. ''Don''t assume success prematurely'' says it directly. Consider: "don''t assume success prematurely", "don''t celebrate too early".'
   languages:
   - generic
   severity: INFO
@@ -301,9 +349,12 @@ rules:
     category: inclusive-language
     subcategory: animal-violence
     alternative: 'don''t assume success prematurely'
+    reason: 'Commodity framing of chickens as a yield to be counted. ''Don''t assume success prematurely'' says it directly.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
 - id: animal-violence.livestock
-  pattern-regex: 'livestock'
-  message: 'Animal violence language: "livestock". Consider: "farmed animals", "animals raised for food" (autofix available).'
+  pattern-regex: '\b(?:livestock)\b'
+  message: 'Animal violence language: "livestock". Commodity framing that groups sentient beings as ''stock.'' ''Farmed animals'' keeps the meaning without the commodity framing. Consider: "farmed animals" (autofix available).'
   languages:
   - generic
   severity: WARNING
@@ -311,9 +362,12 @@ rules:
     category: inclusive-language
     subcategory: industry-euphemism
     alternative: 'farmed animals'
+    reason: 'Commodity framing that groups sentient beings as ''stock.'' ''Farmed animals'' keeps the meaning without the commodity framing.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
 - id: animal-violence.poultry
-  pattern-regex: 'poultry'
-  message: 'Animal violence language: "poultry". Consider: "farmed birds", "chickens", "chickens and turkeys" (autofix available).'
+  pattern-regex: '\b(?:poultry)\b'
+  message: 'Animal violence language: "poultry". Commodity framing for farmed birds. ''Farmed birds'' or the specific species keeps the meaning without the commodity framing. Consider: "farmed birds", "chickens and turkeys" (autofix available).'
   languages:
   - generic
   severity: WARNING
@@ -321,9 +375,12 @@ rules:
     category: inclusive-language
     subcategory: industry-euphemism
     alternative: 'farmed birds'
+    reason: 'Commodity framing for farmed birds. ''Farmed birds'' or the specific species keeps the meaning without the commodity framing.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
 - id: animal-violence.gestation-crate
-  pattern-regex: 'gestation crates?'
-  message: 'Animal violence language: "gestation crate". Consider: "pregnancy cage", "pregnancy cages" (autofix available).'
+  pattern-regex: 'gestation\s+(crate|stall)s?'
+  message: 'Animal violence language: "gestation crate". Industry euphemism for a metal enclosure so small a pregnant sow cannot turn around for her entire 3.5-month pregnancy. ''Pregnancy cage'' is accurate. Consider: "pregnancy cage" (autofix available).'
   languages:
   - generic
   severity: WARNING
@@ -331,9 +388,12 @@ rules:
     category: inclusive-language
     subcategory: industry-euphemism
     alternative: 'pregnancy cage'
+    reason: 'Industry euphemism for a metal enclosure so small a pregnant sow cannot turn around for her entire 3.5-month pregnancy. ''Pregnancy cage'' is accurate.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
 - id: animal-violence.depopulation
-  pattern-regex: 'depopulat(ion|ed|ing)'
-  message: 'Animal violence language: "depopulation". Consider: "mass killing", "killed en masse", "killing en masse" (autofix available).'
+  pattern-regex: '\b(?:depopulat(ion|ed|ing))\b'
+  message: 'Animal violence language: "depopulation". Industry euphemism for killing entire flocks or herds at once. ''Mass killing'' is the accurate term. (Suppressed in database or population-statistics contexts where the word refers to removing records.) Consider: "mass killing", "killed en masse" (autofix available).'
   languages:
   - generic
   severity: WARNING
@@ -341,9 +401,12 @@ rules:
     category: inclusive-language
     subcategory: industry-euphemism
     alternative: 'mass killing'
+    reason: 'Industry euphemism for killing entire flocks or herds at once. ''Mass killing'' is the accurate term. (Suppressed in database or population-statistics contexts where the word refers to removing records.)'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
 - id: animal-violence.processing-plant
-  pattern-regex: 'processing (plants?|facilit(y|ies))'
-  message: 'Animal violence language: "processing plant". Consider: "slaughterhouse", "slaughterhouses" (autofix available).'
+  pattern-regex: '(meat[\s-]?packing|meat|packing|processing)\s+(plant|facility)s?'
+  message: 'Animal violence language: "meat plant". Industry euphemisms for slaughterhouse. ''Slaughterhouse'' is the accurate term. (Suppressed in clearly non-animal contexts like data or chemical processing.) Consider: "slaughterhouse" (autofix available).'
   languages:
   - generic
   severity: WARNING
@@ -351,9 +414,12 @@ rules:
     category: inclusive-language
     subcategory: industry-euphemism
     alternative: 'slaughterhouse'
+    reason: 'Industry euphemisms for slaughterhouse. ''Slaughterhouse'' is the accurate term. (Suppressed in clearly non-animal contexts like data or chemical processing.)'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
 - id: animal-violence.farrowing-crate
-  pattern-regex: 'farrowing crates?'
-  message: 'Animal violence language: "farrowing crate". Consider: "birthing cage", "birthing cages" (autofix available).'
+  pattern-regex: 'farrowing\s+(crate|stall)s?'
+  message: 'Animal violence language: "farrowing crate". Industry euphemism for the metal cage confining a sow during birth and nursing. ''Birthing cage'' is accurate. Consider: "birthing cage" (autofix available).'
   languages:
   - generic
   severity: WARNING
@@ -361,9 +427,12 @@ rules:
     category: inclusive-language
     subcategory: industry-euphemism
     alternative: 'birthing cage'
+    reason: 'Industry euphemism for the metal cage confining a sow during birth and nursing. ''Birthing cage'' is accurate.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
 - id: animal-violence.battery-cage
-  pattern-regex: 'battery cages?'
-  message: 'Animal violence language: "battery cage". Consider: "small wire cage", "small wire cages", "confined cage", "confined cages" (autofix available).'
+  pattern-regex: 'battery[\s-]cage[ds]?'
+  message: 'Animal violence language: "battery cage". Industry euphemism for wire enclosures that give each hen less floor space than a sheet of paper. ''Small wire cage'' describes what it is. Consider: "small wire cage", "confined cage" (autofix available).'
   languages:
   - generic
   severity: WARNING
@@ -371,19 +440,25 @@ rules:
     category: inclusive-language
     subcategory: industry-euphemism
     alternative: 'small wire cage'
+    reason: 'Industry euphemism for wire enclosures that give each hen less floor space than a sheet of paper. ''Small wire cage'' describes what it is.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
 - id: animal-violence.spent-hen
-  pattern-regex: 'spent hens?'
-  message: 'Animal violence language: "spent hen". Consider: "discarded hen", "discarded hens", "hen killed after egg production declines" (autofix available).'
+  pattern-regex: 'spent\s+hens?'
+  message: 'Animal violence language: "spent hen". ''Spent'' frames the hen as a depleted resource. Naming what actually happens — she is killed when her egg production falls — is more accurate. Consider: "hen killed after egg production declines" (autofix available).'
   languages:
   - generic
   severity: WARNING
   metadata:
     category: inclusive-language
     subcategory: industry-euphemism
-    alternative: 'discarded hen'
+    alternative: 'hen killed after egg production declines'
+    reason: '''Spent'' frames the hen as a depleted resource. Naming what actually happens — she is killed when her egg production falls — is more accurate.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
 - id: animal-violence.humane-slaughter
-  pattern-regex: '(humane(ly)? (slaughter(ed)?|kill(ing|ed)))'
-  message: 'Animal violence language: "humane slaughter". Consider: "slaughter", "slaughtered", "killing", "killed" (autofix available).'
+  pattern-regex: 'humane(ly)?\s+(slaughter(ed)?|killing|death)'
+  message: 'Animal violence language: "humane slaughter". Industry oxymoron — a killing cannot be ''humane'' to the one being killed. Drop the modifier and use ''slaughter'' or ''killing.'' Consider: "slaughter", "killing" (autofix available).'
   languages:
   - generic
   severity: WARNING
@@ -391,9 +466,12 @@ rules:
     category: inclusive-language
     subcategory: industry-euphemism
     alternative: 'slaughter'
-- id: animal-violence.broiler
-  pattern-regex: 'broilers?'
-  message: 'Animal violence language: "broiler". Consider: "chicken raised for meat", "chickens raised for meat", "meat chicken", "meat chickens" (autofix available).'
+    reason: 'Industry oxymoron — a killing cannot be ''humane'' to the one being killed. Drop the modifier and use ''slaughter'' or ''killing.'''
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.broiler-chicken
+  pattern-regex: '\b(?:broiler\s+(chickens?|hens?)|broilers)\b'
+  message: 'Animal violence language: "broiler chicken". Industry term that defines a chicken by its commercial purpose. ''Chicken raised for meat'' is the human-readable version. (The kitchen appliance is not flagged.) Consider: "chicken raised for meat" (autofix available).'
   languages:
   - generic
   severity: WARNING
@@ -401,9 +479,12 @@ rules:
     category: inclusive-language
     subcategory: industry-euphemism
     alternative: 'chicken raised for meat'
+    reason: 'Industry term that defines a chicken by its commercial purpose. ''Chicken raised for meat'' is the human-readable version. (The kitchen appliance is not flagged.)'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
 - id: animal-violence.dont-be-a-chicken
   pattern-regex: 'don''?t\s+be\s+a\s+chicken'
-  message: 'Animal violence language: "don''t be a chicken". Consider: "don''t hesitate", "be brave", "go for it" (autofix available).'
+  message: 'Animal violence language: "don''t be a chicken". Uses a chicken as an insult for cowardice. ''Don''t hesitate'' or ''be brave'' is direct and doesn''t rely on a demeaning stereotype. Consider: "don''t hesitate", "be brave", "go for it" (autofix available).'
   languages:
   - generic
   severity: ERROR
@@ -411,39 +492,12 @@ rules:
     category: inclusive-language
     subcategory: animal-violence
     alternative: 'don''t hesitate'
-- id: animal-violence.pig
-  pattern-regex: '(code|memory|resource)\s+pig'
-  message: 'Animal violence language: "pig". Consider: "resource-intensive", "bloated", "heavy consumer" (autofix available).'
-  languages:
-  - generic
-  severity: WARNING
-  metadata:
-    category: inclusive-language
-    subcategory: animal-violence
-    alternative: 'resource-intensive'
-- id: animal-violence.cowboy-coding
-  pattern-regex: 'cowboy\s+cod(ing|er)'
-  message: 'Animal violence language: "cowboy coding". Consider: "undisciplined coding", "ad-hoc development", "code without process".'
-  languages:
-  - generic
-  severity: INFO
-  metadata:
-    category: inclusive-language
-    subcategory: animal-violence
-    alternative: 'undisciplined coding'
-- id: animal-violence.code-monkey
-  pattern-regex: 'code\s+monkeys?'
-  message: 'Animal violence language: "code monkey". Consider: "developer", "programmer", "engineer" (autofix available).'
-  languages:
-  - generic
-  severity: WARNING
-  metadata:
-    category: inclusive-language
-    subcategory: animal-violence
-    alternative: 'developer'
+    reason: 'Uses a chicken as an insult for cowardice. ''Don''t hesitate'' or ''be brave'' is direct and doesn''t rely on a demeaning stereotype.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
 - id: animal-violence.badger-someone
-  pattern-regex: 'badger(ed|ing|s)?'
-  message: 'Animal violence language: "badger someone". Consider: "pester", "pressure", "harass".'
+  pattern-regex: '\b(?:badger(ed|ing|s)?)\b'
+  message: 'Animal violence language: "badger someone". Comes from badger-baiting, a blood sport where dogs were set on captive badgers. ''Pester'' or ''pressure'' carries the same meaning without the origin. Consider: "pester", "pressure", "harass".'
   languages:
   - generic
   severity: INFO
@@ -451,9 +505,12 @@ rules:
     category: inclusive-language
     subcategory: animal-violence
     alternative: 'pester'
+    reason: 'Comes from badger-baiting, a blood sport where dogs were set on captive badgers. ''Pester'' or ''pressure'' carries the same meaning without the origin.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
 - id: animal-violence.ferret-out
-  pattern-regex: 'ferret(ed|ing)?\s+out'
-  message: 'Animal violence language: "ferret out". Consider: "uncover", "discover", "dig up".'
+  pattern-regex: '\b(?:ferret(ed|ing)?\s+out)\b'
+  message: 'Animal violence language: "ferret out". Refers to the historical use of ferrets to flush rabbits out of burrows to be killed. ''Uncover'' or ''dig up'' works just as well. Consider: "uncover", "discover", "dig up".'
   languages:
   - generic
   severity: INFO
@@ -461,29 +518,25 @@ rules:
     category: inclusive-language
     subcategory: animal-violence
     alternative: 'uncover'
+    reason: 'Refers to the historical use of ferrets to flush rabbits out of burrows to be killed. ''Uncover'' or ''dig up'' works just as well.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
 - id: animal-violence.cattle-vs-pets
-  pattern-regex: 'cattle\s+(vs?\.?|versus)\s+pets?'
-  message: 'Animal violence language: "cattle vs. pets". Consider: "ephemeral vs. persistent", "disposable vs. unique", "numbered vs. named" (autofix available).'
+  pattern-regex: 'cattle[,]?\s+(not|vs\.?|versus)\s+pets|pets\s+not\s+cattle'
+  message: 'Animal violence language: "cattle not pets". Infrastructure metaphor that Google''s own style guide flags for removal as ''figurative language that relates to the slaughter of animals.'' ''Ephemeral vs. persistent'' or ''disposable vs. unique'' captures the same architectural concept. Consider: "ephemeral vs. persistent", "disposable vs. unique", "numbered vs. named" (autofix available).'
   languages:
   - generic
   severity: WARNING
   metadata:
     category: inclusive-language
-    subcategory: animal-violence
+    subcategory: industry-euphemism
     alternative: 'ephemeral vs. persistent'
-- id: animal-violence.pet-project
-  pattern-regex: 'pet\s+project'
-  message: 'Animal violence language: "pet project". Consider: "side project", "passion project".'
-  languages:
-  - generic
-  severity: INFO
-  metadata:
-    category: inclusive-language
-    subcategory: animal-violence
-    alternative: 'side project'
+    reason: 'Infrastructure metaphor that Google''s own style guide flags for removal as ''figurative language that relates to the slaughter of animals.'' ''Ephemeral vs. persistent'' or ''disposable vs. unique'' captures the same architectural concept.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
 - id: animal-violence.canary-in-a-coal-mine
   pattern-regex: 'canary\s+in\s+(a|the)\s+coal\s+mine'
-  message: 'Animal violence language: "canary in a coal mine". Consider: "early warning signal", "leading indicator", "sentinel".'
+  message: 'Animal violence language: "canary in a coal mine". Refers to canaries historically placed in coal mines to die first as a warning to miners. ''Early warning signal'' or ''sentinel'' conveys the meaning without the harm. Consider: "early warning signal", "leading indicator", "sentinel".'
   languages:
   - generic
   severity: INFO
@@ -491,29 +544,12 @@ rules:
     category: inclusive-language
     subcategory: animal-violence
     alternative: 'early warning signal'
-- id: animal-violence.dogfooding
-  pattern-regex: 'dog\s?food(ing)?'
-  message: 'Animal violence language: "dogfooding". Consider: "self-hosting", "eating your own cooking", "using internally".'
-  languages:
-  - generic
-  severity: INFO
-  metadata:
-    category: inclusive-language
-    subcategory: animal-violence
-    alternative: 'self-hosting'
-- id: animal-violence.herding-cats
-  pattern-regex: 'herding\s+cats'
-  message: 'Animal violence language: "herding cats". Consider: "coordinating independent contributors", "managing a distributed effort", "organizing chaos" (autofix available).'
-  languages:
-  - generic
-  severity: WARNING
-  metadata:
-    category: inclusive-language
-    subcategory: animal-violence
-    alternative: 'coordinating independent contributors'
-- id: animal-violence.go-on-a-fishing-expedition
-  pattern-regex: 'fishing\s+expedition'
-  message: 'Animal violence language: "go on a fishing expedition". Consider: "exploratory investigation", "unfocused search", "speculative inquiry" (autofix available).'
+    reason: 'Refers to canaries historically placed in coal mines to die first as a warning to miners. ''Early warning signal'' or ''sentinel'' conveys the meaning without the harm.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.fishing-expedition
+  pattern-regex: 'fishing\s+expeditions?'
+  message: 'Animal violence language: "fishing expedition". Frames speculative inquiry as fishing — the metaphor softens the catch. ''Exploratory investigation'' is clearer, especially in legal writing. Consider: "exploratory investigation", "speculative inquiry", "unfocused search" (autofix available).'
   languages:
   - generic
   severity: WARNING
@@ -521,9 +557,12 @@ rules:
     category: inclusive-language
     subcategory: animal-violence
     alternative: 'exploratory investigation'
+    reason: 'Frames speculative inquiry as fishing — the metaphor softens the catch. ''Exploratory investigation'' is clearer, especially in legal writing.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
 - id: animal-violence.sacred-cow
-  pattern-regex: 'sacred\s+cows?'
-  message: 'Animal violence language: "sacred cow". Consider: "unquestioned belief", "untouchable topic", "protected assumption" (autofix available).'
+  pattern-regex: '\b(?:sacred\s+cows?)\b'
+  message: 'Animal violence language: "sacred cow". Treats cattle as objects in an ''untouchable'' metaphor while also trivializing Hindu beliefs. ''Unquestioned belief'' or ''protected assumption'' avoids both issues. Consider: "unquestioned belief", "untouchable topic", "protected assumption" (autofix available).'
   languages:
   - generic
   severity: WARNING
@@ -531,9 +570,12 @@ rules:
     category: inclusive-language
     subcategory: animal-violence
     alternative: 'unquestioned belief'
+    reason: 'Treats cattle as objects in an ''untouchable'' metaphor while also trivializing Hindu beliefs. ''Unquestioned belief'' or ''protected assumption'' avoids both issues.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
 - id: animal-violence.scapegoat
-  pattern-regex: 'scapegoat(ed|ing|s)?'
-  message: 'Animal violence language: "scapegoat". Consider: "blame target", "fall person", "wrongly blamed" (autofix available).'
+  pattern-regex: '\b(?:scapegoat(ed|ing|s)?)\b'
+  message: 'Animal violence language: "scapegoat". Originates from the ritual sacrifice of goats to carry away blame. ''Blame target'' or ''wrongly blamed'' is more precise. Consider: "blame target", "fall person", "wrongly blamed" (autofix available).'
   languages:
   - generic
   severity: WARNING
@@ -541,19 +583,12 @@ rules:
     category: inclusive-language
     subcategory: animal-violence
     alternative: 'blame target'
-- id: animal-violence.rat-race
-  pattern-regex: 'rat\s+race'
-  message: 'Animal violence language: "rat race". Consider: "daily grind", "competitive treadmill", "endless hustle".'
-  languages:
-  - generic
-  severity: INFO
-  metadata:
-    category: inclusive-language
-    subcategory: animal-violence
-    alternative: 'daily grind'
+    reason: 'Originates from the ritual sacrifice of goats to carry away blame. ''Blame target'' or ''wrongly blamed'' is more precise.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
 - id: animal-violence.dead-cat-bounce
   pattern-regex: 'dead[\s_-]?cat[\s_-]?bounce'
-  message: 'Animal violence language: "dead cat bounce". Consider: "temporary rebound", "false recovery", "brief uptick" (autofix available).'
+  message: 'Animal violence language: "dead cat bounce". A financial term built on the image of a dead cat. ''Temporary rebound'' or ''false recovery'' is more professional and avoids the image. Consider: "temporary rebound", "false recovery", "brief uptick" (autofix available).'
   languages:
   - generic
   severity: WARNING
@@ -561,9 +596,12 @@ rules:
     category: inclusive-language
     subcategory: animal-violence
     alternative: 'temporary rebound'
+    reason: 'A financial term built on the image of a dead cat. ''Temporary rebound'' or ''false recovery'' is more professional and avoids the image.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
 - id: animal-violence.dog-eat-dog
-  pattern-regex: 'dog[\s-]eat[\s-]dog'
-  message: 'Animal violence language: "dog-eat-dog". Consider: "ruthlessly competitive", "cutthroat", "fiercely competitive".'
+  pattern-regex: '\b(?:dog[\s-]eat[\s-]dog)\b'
+  message: 'Animal violence language: "dog-eat-dog". Frames dogs as inherently violent toward each other as a model for competition. ''Ruthlessly competitive'' or ''cutthroat'' conveys the meaning without the stereotype. Consider: "ruthlessly competitive", "cutthroat", "fiercely competitive".'
   languages:
   - generic
   severity: INFO
@@ -571,9 +609,12 @@ rules:
     category: inclusive-language
     subcategory: animal-violence
     alternative: 'ruthlessly competitive'
+    reason: 'Frames dogs as inherently violent toward each other as a model for competition. ''Ruthlessly competitive'' or ''cutthroat'' conveys the meaning without the stereotype.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
 - id: animal-violence.whack-a-mole
-  pattern-regex: 'whack[\s-]a[\s-]mole'
-  message: 'Animal violence language: "whack-a-mole". Consider: "recurring problem", "endless loop", "unwinnable game".'
+  pattern-regex: '\b(?:whack[\s-]a[\s-]mole)\b'
+  message: 'Animal violence language: "whack-a-mole". References a game built around repeatedly striking animals as they pop up. ''Recurring problem'' or ''endless loop'' describes the pattern more precisely. Consider: "recurring problem", "endless loop", "unwinnable game".'
   languages:
   - generic
   severity: INFO
@@ -581,19 +622,25 @@ rules:
     category: inclusive-language
     subcategory: animal-violence
     alternative: 'recurring problem'
+    reason: 'References a game built around repeatedly striking animals as they pop up. ''Recurring problem'' or ''endless loop'' describes the pattern more precisely.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
 - id: animal-violence.cash-cow
   pattern-regex: 'cash\s+cows?'
-  message: 'Animal violence language: "cash cow". Consider: "profit center", "reliable revenue source", "money maker" (autofix available).'
+  message: 'Animal violence language: "cash cow". Treats a cow as a thing to be extracted from for profit. ''Moneymaker'' or ''profit center'' carries the same meaning. Consider: "moneymaker", "profit center", "reliable revenue source" (autofix available).'
   languages:
   - generic
   severity: WARNING
   metadata:
     category: inclusive-language
-    subcategory: animal-violence
-    alternative: 'profit center'
+    subcategory: industry-euphemism
+    alternative: 'moneymaker'
+    reason: 'Treats a cow as a thing to be extracted from for profit. ''Moneymaker'' or ''profit center'' carries the same meaning.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
 - id: animal-violence.sacrificial-lamb
-  pattern-regex: 'sacrificial\s+lambs?'
-  message: 'Animal violence language: "sacrificial lamb". Consider: "expendable person", "person set up to fail", "someone sacrificed for others" (autofix available).'
+  pattern-regex: '\b(?:sacrificial\s+lambs?)\b'
+  message: 'Animal violence language: "sacrificial lamb". References the ritual slaughter of lambs. ''Expendable person'' or ''someone sacrificed for others'' communicates the metaphor directly. Consider: "expendable person", "person set up to fail", "someone sacrificed for others" (autofix available).'
   languages:
   - generic
   severity: WARNING
@@ -601,9 +648,12 @@ rules:
     category: inclusive-language
     subcategory: animal-violence
     alternative: 'expendable person'
+    reason: 'References the ritual slaughter of lambs. ''Expendable person'' or ''someone sacrificed for others'' communicates the metaphor directly.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
 - id: animal-violence.sitting-duck
-  pattern-regex: 'sitting\s+ducks?'
-  message: 'Animal violence language: "sitting duck". Consider: "easy target", "vulnerable target", "exposed" (autofix available).'
+  pattern-regex: '\b(?:sitting\s+ducks?)\b'
+  message: 'Animal violence language: "sitting duck". Hunting imagery — a duck in the open, easy to shoot. ''Easy target'' or ''vulnerable target'' says the same thing. Consider: "easy target", "vulnerable target", "exposed" (autofix available).'
   languages:
   - generic
   severity: WARNING
@@ -611,9 +661,12 @@ rules:
     category: inclusive-language
     subcategory: animal-violence
     alternative: 'easy target'
+    reason: 'Hunting imagery — a duck in the open, easy to shoot. ''Easy target'' or ''vulnerable target'' says the same thing.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
 - id: animal-violence.open-season
-  pattern-regex: 'open\s+season'
-  message: 'Animal violence language: "open season". Consider: "free-for-all", "unrestricted criticism", "no holds barred" (autofix available).'
+  pattern-regex: '\b(?:open\s+season)\b'
+  message: 'Animal violence language: "open season". Refers to the legal hunting period when killing animals is permitted. ''Free-for-all'' or ''no holds barred'' conveys the meaning without the hunting framing. Consider: "free-for-all", "unrestricted criticism", "no holds barred" (autofix available).'
   languages:
   - generic
   severity: WARNING
@@ -621,19 +674,25 @@ rules:
     category: inclusive-language
     subcategory: animal-violence
     alternative: 'free-for-all'
+    reason: 'Refers to the legal hunting period when killing animals is permitted. ''Free-for-all'' or ''no holds barred'' conveys the meaning without the hunting framing.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
 - id: animal-violence.put-out-to-pasture
-  pattern-regex: 'put(ting)?\s+(\w+\s+)?out\s+to\s+pasture'
-  message: 'Animal violence language: "put out to pasture". Consider: "retire", "phase out", "sunset" (autofix available).'
+  pattern-regex: 'put(s|ting)?(\s+(him|her|them))?\s+out\s+to\s+pasture'
+  message: 'Animal violence language: "put out to pasture". Refers to the farm practice of disposing of animals once they''re no longer productive. ''Retire,'' ''phase out,'' or ''sunset'' is clearer and carries no harm. Consider: "retire", "phase out", "sunset" (autofix available).'
   languages:
   - generic
   severity: WARNING
   metadata:
     category: inclusive-language
-    subcategory: animal-violence
+    subcategory: industry-euphemism
     alternative: 'retire'
+    reason: 'Refers to the farm practice of disposing of animals once they''re no longer productive. ''Retire,'' ''phase out,'' or ''sunset'' is clearer and carries no harm.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
 - id: animal-violence.dead-duck
-  pattern-regex: 'dead\s+ducks?'
-  message: 'Animal violence language: "dead duck". Consider: "lost cause", "doomed effort", "foregone conclusion".'
+  pattern-regex: '\b(?:dead\s+ducks?)\b'
+  message: 'Animal violence language: "dead duck". Hunting imagery — a duck that has been shot and killed. ''Lost cause'' or ''doomed effort'' is just as expressive. Consider: "lost cause", "doomed effort", "foregone conclusion".'
   languages:
   - generic
   severity: INFO
@@ -641,49 +700,12 @@ rules:
     category: inclusive-language
     subcategory: animal-violence
     alternative: 'lost cause'
-- id: animal-violence.kill-process
-  pattern-regex: 'kill\s+(the\s+)?process'
-  message: 'Animal violence language: "kill process". Consider: "terminate the process", "stop the process", "end the process".'
-  languages:
-  - generic
-  severity: INFO
-  metadata:
-    category: inclusive-language
-    subcategory: animal-violence
-    alternative: 'terminate the process'
-- id: animal-violence.kill-the-server
-  pattern-regex: 'kill\s+(the\s+)?server'
-  message: 'Animal violence language: "kill the server". Consider: "stop the server", "shut down the server", "terminate the server".'
-  languages:
-  - generic
-  severity: INFO
-  metadata:
-    category: inclusive-language
-    subcategory: animal-violence
-    alternative: 'stop the server'
-- id: animal-violence.nuke
-  pattern-regex: 'nuke\s+(it|the|this|that|everything)'
-  message: 'Animal violence language: "nuke". Consider: "delete completely", "wipe clean", "remove entirely" (autofix available).'
-  languages:
-  - generic
-  severity: WARNING
-  metadata:
-    category: inclusive-language
-    subcategory: animal-violence
-    alternative: 'delete completely'
-- id: animal-violence.abort
-  pattern-regex: 'abort(ed|ing)?'
-  message: 'Animal violence language: "abort". Consider: "cancel", "stop", "halt".'
-  languages:
-  - generic
-  severity: INFO
-  metadata:
-    category: inclusive-language
-    subcategory: animal-violence
-    alternative: 'cancel'
+    reason: 'Hunting imagery — a duck that has been shot and killed. ''Lost cause'' or ''doomed effort'' is just as expressive.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
 - id: animal-violence.cull
-  pattern-regex: 'cull(ed|ing|s)?'
-  message: 'Animal violence language: "cull". Consider: "remove", "prune", "trim", "filter out" (autofix available).'
+  pattern-regex: '\b(?:cull(ed|ing|s)?)\b'
+  message: 'Animal violence language: "cull". Euphemism used in wildlife management and farming for mass killing. ''Remove'', ''prune'', ''trim'', or ''filter out'' is accurate in technical contexts. Consider: "remove", "prune", "trim", "filter out" (autofix available).'
   languages:
   - generic
   severity: WARNING
@@ -691,43 +713,1345 @@ rules:
     category: inclusive-language
     subcategory: animal-violence
     alternative: 'remove'
-- id: animal-violence.master-slave
-  pattern-regex: '(master|slave)'
-  message: 'Animal violence language: "master/slave". Consider: "primary/replica", "leader/follower", "controller/worker" (autofix available).'
+    reason: 'Euphemism used in wildlife management and farming for mass killing. ''Remove'', ''prune'', ''trim'', or ''filter out'' is accurate in technical contexts.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.veal
+  pattern-regex: '\b(?:veal(\s+cal(f|ves))?)\b'
+  message: 'Animal violence language: "veal". ''Veal'' softens ''slaughtered-calf flesh'' via a Norman-French borrowing. In advocacy or industry-critical writing, ''calf flesh'' names what it is. (Suppressed in recipes and cooking contexts.) Consider: "calf flesh", "calf meat".'
   languages:
   - generic
-  severity: WARNING
+  severity: INFO
   metadata:
     category: inclusive-language
-    subcategory: animal-violence
-    alternative: 'primary/replica'
-- id: animal-violence.whitelist-blacklist
-  pattern-regex: '(white|black)list'
-  message: 'Animal violence language: "whitelist/blacklist". Consider: "allowlist/denylist", "permit list/block list", "inclusion list/exclusion list" (autofix available).'
-  languages:
-  - generic
-  severity: WARNING
-  metadata:
-    category: inclusive-language
-    subcategory: animal-violence
-    alternative: 'allowlist/denylist'
-- id: animal-violence.grandfathered
-  pattern-regex: 'grandfather(ed|ing)?'
-  message: 'Animal violence language: "grandfathered". Consider: "legacy", "exempt", "pre-existing".'
+    subcategory: industry-euphemism
+    alternative: 'calf flesh'
+    reason: '''Veal'' softens ''slaughtered-calf flesh'' via a Norman-French borrowing. In advocacy or industry-critical writing, ''calf flesh'' names what it is. (Suppressed in recipes and cooking contexts.)'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.lame-duck
+  pattern-regex: '\b(?:lame[\s-]duck)\b'
+  message: 'Animal violence language: "lame duck". Combines an ableist adjective with a reference to a bird unable to fly due to injury. ''Outgoing'', ''transitional'', or ''ineffective'' is more precise. Consider: "outgoing", "transitional", "ineffective".'
   languages:
   - generic
   severity: INFO
   metadata:
     category: inclusive-language
     subcategory: animal-violence
-    alternative: 'legacy'
-- id: animal-violence.veal
-  pattern-regex: 'veal'
-  message: 'Animal violence language: "veal". Consider: "calf flesh", "flesh from calves" (autofix available).'
+    alternative: 'outgoing'
+    reason: 'Combines an ableist adjective with a reference to a bird unable to fly due to injury. ''Outgoing'', ''transitional'', or ''ineffective'' is more precise.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.debeaking
+  pattern-regex: '\b(?:debeak(ing|ed)|beak\s+(trimming|trim|conditioning))\b'
+  message: 'Animal violence language: "debeaking". Industry euphemism for slicing or burning off hens'' beaks, typically without anesthesia. ''Beak amputation'' names what actually happens. Consider: "beak amputation", "beak mutilation" (autofix available).'
   languages:
   - generic
   severity: WARNING
   metadata:
     category: inclusive-language
     subcategory: industry-euphemism
-    alternative: 'calf flesh'
+    alternative: 'beak amputation'
+    reason: 'Industry euphemism for slicing or burning off hens'' beaks, typically without anesthesia. ''Beak amputation'' names what actually happens.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.dehorning
+  pattern-regex: '\b(?:dehorn(ing|ed)|disbud(ding|ded))\b'
+  message: 'Animal violence language: "dehorning". Industry term for removing cattle horns, typically without anesthesia. ''Horn amputation'' is accurate. Consider: "horn amputation", "horn removal" (autofix available).'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'horn amputation'
+    reason: 'Industry term for removing cattle horns, typically without anesthesia. ''Horn amputation'' is accurate.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.tail-docking
+  pattern-regex: 'tail[\s-]docking|tail\s+docked|docked\s+tail'
+  message: 'Animal violence language: "tail docking". Amputating pigs'', sheep''s, or dogs'' tails. ''Tail amputation'' is the accurate term. Consider: "tail amputation" (autofix available).'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'tail amputation'
+    reason: 'Amputating pigs'', sheep''s, or dogs'' tails. ''Tail amputation'' is the accurate term.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.ear-notching
+  pattern-regex: 'ear[\s-]notch(ing|ed)'
+  message: 'Animal violence language: "ear notching". Industry identification practice of cutting notches in animals'' ears. ''Ear mutilation'' names what it is. Consider: "ear mutilation".'
+  languages:
+  - generic
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'ear mutilation'
+    reason: 'Industry identification practice of cutting notches in animals'' ears. ''Ear mutilation'' names what it is.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.ventilation-shutdown
+  pattern-regex: 'ventilation\s+shutdown(\s+plus)?|VSD\+|VSD\s+plus'
+  message: 'Animal violence language: "ventilation shutdown". Industry term for killing entire flocks by cutting off airflow — the animals die from suffocation and heat. ''Mass killing by suffocation'' is the accurate term. (Suppressed in HVAC contexts.) Consider: "mass killing by suffocation", "heat-and-suffocation killing" (autofix available).'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'mass killing by suffocation'
+    reason: 'Industry term for killing entire flocks by cutting off airflow — the animals die from suffocation and heat. ''Mass killing by suffocation'' is the accurate term. (Suppressed in HVAC contexts.)'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.maceration
+  pattern-regex: '(maceration\s+of\s+chicks|chick\s+maceration|macerat(ed|ing)\s+chicks)'
+  message: 'Animal violence language: "maceration of chicks". Industry euphemism for killing day-old male chicks by grinding them alive. Say what the process is. (Bare ''maceration'' in culinary or chemistry contexts is not flagged.) Consider: "grinding newborn chicks alive", "chick grinding" (autofix available).'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'grinding newborn chicks alive'
+    reason: 'Industry euphemism for killing day-old male chicks by grinding them alive. Say what the process is. (Bare ''maceration'' in culinary or chemistry contexts is not flagged.)'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.abattoir
+  pattern-regex: '\b(?:abattoirs?)\b'
+  message: 'Animal violence language: "abattoir". French-derived euphemism for slaughterhouse. ''Slaughterhouse'' is the accurate English term. Consider: "slaughterhouse" (autofix available).'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'slaughterhouse'
+    reason: 'French-derived euphemism for slaughterhouse. ''Slaughterhouse'' is the accurate English term.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.rendering-plant
+  pattern-regex: 'rendering\s+(plant|facility)s?'
+  message: 'Animal violence language: "rendering plant". Facility that processes animal bodies — roadkill, downed animals, slaughter byproducts — into meal, fat, and tallow. Naming it accurately makes the supply chain visible. (Only the full compound ''rendering plant'' / ''rendering facility'' is flagged; bare ''rendering'' for graphics or UI is not.) Consider: "animal-body processing plant", "carcass-processing facility".'
+  languages:
+  - generic
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'animal-body processing plant'
+    reason: 'Facility that processes animal bodies — roadkill, downed animals, slaughter byproducts — into meal, fat, and tallow. Naming it accurately makes the supply chain visible. (Only the full compound ''rendering plant'' / ''rendering facility'' is flagged; bare ''rendering'' for graphics or UI is not.)'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.stockyard
+  pattern-regex: '\b(?:stockyards?)\b'
+  message: 'Animal violence language: "stockyard". Euphemism for pre-slaughter holding pens. ''Slaughterhouse pens'' describes what the facility actually is. Consider: "slaughterhouse pens", "live-animal market".'
+  languages:
+  - generic
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'slaughterhouse pens'
+    reason: 'Euphemism for pre-slaughter holding pens. ''Slaughterhouse pens'' describes what the facility actually is.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.laying-hen
+  pattern-regex: '(laying|layer)\s+hens?'
+  message: 'Animal violence language: "laying hen". Defines a hen by her egg-laying function. When sex and species are relevant, ''hen'' is sufficient. Consider: "hen" (autofix available).'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'hen'
+    reason: 'Defines a hen by her egg-laying function. When sex and species are relevant, ''hen'' is sufficient.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.use-category-naming
+  pattern-regex: '(dairy|beef)\s+(cow|cows|cattle)|meat\s+(birds?|rabbits?|goats?)'
+  message: 'Animal violence language: "dairy cow". Defines an animal by the product humans extract from them. The species name alone is sufficient unless the use is actively relevant. Consider: "cow", "the species name alone" (autofix available).'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'cow'
+    reason: 'Defines an animal by the product humans extract from them. The species name alone is sufficient unless the use is actively relevant.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.brood-sow
+  pattern-regex: 'brood\s+sows?|breeding\s+(stock|pair)'
+  message: 'Animal violence language: "brood sow". Defines a female animal by her reproductive function. Name the individual directly where possible. Consider: "pregnant pig", "nursing mother pig" (autofix available).'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'pregnant pig'
+    reason: 'Defines a female animal by her reproductive function. Name the individual directly where possible.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.cattle-call
+  pattern-regex: 'cattle\s+calls?'
+  message: 'Animal violence language: "cattle call". Likens human applicants to livestock being herded. ''Open call'' or ''mass audition'' carries the same meaning without the framing. Consider: "open call", "mass audition" (autofix available).'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'open call'
+    reason: 'Likens human applicants to livestock being herded. ''Open call'' or ''mass audition'' carries the same meaning without the framing.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.pet-project
+  pattern-regex: 'pet\s+projects?'
+  message: 'Animal violence language: "pet project". Carries over the property framing of ''pet'' (something owned) to the project. ''Side project'' or ''passion project'' captures the same idea without the ownership framing. Consider: "side project", "passion project".'
+  languages:
+  - generic
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'side project'
+    reason: 'Carries over the property framing of ''pet'' (something owned) to the project. ''Side project'' or ''passion project'' captures the same idea without the ownership framing.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.humanely-raised
+  pattern-regex: 'humanely\s+(raised|produced|farmed)'
+  message: 'Animal violence language: "humanely raised". USDA-unregulated marketing label — companies define their own standards, and the actual conditions often differ little from factory farming. Describe the actual conditions where possible. Consider: "factory-farmed", "raised in [specific conditions]" (autofix available).'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'factory-farmed'
+    reason: 'USDA-unregulated marketing label — companies define their own standards, and the actual conditions often differ little from factory farming. Describe the actual conditions where possible.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.free-range
+  pattern-regex: 'free[\s-]rang(e|ing)|free[\s-]roaming'
+  message: 'Animal violence language: "free-range". USDA requires only ''access to outdoors'' — often a small door to a small porch that most birds never use. The label does not guarantee meaningful outdoor life. Consider: "minimally accessible outdoor pen", "outdoor access (USDA minimum)" (autofix available).'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'minimally accessible outdoor pen'
+    reason: 'USDA requires only ''access to outdoors'' — often a small door to a small porch that most birds never use. The label does not guarantee meaningful outdoor life.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.pasture-raised
+  pattern-regex: 'pasture[\s-]raised|pastured'
+  message: 'Animal violence language: "pasture-raised". Not USDA-regulated; the meaning depends on whichever certifier the producer chooses. Name the certifier and the actual conditions where possible. Consider: "raised on pasture (certifier-dependent)" (autofix available).'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'raised on pasture (certifier-dependent)'
+    reason: 'Not USDA-regulated; the meaning depends on whichever certifier the producer chooses. Name the certifier and the actual conditions where possible.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.grass-fed
+  pattern-regex: 'grass[\s-](fed|finished)'
+  message: 'Animal violence language: "grass-fed". Describes the cattle''s feed, not their welfare. Slaughter, transport, and mother-calf separation happen the same way. The USDA dropped its ''grass-fed'' definition in 2016; current usage is producer-defined. Consider: "grass-fed (USDA definition dropped 2016)", "forage-finished".'
+  languages:
+  - generic
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'grass-fed (USDA definition dropped 2016)'
+    reason: 'Describes the cattle''s feed, not their welfare. Slaughter, transport, and mother-calf separation happen the same way. The USDA dropped its ''grass-fed'' definition in 2016; current usage is producer-defined.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.cage-free-for-meat
+  pattern-regex: 'cage[\s-]free\s+(chicken|turkey|meat|pork|beef)'
+  message: 'Animal violence language: "cage-free chicken". Meaningless for meat birds — broiler chickens and turkeys are almost never caged in industrial production. The label implies a welfare improvement that doesn''t exist. (Cage-free for eggs IS a meaningful distinction; that usage is not flagged.) Consider: "crowded indoor housing", "barn-raised" (autofix available).'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'crowded indoor housing'
+    reason: 'Meaningless for meat birds — broiler chickens and turkeys are almost never caged in industrial production. The label implies a welfare improvement that doesn''t exist. (Cage-free for eggs IS a meaningful distinction; that usage is not flagged.)'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.humane-certifications
+  pattern-regex: 'Certified\s+Humane|Animal\s+Welfare\s+Approved|Global\s+Animal\s+Partnership|American\s+Humane\s+Certified|One\s+Health\s+Certified|GAP\s+(certified|Step(\s+\d)?)'
+  message: 'Animal violence language: "Certified Humane". Third-party welfare certifications with widely varying standards — some are meaningful (Animal Welfare Approved), others are marketing (American Humane Certified). Name the specific standard if relevant. Consider: "name the certifier and standard".'
+  languages:
+  - generic
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'name the certifier and standard'
+    reason: 'Third-party welfare certifications with widely varying standards — some are meaningful (Animal Welfare Approved), others are marketing (American Humane Certified). Name the specific standard if relevant.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.ethically-sourced-animal
+  pattern-regex: '(ethically|responsibly)\s+sourced\s+(meat|dairy|eggs|beef|pork|chicken)|happy\s+(meat|cows?)'
+  message: 'Animal violence language: "ethically sourced meat". Marketing language without a standard definition when applied to animal products. ''Ethically sourced'' meat has no USDA definition. Describe the actual practices instead. (The phrase applied to coffee, chocolate, or textiles is not flagged.) Consider: "describe the actual farm practices".'
+  languages:
+  - generic
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'describe the actual farm practices'
+    reason: 'Marketing language without a standard definition when applied to animal products. ''Ethically sourced'' meat has no USDA definition. Describe the actual practices instead. (The phrase applied to coffee, chocolate, or textiles is not flagged.)'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.dolphin-safe
+  pattern-regex: 'dolphin[\s-]safe|line[\s-]caught|pole[\s-](and[\s-]line[\s-])?caught|sustainab(ly\s+caught|le\s+seafood)'
+  message: 'Animal violence language: "dolphin-safe". Addresses specific bycatch concerns but not fish suffering. Fish feel pain, suffocate on deck, or are crushed in nets regardless of how the boat avoids catching dolphins or catches fish one at a time. Consider: "name the specific fishing method and bycatch statistics".'
+  languages:
+  - generic
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'name the specific fishing method and bycatch statistics'
+    reason: 'Addresses specific bycatch concerns but not fish suffering. Fish feel pain, suffocate on deck, or are crushed in nets regardless of how the boat avoids catching dolphins or catches fish one at a time.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.feed-to-predators
+  pattern-regex: '(feed|fed|feeding)\s+to\s+the\s+(lions|sharks|dogs)'
+  message: 'Animal violence language: "feed to the lions". Human-as-prey imagery. ''Sacrifice'' or ''leave exposed'' captures the same meaning. Consider: "sacrifice", "leave exposed", "abandon to attack" (autofix available).'
+  languages:
+  - generic
+  severity: ERROR
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'sacrifice'
+    reason: 'Human-as-prey imagery. ''Sacrifice'' or ''leave exposed'' captures the same meaning.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.pig-to-slaughter
+  pattern-regex: '(like\s+(a\s+)?)?pigs?\s+to\s+slaughter'
+  message: 'Animal violence language: "like a pig to slaughter". Direct slaughter imagery. ''Defenseless'' or ''walking into disaster'' captures the same meaning. Consider: "defenseless", "walking into disaster" (autofix available).'
+  languages:
+  - generic
+  severity: ERROR
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'defenseless'
+    reason: 'Direct slaughter imagery. ''Defenseless'' or ''walking into disaster'' captures the same meaning.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.turkey-shoot
+  pattern-regex: 'turkey[\s-]shoot'
+  message: 'Animal violence language: "turkey shoot". One-sided-slaughter imagery for an easy win. ''Walkover'' or ''trivially easy win'' carries the same meaning. Consider: "trivially easy win", "no-contest situation", "walkover" (autofix available).'
+  languages:
+  - generic
+  severity: ERROR
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'trivially easy win'
+    reason: 'One-sided-slaughter imagery for an easy win. ''Walkover'' or ''trivially easy win'' carries the same meaning.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.fox-guarding-henhouse
+  pattern-regex: 'fox(es)?\s+(guarding\s+the|in\s+the)\s+hen[\s-]?house'
+  message: 'Animal violence language: "fox guarding the henhouse". Frames predation as an inevitable natural order. ''Conflict of interest'' or ''wrong person in charge'' is the actual point being made. Consider: "conflict of interest", "the wrong person in charge" (autofix available).'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'conflict of interest'
+    reason: 'Frames predation as an inevitable natural order. ''Conflict of interest'' or ''wrong person in charge'' is the actual point being made.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.bull-in-china-shop
+  pattern-regex: '(like\s+a\s+)?bull\s+in\s+a\s+china\s+shop'
+  message: 'Animal violence language: "bull in a china shop". Bull-as-clumsy-brute stereotype — actually originates from a cartoon, not reality. ''Clumsy disruption'' or ''careless and destructive'' is more accurate. Consider: "tornado in a glass factory", "clumsy disruption", "careless and destructive" (autofix available).'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'tornado in a glass factory'
+    reason: 'Bull-as-clumsy-brute stereotype — actually originates from a cartoon, not reality. ''Clumsy disruption'' or ''careless and destructive'' is more accurate.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.build-a-better-mousetrap
+  pattern-regex: 'build(s|ing)?\s+a\s+better\s+mousetrap|better\s+mousetrap'
+  message: 'Animal violence language: "build a better mousetrap". Mouse-killing device as innovation metaphor. ''Invent something better'' or ''build a better mouse pad'' captures the idea. Consider: "build a better mouse pad", "invent something better" (autofix available).'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'build a better mouse pad'
+    reason: 'Mouse-killing device as innovation metaphor. ''Invent something better'' or ''build a better mouse pad'' captures the idea.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.packed-like-sardines
+  pattern-regex: '(packed|squeezed)\s+(in\s+)?like\s+sardines'
+  message: 'Animal violence language: "packed in like sardines". Accurately describes industrial fishing and canning — the ''imagery'' is the reality. ''Tightly crowded'' or ''packed in like pickles'' works without invoking it. Consider: "packed in like pickles", "tightly crowded", "crammed together" (autofix available).'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'packed in like pickles'
+    reason: 'Accurately describes industrial fishing and canning — the ''imagery'' is the reality. ''Tightly crowded'' or ''packed in like pickles'' works without invoking it.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.pull-the-wool
+  pattern-regex: 'pull(s|ing|ed)?\s+the\s+wool\s+over'
+  message: 'Animal violence language: "pull the wool over". Wool (sheep exploitation) as a deception metaphor. ''Deceive'' or ''mislead'' is direct and clearer. Consider: "deceive", "mislead", "pull the polyester over your eyes" (autofix available).'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'deceive'
+    reason: 'Wool (sheep exploitation) as a deception metaphor. ''Deceive'' or ''mislead'' is direct and clearer.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.lipstick-on-a-pig
+  pattern-regex: '(put(s|ting)?\s+)?lipstick\s+on\s+a\s+pig'
+  message: 'Animal violence language: "lipstick on a pig". Frames pigs as ugly objects. ''Superficially improve'' or ''disguise the flaw'' is the actual meaning. Consider: "superficially improve", "disguise the flaw", "dress up a bad product" (autofix available).'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'superficially improve'
+    reason: 'Frames pigs as ugly objects. ''Superficially improve'' or ''disguise the flaw'' is the actual meaning.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.silk-purse-sows-ear
+  pattern-regex: 'silk\s+purse\s+(out\s+of|from)\s+a\s+sow''s\s+ear'
+  message: 'Animal violence language: "silk purse out of a sow''s ear". Pig body parts framed as worthless. ''Transform something unpromising'' carries the same meaning. Consider: "diamond bracelet out of a lump of coal", "transform something unpromising" (autofix available).'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'diamond bracelet out of a lump of coal'
+    reason: 'Pig body parts framed as worthless. ''Transform something unpromising'' carries the same meaning.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.black-sheep
+  pattern-regex: 'black\s+sheep'
+  message: 'Animal violence language: "black sheep". Commodifies sheep coat color as a family-shame metaphor, with racial baggage. ''Outlier'' or ''odd one out'' works. Consider: "outlier", "misfit", "odd one out" (autofix available).'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'outlier'
+    reason: 'Commodifies sheep coat color as a family-shame metaphor, with racial baggage. ''Outlier'' or ''odd one out'' works.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.wolf-in-sheeps-clothing
+  pattern-regex: 'wol(f|ves)\s+in\s+sheep''?s\s+clothing'
+  message: 'Animal violence language: "wolf in sheep''s clothing". Wolves-as-deceivers trope. ''Hidden threat'' or ''deceiver in disguise'' carries the same meaning. Consider: "deceiver in disguise", "hidden threat", "threat wearing a friendly face" (autofix available).'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'deceiver in disguise'
+    reason: 'Wolves-as-deceivers trope. ''Hidden threat'' or ''deceiver in disguise'' carries the same meaning.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.chicken-out
+  pattern-regex: 'chicken(s|ed|ing)\s+out|chicken\s+out'
+  message: 'Animal violence language: "chicken out". Chicken-as-coward framing. ''Back out'' or ''lose nerve'' carries the same meaning. Consider: "back out", "lose nerve", "get cold feet" (autofix available).'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'back out'
+    reason: 'Chicken-as-coward framing. ''Back out'' or ''lose nerve'' carries the same meaning.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.feeding-frenzy
+  pattern-regex: 'feeding\s+frenz(y|ies)'
+  message: 'Animal violence language: "feeding frenzy". Shark-predation imagery used for human behavior. ''Chaotic rush'' or ''scramble to exploit'' carries the same meaning. Consider: "chaotic rush", "scramble to exploit", "uncontrolled grab" (autofix available).'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'chaotic rush'
+    reason: 'Shark-predation imagery used for human behavior. ''Chaotic rush'' or ''scramble to exploit'' carries the same meaning.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.blood-in-the-water
+  pattern-regex: '(smell[s]?\s+)?blood\s+in\s+the\s+water'
+  message: 'Animal violence language: "blood in the water". Shark-predation imagery. ''Signs of weakness'' or ''vulnerability visible'' carries the same meaning. Consider: "signs of weakness", "vulnerability visible", "sensing a kill" (autofix available).'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'signs of weakness'
+    reason: 'Shark-predation imagery. ''Signs of weakness'' or ''vulnerability visible'' carries the same meaning.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.circling-vultures
+  pattern-regex: '(circl(e|ing)\s+(like\s+)?vultures|vultures\s+circling)'
+  message: 'Animal violence language: "circling like vultures". Species defamation — the ''circling vulture'' framing is factually wrong (vultures are ecological cleaners, not predators) and has driven real persecution; vulture populations are crashing globally. ''Waiting to exploit'' carries the same meaning. Consider: "waiting to exploit", "hovering opportunistically", "waiting for weakness" (autofix available).'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'waiting to exploit'
+    reason: 'Species defamation — the ''circling vulture'' framing is factually wrong (vultures are ecological cleaners, not predators) and has driven real persecution; vulture populations are crashing globally. ''Waiting to exploit'' carries the same meaning.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.madder-than-wet-hen
+  pattern-regex: 'mad(der)?\s+(than|as)\s+a\s+wet\s+hen'
+  message: 'Animal violence language: "madder than a wet hen". References the farm practice of dunking broody hens in water to break their nesting instinct. ''Furious'' or ''livid'' says it directly. Consider: "furious", "livid", "seething" (autofix available).'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'furious'
+    reason: 'References the farm practice of dunking broody hens in water to break their nesting instinct. ''Furious'' or ''livid'' says it directly.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.code-monkey
+  pattern-regex: 'code\s+monkeys?'
+  message: 'Animal violence language: "code monkey". Frames programmers as trained animals, and compounds with the long history of ''monkey'' used as a racial slur. ''Developer'' or ''engineer'' is the accurate term. Consider: "developer", "programmer", "engineer" (autofix available).'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'developer'
+    reason: 'Frames programmers as trained animals, and compounds with the long history of ''monkey'' used as a racial slur. ''Developer'' or ''engineer'' is the accurate term.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.hog-resource
+  pattern-regex: '(memory|CPU|bandwidth|resource|disk|space)\s+hog|hogging\s+(memory|CPU|bandwidth|resources|the)|hogs\s+the|hog\s+the\s+spotlight'
+  message: 'Animal violence language: "memory hog". Builds on the pig-as-greedy stereotype (pigs are actually selective eaters). ''Resource-intensive'' or ''monopolizes'' is more accurate and avoids the framing. Consider: "resource-intensive", "heavy consumer", "monopolizes", "dominates" (autofix available).'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'resource-intensive'
+    reason: 'Builds on the pig-as-greedy stereotype (pigs are actually selective eaters). ''Resource-intensive'' or ''monopolizes'' is more accurate and avoids the framing.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.pigheaded
+  pattern-regex: '\b(?:pig[\s-]?headed(ness)?)\b'
+  message: 'Animal violence language: "pigheaded". Pig-as-stubborn stereotype (pigs are intelligent, not stubborn). ''Obstinate'' or ''unreasonable'' says it directly. Consider: "obstinate", "inflexible", "unreasonable" (autofix available).'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'obstinate'
+    reason: 'Pig-as-stubborn stereotype (pigs are intelligent, not stubborn). ''Obstinate'' or ''unreasonable'' says it directly.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.eat-like-a-pig
+  pattern-regex: 'eat(s|ing|e)?\s+like\s+a\s+pig|ate\s+like\s+a\s+pig|pig(s|ged|ging)?\s+out'
+  message: 'Animal violence language: "eat like a pig". Pig-as-glutton stereotype (actually wrong — pigs are selective eaters in natural conditions). ''Overeat'' or ''gorge'' says the same thing. Consider: "overeat", "gorge", "eat voraciously" (autofix available).'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'overeat'
+    reason: 'Pig-as-glutton stereotype (actually wrong — pigs are selective eaters in natural conditions). ''Overeat'' or ''gorge'' says the same thing.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.son-of-a-bitch
+  pattern-regex: 'sons?[\s-]of[\s-]a[\s-]bitch|sons\s+of\s+bitches'
+  message: 'Animal violence language: "son of a bitch". Female-dog insult that compounds misogyny with species defamation. A specific descriptor is clearer and doesn''t land on anyone''s mother or on dogs. Consider: "specific descriptor" (autofix available).'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'specific descriptor'
+    reason: 'Female-dog insult that compounds misogyny with species defamation. A specific descriptor is clearer and doesn''t land on anyone''s mother or on dogs.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.sheeple
+  pattern-regex: '\b(?:sheeple)\b'
+  message: 'Animal violence language: "sheeple". Coined term meaning ''sheep-people'' — dehumanizes the target while defaming sheep (who are actually complex social animals). ''Conformists'' or ''uncritical crowd'' carries the same meaning. Consider: "conformists", "unquestioning followers", "uncritical crowd" (autofix available).'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'conformists'
+    reason: 'Coined term meaning ''sheep-people'' — dehumanizes the target while defaming sheep (who are actually complex social animals). ''Conformists'' or ''uncritical crowd'' carries the same meaning.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.loan-shark
+  pattern-regex: '(loan|card)[\s-]sharks?'
+  message: 'Animal violence language: "loan shark". Species-as-predator trope applied to exploitative humans, which misrepresents sharks and provides a convenient framing for financial harm. ''Predatory lender'' or ''hustler'' is direct and more accurate. Consider: "predatory lender", "hustler", "card hustler" (autofix available).'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'predatory lender'
+    reason: 'Species-as-predator trope applied to exploitative humans, which misrepresents sharks and provides a convenient framing for financial harm. ''Predatory lender'' or ''hustler'' is direct and more accurate.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.vulture-capitalist
+  pattern-regex: 'vulture\s+(capitalist|capitalism|fund)s?'
+  message: 'Animal violence language: "vulture capitalist". Species defamation that drives real-world vulture persecution — global vulture populations are crashing largely from this kind of cultural framing. ''Predatory investor'' names the behavior without defaming an ecologically critical species. Consider: "predatory investor", "scavenger capitalist", "distressed-debt investor" (autofix available).'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'predatory investor'
+    reason: 'Species defamation that drives real-world vulture persecution — global vulture populations are crashing largely from this kind of cultural framing. ''Predatory investor'' names the behavior without defaming an ecologically critical species.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.weasel-words
+  pattern-regex: 'weasel\s+words?|weasel(s|ed|ing)?\s+out'
+  message: 'Animal violence language: "weasel words". Species-as-deceitful trope. ''Evasive language'' or ''slippery phrasing'' is more direct. (Wikipedia''s Manual of Style uses ''weasel words'' as an internal term of art; that context is suppressed.) Consider: "evasive language", "evade", "slippery phrasing".'
+  languages:
+  - generic
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'evasive language'
+    reason: 'Species-as-deceitful trope. ''Evasive language'' or ''slippery phrasing'' is more direct. (Wikipedia''s Manual of Style uses ''weasel words'' as an internal term of art; that context is suppressed.)'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.leech-off
+  pattern-regex: 'leech(es|ed|ing)?\s+off|bloodsuckers?'
+  message: 'Animal violence language: "leech off". Species-as-parasite trope. ''Freeload'' or ''mooch'' is direct. (Bare ''leech'' in medical contexts — leeches are still used in some surgeries — is not flagged.) Consider: "freeload", "mooch", "exploit", "parasitic" (autofix available).'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'freeload'
+    reason: 'Species-as-parasite trope. ''Freeload'' or ''mooch'' is direct. (Bare ''leech'' in medical contexts — leeches are still used in some surgeries — is not flagged.)'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.monkey-business
+  pattern-regex: 'monkey\s+business|monkey(s|ing|ed)?\s+around|(make|makes|making|made)\s+a\s+monkey\s+of'
+  message: 'Animal violence language: "monkey business". Primate-as-foolish stereotype with a long racial history. ''Mischief'' or ''fool around'' is direct and doesn''t carry the baggage. Consider: "mischief", "fool around", "tamper with", "make a fool of" (autofix available).'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'mischief'
+    reason: 'Primate-as-foolish stereotype with a long racial history. ''Mischief'' or ''fool around'' is direct and doesn''t carry the baggage.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.not-my-monkeys
+  pattern-regex: 'not\s+my\s+(circus[,]?\s+not\s+my\s+monkeys?|monkeys?|circus)'
+  message: 'Animal violence language: "not my circus, not my monkeys". Direct reference to circus-animal exploitation. ''Not my problem'' carries the same meaning. Consider: "not my problem", "not my concern", "not my mess to clean up".'
+  languages:
+  - generic
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'not my problem'
+    reason: 'Direct reference to circus-animal exploitation. ''Not my problem'' carries the same meaning.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.bird-brain
+  pattern-regex: '\b(?:bird[\s-]?brain(ed)?)\b'
+  message: 'Animal violence language: "bird brain". Bird-as-stupid stereotype (corvids and parrots rank among the most cognitively sophisticated non-human animals). ''Forgetful'' or ''absent-minded'' is more accurate. Consider: "forgetful", "absent-minded", "scatter-brained".'
+  languages:
+  - generic
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'forgetful'
+    reason: 'Bird-as-stupid stereotype (corvids and parrots rank among the most cognitively sophisticated non-human animals). ''Forgetful'' or ''absent-minded'' is more accurate.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.foie-gras
+  pattern-regex: 'foie[\s-]gras'
+  message: 'Animal violence language: "foie gras". French for ''fat liver''; obscures that the product comes from force-feeding ducks or geese until their livers enlarge to ten times normal size. Name the process. Consider: "force-fed duck liver", "force-fed goose liver" (autofix available).'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'force-fed duck liver'
+    reason: 'French for ''fat liver''; obscures that the product comes from force-feeding ducks or geese until their livers enlarge to ten times normal size. Name the process.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.chevon
+  pattern-regex: '\b(?:chevon)\b'
+  message: 'Animal violence language: "chevon". Marketing-constructed word (coined in the 1920s) to make goat meat palatable to Anglophone consumers. ''Goat flesh'' or ''goat meat'' is accurate. Consider: "goat flesh", "goat meat" (autofix available).'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'goat flesh'
+    reason: 'Marketing-constructed word (coined in the 1920s) to make goat meat palatable to Anglophone consumers. ''Goat flesh'' or ''goat meat'' is accurate.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.sweetbread
+  pattern-regex: '\b(?:sweetbreads?)\b'
+  message: 'Animal violence language: "sweetbread". Opaque culinary term for calf or lamb thymus or pancreas. Naming the organ is clearer. (Suppressed in recipe/cooking contexts.) Consider: "calf thymus", "calf pancreas", "lamb thymus".'
+  languages:
+  - generic
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'calf thymus'
+    reason: 'Opaque culinary term for calf or lamb thymus or pancreas. Naming the organ is clearer. (Suppressed in recipe/cooking contexts.)'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.mutton
+  pattern-regex: '\b(?:mutton)\b'
+  message: 'Animal violence language: "mutton". ''Mutton'' obscures the species. ''Sheep flesh'' names it. (Suppressed in recipe contexts.) Consider: "sheep flesh", "sheep meat".'
+  languages:
+  - generic
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'sheep flesh'
+    reason: '''Mutton'' obscures the species. ''Sheep flesh'' names it. (Suppressed in recipe contexts.)'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.venison
+  pattern-regex: '\b(?:venison)\b'
+  message: 'Animal violence language: "venison". ''Venison'' obscures the species. ''Deer flesh'' names it. (Suppressed in recipe or hunting-regulation contexts.) Consider: "deer flesh", "deer meat".'
+  languages:
+  - generic
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'deer flesh'
+    reason: '''Venison'' obscures the species. ''Deer flesh'' names it. (Suppressed in recipe or hunting-regulation contexts.)'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.squab
+  pattern-regex: '\b(?:squabs?)\b'
+  message: 'Animal violence language: "squab". Marketing term for young pigeon raised for slaughter. ''Pigeon flesh'' names what it is. (Suppressed in recipe contexts.) Consider: "pigeon flesh", "young pigeon meat".'
+  languages:
+  - generic
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'pigeon flesh'
+    reason: 'Marketing term for young pigeon raised for slaughter. ''Pigeon flesh'' names what it is. (Suppressed in recipe contexts.)'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.spare-ribs
+  pattern-regex: '\b(?:spare[\s-]?ribs)\b'
+  message: 'Animal violence language: "spare ribs". ''Spare'' frames body parts as disposable/extra. ''Pig ribs'' is accurate. (Suppressed in recipe/BBQ contexts.) Consider: "pig ribs".'
+  languages:
+  - generic
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'pig ribs'
+    reason: '''Spare'' frames body parts as disposable/extra. ''Pig ribs'' is accurate. (Suppressed in recipe/BBQ contexts.)'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.leather-product
+  pattern-regex: '\b(?:(genuine|real|top[\s-]grain|full[\s-]grain)?\s*leather)\b'
+  message: 'Animal violence language: "leather". ''Leather'' obscures that the material is the skin of a killed cow (or pig, sheep, etc.). In advocacy or supply-chain writing, naming it is clearer. Suppressed in fashion/product contexts where the industry term is expected. Consider: "cow skin", "animal skin", "vegan leather", "synthetic leather", "plant leather".'
+  languages:
+  - generic
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'cow skin'
+    reason: '''Leather'' obscures that the material is the skin of a killed cow (or pig, sheep, etc.). In advocacy or supply-chain writing, naming it is clearer. Suppressed in fashion/product contexts where the industry term is expected.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.wool-product
+  pattern-regex: '\b(?:(merino\s+|lambs)?wool)\b'
+  message: 'Animal violence language: "wool". ''Wool'' obscures that the fiber is sheep hair, usually from sheep bred for extreme coat yields (mulesing, shearing injury, eventual slaughter). Advocacy writing names it directly. Suppressed in textile/fashion contexts. Consider: "sheep hair", "synthetic fiber", "plant fiber".'
+  languages:
+  - generic
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'sheep hair'
+    reason: '''Wool'' obscures that the fiber is sheep hair, usually from sheep bred for extreme coat yields (mulesing, shearing injury, eventual slaughter). Advocacy writing names it directly. Suppressed in textile/fashion contexts.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.down-feathers
+  pattern-regex: 'down\s+(feathers|jacket|comforter|pillow|filling)|(goose|duck)\s+down'
+  message: 'Animal violence language: "down feathers". Down is plucked from ducks and geese, often while alive and distressed. ''Plant-based insulation'' or ''synthetic fill'' describes the alternative. Bare ''down'' (direction) is NOT flagged — only product compounds. Consider: "plant-based insulation", "synthetic fill", "recycled fill".'
+  languages:
+  - generic
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'plant-based insulation'
+    reason: 'Down is plucked from ducks and geese, often while alive and distressed. ''Plant-based insulation'' or ''synthetic fill'' describes the alternative. Bare ''down'' (direction) is NOT flagged — only product compounds.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.cashmere-mohair-angora
+  pattern-regex: '\b(?:cashmere|mohair|angora)\b'
+  message: 'Animal violence language: "cashmere". Luxury-marketing names that obscure the animal source. Cashmere and mohair come from goats; angora comes from rabbits (who are often plucked live and injured). Naming the species is clearer in advocacy writing. Consider: "goat hair", "rabbit hair", "recycled fiber", "synthetic alternative".'
+  languages:
+  - generic
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'goat hair'
+    reason: 'Luxury-marketing names that obscure the animal source. Cashmere and mohair come from goats; angora comes from rabbits (who are often plucked live and injured). Naming the species is clearer in advocacy writing.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.silk-product
+  pattern-regex: '\b(?:(pure\s+|mulberry\s+|raw\s+)?silk)\b'
+  message: 'Animal violence language: "silk". Silk production typically requires boiling silkworms alive inside their cocoons to prevent the thread from breaking. Peace silk, plant silk, and synthetics avoid this. Suppressed in textile/fashion contexts. Consider: "plant silk", "peace silk", "synthetic silk", "recycled fiber".'
+  languages:
+  - generic
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'plant silk'
+    reason: 'Silk production typically requires boiling silkworms alive inside their cocoons to prevent the thread from breaking. Peace silk, plant silk, and synthetics avoid this. Suppressed in textile/fashion contexts.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.royal-jelly-beeswax
+  pattern-regex: 'royal\s+jelly|beeswax|propolis'
+  message: 'Animal violence language: "royal jelly". Bee products are extracted through industrial beekeeping, which involves queen-clipping, smoke stressing, and often the destruction of hives. Plant-based waxes (candelilla, carnauba, soy) serve most of the same purposes. Consider: "plant alternative", "candelilla wax", "carnauba wax", "soy wax".'
+  languages:
+  - generic
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'plant alternative'
+    reason: 'Bee products are extracted through industrial beekeeping, which involves queen-clipping, smoke stressing, and often the destruction of hives. Plant-based waxes (candelilla, carnauba, soy) serve most of the same purposes.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.downed-animal
+  pattern-regex: 'down(ed|er)\s+(animal|cow|cattle|pig)s?'
+  message: 'Animal violence language: "downed animal". ''Downed'' uses passive voice to elide why the animal is on the ground — untreated injury or illness in transport or on the farm. ''Too sick to walk'' names the condition. Consider: "animal too sick or injured to walk", "collapsed animal" (autofix available).'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'animal too sick or injured to walk'
+    reason: '''Downed'' uses passive voice to elide why the animal is on the ground — untreated injury or illness in transport or on the farm. ''Too sick to walk'' names the condition.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.forced-insemination
+  pattern-regex: '(artificial|forced)\s+insemination|AI\s+in\s+(cattle|cows|dairy|pigs|sheep|swine)'
+  message: 'Animal violence language: "artificial insemination". Industry-standard procedure involving restraint and reproductive invasion. ''Forced impregnation'' is the accurate term when the animal cannot consent. (The bare abbreviation ''AI'' is not flagged — too much overlap with artificial intelligence. The rule fires only on the specific animal-ag compounds.) Consider: "forced impregnation".'
+  languages:
+  - generic
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'forced impregnation'
+    reason: 'Industry-standard procedure involving restraint and reproductive invasion. ''Forced impregnation'' is the accurate term when the animal cannot consent. (The bare abbreviation ''AI'' is not flagged — too much overlap with artificial intelligence. The rule fires only on the specific animal-ag compounds.)'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.farrowing-as-process
+  pattern-regex: '\b(?:farrow(ing|ed))\b'
+  message: 'Animal violence language: "farrowing". Industry verb that erases the individual animal giving birth. ''Giving birth'' is the plain-language version. (The compound ''farrowing crate'' is flagged by its own rule.) Consider: "giving birth (for pigs)", "piglet-birthing".'
+  languages:
+  - generic
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'giving birth (for pigs)'
+    reason: 'Industry verb that erases the individual animal giving birth. ''Giving birth'' is the plain-language version. (The compound ''farrowing crate'' is flagged by its own rule.)'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.live-export
+  pattern-regex: 'live\s+(export(s|ing)?|transport|shipment)'
+  message: 'Animal violence language: "live export". Industry term for loading animals onto ships or trucks for days-to-weeks journeys to overseas slaughter. ''Transport to slaughter'' names the destination. Consider: "transport to slaughter", "export for slaughter" (autofix available).'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'transport to slaughter'
+    reason: 'Industry term for loading animals onto ships or trucks for days-to-weeks journeys to overseas slaughter. ''Transport to slaughter'' names the destination.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.meat-industry-self-naming
+  pattern-regex: '(pork|beef|dairy|poultry|veal|egg)\s+industry'
+  message: 'Animal violence language: "pork industry". Each term names the product rather than the species it comes from. Naming the species (e.g. ''pig-flesh industry'') makes the supply chain visible. Low priority — use in advocacy writing, not general documentation. Consider: "pig-flesh industry", "cow-flesh industry", "cow-milk industry", "chicken-flesh industry".'
+  languages:
+  - generic
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'pig-flesh industry'
+    reason: 'Each term names the product rather than the species it comes from. Naming the species (e.g. ''pig-flesh industry'') makes the supply chain visible. Low priority — use in advocacy writing, not general documentation.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.trophy-hunting
+  pattern-regex: 'trophy\s+(hunt(ing|er|ers)?|kill(s)?)'
+  message: 'Animal violence language: "trophy hunting". Frames a killed animal as an achievement to be displayed. ''Killing for display'' or ''recreational killing'' names the activity. Consider: "killing for display", "recreational killing" (autofix available).'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'killing for display'
+    reason: 'Frames a killed animal as an achievement to be displayed. ''Killing for display'' or ''recreational killing'' names the activity.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.big-game-hunter
+  pattern-regex: 'big[\s-]game\s+hunt(ing|er|ers)?'
+  message: 'Animal violence language: "big-game hunter". ''Big game'' frames large wild animals as sport objects existing for human recreation. ''Large-animal hunter'' names it; better still, name the species (elephant, lion, rhino). Consider: "large-animal hunter", "elephant/lion/rhino hunter" (autofix available).'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'large-animal hunter'
+    reason: '''Big game'' frames large wild animals as sport objects existing for human recreation. ''Large-animal hunter'' names it; better still, name the species (elephant, lion, rhino).'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.sport-fishing
+  pattern-regex: 'sport[\s]?fishing|recreational\s+fishing|game\s+fishing'
+  message: 'Animal violence language: "sport fishing". ''Sport'' frames killing fish as leisure. In contexts critical of the activity, ''recreational killing of fish'' is accurate. (In neutral angling-industry writing, the scanner adds noise; tune the context or disable in those files.) Consider: "recreational fishing (if literal)", "recreational killing of fish".'
+  languages:
+  - generic
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'recreational fishing (if literal)'
+    reason: '''Sport'' frames killing fish as leisure. In contexts critical of the activity, ''recreational killing of fish'' is accurate. (In neutral angling-industry writing, the scanner adds noise; tune the context or disable in those files.)'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.catch-and-release
+  pattern-regex: 'catch[\s-]and[\s-]release'
+  message: 'Animal violence language: "catch and release". Frames hook injury, exhaustion, and stress as harmless. Studies show significant post-release mortality, especially for species caught from deep water. ''Capture and release'' is more neutral. Consider: "capture and release", "captured and released (with injury)".'
+  languages:
+  - generic
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'capture and release'
+    reason: 'Frames hook injury, exhaustion, and stress as harmless. Studies show significant post-release mortality, especially for species caught from deep water. ''Capture and release'' is more neutral.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.thin-the-herd
+  pattern-regex: 'thin(s|ning|ned)?\s+(out\s+)?the\s+herd'
+  message: 'Animal violence language: "thin the herd". Culling euphemism that softens ''kill off selected animals.'' ''Kill off'' says it directly. Consider: "reduce numbers by killing", "kill off".'
+  languages:
+  - generic
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'reduce numbers by killing'
+    reason: 'Culling euphemism that softens ''kill off selected animals.'' ''Kill off'' says it directly.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.humane-trap-removal
+  pattern-regex: 'humane\s+(traps?|removal|control)'
+  message: 'Animal violence language: "humane trap". ''Humane'' sanitizes the practice. Say whether it''s lethal or non-lethal directly — ''non-lethal trap'' is clearer and testable. Consider: "non-lethal trap", "non-lethal removal", "live-catch trap".'
+  languages:
+  - generic
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'non-lethal trap'
+    reason: '''Humane'' sanitizes the practice. Say whether it''s lethal or non-lethal directly — ''non-lethal trap'' is clearer and testable.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.lethal-control
+  pattern-regex: 'lethal\s+(removal|control|management)'
+  message: 'Animal violence language: "lethal removal". Bureaucratic language for killing programs. ''Killing program'' says it plainly. Consider: "killing program", "culling program" (autofix available).'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'killing program'
+    reason: 'Bureaucratic language for killing programs. ''Killing program'' says it plainly.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.fur-facility
+  pattern-regex: '(fur|mink|fox)\s+(farms?|ranch(es)?)'
+  message: 'Animal violence language: "fur farm". ''Farm'' or ''ranch'' evokes pastoral imagery; these are intensive confinement facilities where animals live in wire cages before being gassed or electrocuted. Name them directly. Consider: "mink confinement facility", "fox confinement facility", "fur-industry facility" (autofix available).'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'mink confinement facility'
+    reason: '''Farm'' or ''ranch'' evokes pastoral imagery; these are intensive confinement facilities where animals live in wire cages before being gassed or electrocuted. Name them directly.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.fur-bearing-animal
+  pattern-regex: 'fur[\s-]bearing\s+animals?'
+  message: 'Animal violence language: "fur-bearing animal". Defines wild animals by a human use. Naming the species (foxes, minks, coyotes, bobcats, chinchillas) is clearer. Consider: "named species", "fur-industry species".'
+  languages:
+  - generic
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'named species'
+    reason: 'Defines wild animals by a human use. Naming the species (foxes, minks, coyotes, bobcats, chinchillas) is clearer.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.bycatch
+  pattern-regex: '\b(?:by[\s-]?catch)\b'
+  message: 'Animal violence language: "bycatch". Neutralizes the massive incidental killing of non-target marine species — hundreds of thousands of dolphins, sea turtles, seabirds, and sharks each year. ''Incidental killing'' names it. Consider: "incidental killing", "non-target marine deaths" (autofix available).'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'incidental killing'
+    reason: 'Neutralizes the massive incidental killing of non-target marine species — hundreds of thousands of dolphins, sea turtles, seabirds, and sharks each year. ''Incidental killing'' names it.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.fish-stocks
+  pattern-regex: 'fish(ery)?\s+stocks?'
+  message: 'Animal violence language: "fish stocks". Commodity framing of marine life as a renewable resource. ''Fish populations'' is neutral and accurate. Consider: "fish populations", "wild fish numbers".'
+  languages:
+  - generic
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'fish populations'
+    reason: 'Commodity framing of marine life as a renewable resource. ''Fish populations'' is neutral and accurate.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.aquaculture
+  pattern-regex: '\b(?:aquaculture|fish\s+farming)\b'
+  message: 'Animal violence language: "aquaculture". Neutral-sounding framing for intensive fish confinement and slaughter. In advocacy writing, ''industrial fish farming'' is more accurate. Consider: "industrial fish farming", "intensive fish confinement".'
+  languages:
+  - generic
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'industrial fish farming'
+    reason: 'Neutral-sounding framing for intensive fish confinement and slaughter. In advocacy writing, ''industrial fish farming'' is more accurate.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.cry-wolf
+  pattern-regex: 'cr(y|ied|ying|ies)\s+wolf'
+  message: 'Animal violence language: "cry wolf". Rooted in Aesop''s fable, the phrase reinforces the wolf-as-menace framing that has driven centuries of wolf persecution. ''Raise false alarms'' captures the meaning. Consider: "raise false alarms", "create alert fatigue", "sound unjustified alerts".'
+  languages:
+  - generic
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'raise false alarms'
+    reason: 'Rooted in Aesop''s fable, the phrase reinforces the wolf-as-menace framing that has driven centuries of wolf persecution. ''Raise false alarms'' captures the meaning.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.pecking-order
+  pattern-regex: 'pecking\s+orders?'
+  message: 'Animal violence language: "pecking order". Derived from the actual behavior of hens in confinement, where crowding causes injurious pecking. ''Hierarchy'' or ''chain of command'' captures the same idea. Consider: "hierarchy", "chain of command", "ranking" (autofix available).'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'hierarchy'
+    reason: 'Derived from the actual behavior of hens in confinement, where crowding causes injurious pecking. ''Hierarchy'' or ''chain of command'' captures the same idea.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.play-cat-and-mouse
+  pattern-regex: 'play(s|ing|ed)?\s+cat\s+and\s+mouse|(cat\s+and\s+mouse\s+game|game\s+of\s+cat\s+and\s+mouse)'
+  message: 'Animal violence language: "play cat and mouse". Predator-prey torture metaphor — the game is about prolonging the suffering. ''Drawn-out pursuit'' captures the meaning. Consider: "drawn-out pursuit", "back-and-forth chase", "evasive pursuit" (autofix available).'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'drawn-out pursuit'
+    reason: 'Predator-prey torture metaphor — the game is about prolonging the suffering. ''Drawn-out pursuit'' captures the meaning.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.cat-who-swallowed-canary
+  pattern-regex: 'cat\s+(that|who)\s+(swallowed|ate)\s+the\s+canary|canary[\s-]eating\s+grin'
+  message: 'Animal violence language: "cat that swallowed the canary". Predation imagery — a dead canary is the joke''s punchline. ''Smug with secret knowledge'' captures it. Consider: "smug with secret knowledge", "self-satisfied grin" (autofix available).'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'smug with secret knowledge'
+    reason: 'Predation imagery — a dead canary is the joke''s punchline. ''Smug with secret knowledge'' captures it.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.chomping-at-the-bit
+  pattern-regex: '(chomping|champing|chomps|champs)\s+at\s+the\s+bit'
+  message: 'Animal violence language: "chomping at the bit". References the metal ''bit'' forced into a horse''s mouth; the phrase describes the horse''s attempt to relieve it. ''Eager to start'' says the same thing. Consider: "eager to start", "impatient to begin", "raring to go".'
+  languages:
+  - generic
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'eager to start'
+    reason: 'References the metal ''bit'' forced into a horse''s mouth; the phrase describes the horse''s attempt to relieve it. ''Eager to start'' says the same thing.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.whip-into-shape
+  pattern-regex: 'whip(s|ped|ping)?\s+into\s+shape'
+  message: 'Animal violence language: "whip into shape". Whip-violence imagery from animal training. ''Get organized'' or ''restore order'' is direct. (Political ''whip'' and culinary ''whip'' — different usage — are suppressed.) Consider: "get organized", "demand discipline", "restore order".'
+  languages:
+  - generic
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'get organized'
+    reason: 'Whip-violence imagery from animal training. ''Get organized'' or ''restore order'' is direct. (Political ''whip'' and culinary ''whip'' — different usage — are suppressed.)'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.whale-on
+  pattern-regex: 'whal(e|es|ing|ed)\s+on'
+  message: 'Animal violence language: "whale on". Whaling (whale slaughter) as metaphor for repeated hitting. ''Pummel'' or ''hammer'' is direct. Consider: "pummel", "beat up", "hammer" (autofix available).'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'pummel'
+    reason: 'Whaling (whale slaughter) as metaphor for repeated hitting. ''Pummel'' or ''hammer'' is direct.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.fish-or-cut-bait
+  pattern-regex: 'fish\s+or\s+cut\s+bait'
+  message: 'Animal violence language: "fish or cut bait". Fishing imagery. ''Decide'' or ''commit or move on'' is direct. Consider: "decide", "commit or move on".'
+  languages:
+  - generic
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'decide'
+    reason: 'Fishing imagery. ''Decide'' or ''commit or move on'' is direct.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.pull-rabbit-out-of-hat
+  pattern-regex: 'pull(s|ing|ed)?\s+a\s+rabbit\s+out\s+of\s+a\s+hat'
+  message: 'Animal violence language: "pull a rabbit out of a hat". Stage magic often uses live rabbits kept in distressing conditions. ''Magically solve'' or ''produce unexpectedly'' carries the meaning without referencing the practice. Consider: "pull a coin out of an ear", "magically solve", "produce unexpectedly".'
+  languages:
+  - generic
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'pull a coin out of an ear'
+    reason: 'Stage magic often uses live rabbits kept in distressing conditions. ''Magically solve'' or ''produce unexpectedly'' carries the meaning without referencing the practice.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.walking-on-eggshells
+  pattern-regex: 'walk(s|ing|ed)?\s+on\s+eggshells'
+  message: 'Animal violence language: "walking on eggshells". Commodifies eggs as fragile objects; erases the laying-hen origin. ''Walking on thin ice'' carries the same meaning. Consider: "walking on thin ice", "treading carefully", "being extra cautious".'
+  languages:
+  - generic
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'walking on thin ice'
+    reason: 'Commodifies eggs as fragile objects; erases the laying-hen origin. ''Walking on thin ice'' carries the same meaning.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.put-a-horse-out-of-misery
+  pattern-regex: 'put\s+(a|the)\s+\S+\s+out\s+of\s+(its|their|the)\s+misery|put\s+(it|them)\s+out\s+of\s+(its|their)\s+misery|put\s+out\s+of\s+(its|their|the)\s+misery'
+  message: 'Animal violence language: "put a horse out of its misery". Horse-killing idiom. ''End the suffering'' carries the same meaning without the imagery. Consider: "end the suffering", "end it mercifully", "conclude a painful situation".'
+  languages:
+  - generic
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'end the suffering'
+    reason: 'Horse-killing idiom. ''End the suffering'' carries the same meaning without the imagery.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.kill-the-fatted-calf
+  pattern-regex: 'kill(ing)?\s+the\s+fatted\s+calf'
+  message: 'Animal violence language: "kill the fatted calf". Biblical animal-sacrifice imagery (Luke 15 — the Prodigal Son). ''Celebrate grandly'' or ''roll out the red carpet'' carries the same meaning. Consider: "celebrate grandly", "roll out the red carpet", "prepare a feast".'
+  languages:
+  - generic
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'celebrate grandly'
+    reason: 'Biblical animal-sacrifice imagery (Luke 15 — the Prodigal Son). ''Celebrate grandly'' or ''roll out the red carpet'' carries the same meaning.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.lemming-investor
+  pattern-regex: '(acting\s+like\s+lemmings|lemming\s+(investor|investors|behavior)|like\s+lemmings)'
+  message: 'Animal violence language: "acting like lemmings". Based on a Disney hoax — the 1958 ''White Wilderness'' staged lemmings being driven off a cliff. Lemmings don''t mass-suicide. The metaphor defames the species and misleads the reader. Consider: "herd-following investor", "unquestioning crowd", "uncritical followers".'
+  languages:
+  - generic
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'herd-following investor'
+    reason: 'Based on a Disney hoax — the 1958 ''White Wilderness'' staged lemmings being driven off a cliff. Lemmings don''t mass-suicide. The metaphor defames the species and misleads the reader.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.maggot-insult
+  pattern-regex: '(you|little|filthy|dirty)\s+maggots?'
+  message: 'Animal violence language: "you maggot". Degrading insect insult. Most uses in documentation are quoting dialogue or user-generated content; otherwise, use a specific descriptor. Consider: "specific descriptor" (autofix available).'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'specific descriptor'
+    reason: 'Degrading insect insult. Most uses in documentation are quoting dialogue or user-generated content; otherwise, use a specific descriptor.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.swine-pejorative
+  pattern-regex: '(filthy|dirty|you|capitalist|fascist|bourgeois)\s+swine'
+  message: 'Animal violence language: "filthy swine". Pig-as-degraded pejorative. Naming the actual trait (greedy, exploitative, corrupt) is clearer. (Bare ''swine'' in medical contexts like ''swine flu'' is not flagged.) Consider: "specific descriptor".'
+  languages:
+  - generic
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'specific descriptor'
+    reason: 'Pig-as-degraded pejorative. Naming the actual trait (greedy, exploitative, corrupt) is clearer. (Bare ''swine'' in medical contexts like ''swine flu'' is not flagged.)'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.cat-fight
+  pattern-regex: '\b(?:cat[\s-]?fights?)\b'
+  message: 'Animal violence language: "cat fight". Gendered insult — almost exclusively applied to women arguing, framing them as cats fighting. ''Heated argument'' or ''altercation'' is neutral. Consider: "heated argument", "altercation", "confrontation" (autofix available).'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'heated argument'
+    reason: 'Gendered insult — almost exclusively applied to women arguing, framing them as cats fighting. ''Heated argument'' or ''altercation'' is neutral.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.humans-and-animals
+  pattern-regex: '(humans?\s+and\s+animals|animals\s+and\s+(humans?|people)|people\s+and\s+animals|man\s+and\s+beast)'
+  message: 'Animal violence language: "humans and animals". False dichotomy — humans ARE animals. The phrasing reproduces the speciesist framing animal-liberation writing opposes. ''Humans and other animals'' preserves the meaning accurately. Consider: "humans and non-human animals", "humans and other animals", "people and other animals".'
+  languages:
+  - generic
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'humans and non-human animals'
+    reason: 'False dichotomy — humans ARE animals. The phrasing reproduces the speciesist framing animal-liberation writing opposes. ''Humans and other animals'' preserves the meaning accurately.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.pet-owner
+  pattern-regex: '(pet|dog|cat|rabbit|bird)\s+owners?'
+  message: 'Animal violence language: "pet owner". Property framing — ''owner'' treats sentient beings as possessions. ''Guardian'' preserves the legal and caregiving relationship without the property connotation. Used in legal reform jurisdictions (e.g. Boulder CO, West Hollywood) since the early 2000s. Consider: "pet guardian", "dog guardian", "cat guardian", "human companion".'
+  languages:
+  - generic
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'pet guardian'
+    reason: 'Property framing — ''owner'' treats sentient beings as possessions. ''Guardian'' preserves the legal and caregiving relationship without the property connotation. Used in legal reform jurisdictions (e.g. Boulder CO, West Hollywood) since the early 2000s.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.own-a-pet
+  pattern-regex: 'own(s|ing|ed)?\s+a\s+(pet|dog|cat|rabbit|bird)'
+  message: 'Animal violence language: "own a pet". Property framing applied to companion animals. ''Live with a dog'' or ''share a home with a cat'' captures the relationship without the ownership frame. Consider: "live with a companion animal", "share a home with", "care for a".'
+  languages:
+  - generic
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'live with a companion animal'
+    reason: 'Property framing applied to companion animals. ''Live with a dog'' or ''share a home with a cat'' captures the relationship without the ownership frame.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
