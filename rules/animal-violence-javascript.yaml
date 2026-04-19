@@ -7,7 +7,7 @@ rules:
   - metavariable-regex:
       metavariable: $S
       regex: '.*kill\s+two\s+birds\s+with\s+one\s+stone.*'
-  message: 'Animal violence language in string: "kill two birds with one stone". Consider: "accomplish two things at once", "solve two problems with one action", "hit two targets with one shot" (autofix available).'
+  message: 'Animal violence language in string: "kill two birds with one stone". This phrase frames killing animals as a routine way to solve a problem. Plain alternatives like ''accomplish two things at once'' carry the same meaning without invoking harm. Consider: "accomplish two things at once", "solve two problems with one action", "hit two targets with one shot" (autofix available).'
   languages:
   - javascript
   - typescript
@@ -16,6 +16,7 @@ rules:
     category: inclusive-language
     subcategory: animal-violence
     alternative: 'accomplish two things at once'
+    reason: 'This phrase frames killing animals as a routine way to solve a problem. Plain alternatives like ''accomplish two things at once'' carry the same meaning without invoking harm.'
   fix-regex:
     regex: 'kill\s+two\s+birds\s+with\s+one\s+stone'
     replacement: 'accomplish two things at once'
@@ -25,7 +26,7 @@ rules:
   - metavariable-regex:
       metavariable: $S
       regex: '.*beat(ing)?\s+a\s+dead\s+horse.*'
-  message: 'Animal violence language in string: "beat a dead horse". Consider: "belabor the point", "go over old ground", "repeat unnecessarily" (autofix available).'
+  message: 'Animal violence language in string: "beat a dead horse". This phrase uses an image of striking an animal''s body as a metaphor for wasted effort. ''Belabor the point'' is clearer and skips the imagery. Consider: "belabor the point", "go over old ground", "repeat unnecessarily" (autofix available).'
   languages:
   - javascript
   - typescript
@@ -34,16 +35,17 @@ rules:
     category: inclusive-language
     subcategory: animal-violence
     alternative: 'belabor the point'
+    reason: 'This phrase uses an image of striking an animal''s body as a metaphor for wasted effort. ''Belabor the point'' is clearer and skips the imagery.'
   fix-regex:
     regex: 'beat(ing)?\s+a\s+dead\s+horse'
     replacement: 'belabor the point'
-- id: animal-violence.javascript.string.more-than-one-way-to-skin-a-cat
+- id: animal-violence.javascript.string.skin-a-cat
   patterns:
   - pattern: $S
   - metavariable-regex:
       metavariable: $S
-      regex: '.*(?:more\s+than\s+one|many|other)\s+ways?\s+to\s+skin\s+a\s+cat.*'
-  message: 'Animal violence language in string: "more than one way to skin a cat". Consider: "more than one way to solve this", "multiple approaches available", "several ways to accomplish this" (autofix available).'
+      regex: '.*(more\s+than\s+one|another|different|several)\s+way[s]?\s+to\s+skin\s+a\s+cat.*'
+  message: 'Animal violence language in string: "more than one way to skin a cat". Cat skinning as a metaphor for having options. ''Multiple approaches available'' or ''more than one way to peel an orange'' carries the same meaning. Consider: "more than one way to peel an orange", "multiple approaches available", "several ways to do this" (autofix available).'
   languages:
   - javascript
   - typescript
@@ -51,17 +53,18 @@ rules:
   metadata:
     category: inclusive-language
     subcategory: animal-violence
-    alternative: 'more than one way to solve this'
+    alternative: 'more than one way to peel an orange'
+    reason: 'Cat skinning as a metaphor for having options. ''Multiple approaches available'' or ''more than one way to peel an orange'' carries the same meaning.'
   fix-regex:
-    regex: '(?:more\s+than\s+one|many|other)\s+ways?\s+to\s+skin\s+a\s+cat'
-    replacement: 'more than one way to solve this'
+    regex: '(more\s+than\s+one|another|different|several)\s+way[s]?\s+to\s+skin\s+a\s+cat'
+    replacement: 'more than one way to peel an orange'
 - id: animal-violence.javascript.string.let-the-cat-out-of-the-bag
   patterns:
   - pattern: $S
   - metavariable-regex:
       metavariable: $S
       regex: '.*let\s+the\s+cat\s+out\s+of\s+the\s+bag.*'
-  message: 'Animal violence language in string: "let the cat out of the bag". Consider: "reveal the secret", "disclose prematurely", "let it slip".'
+  message: 'Animal violence language in string: "let the cat out of the bag". Traced to fraudulent livestock markets and implies trapping animals. ''Reveal the secret'' says the same thing more directly. Consider: "reveal the secret", "disclose prematurely", "let it slip".'
   languages:
   - javascript
   - typescript
@@ -70,13 +73,14 @@ rules:
     category: inclusive-language
     subcategory: animal-violence
     alternative: 'reveal the secret'
+    reason: 'Traced to fraudulent livestock markets and implies trapping animals. ''Reveal the secret'' says the same thing more directly.'
 - id: animal-violence.javascript.string.open-a-can-of-worms
   patterns:
   - pattern: $S
   - metavariable-regex:
       metavariable: $S
       regex: '.*open(ing)?\s+a\s+can\s+of\s+worms.*'
-  message: 'Animal violence language in string: "open a can of worms". Consider: "create a complicated situation", "uncover hidden problems", "open Pandora''s box".'
+  message: 'Animal violence language in string: "open a can of worms". References worms packaged as live bait to catch and kill fish. ''Open a difficult topic'' or ''uncover hidden problems'' is more precise. Consider: "create a complicated situation", "uncover hidden problems", "open Pandora''s box".'
   languages:
   - javascript
   - typescript
@@ -85,13 +89,14 @@ rules:
     category: inclusive-language
     subcategory: animal-violence
     alternative: 'create a complicated situation'
+    reason: 'References worms packaged as live bait to catch and kill fish. ''Open a difficult topic'' or ''uncover hidden problems'' is more precise.'
 - id: animal-violence.javascript.string.wild-goose-chase
   patterns:
   - pattern: $S
   - metavariable-regex:
       metavariable: $S
       regex: '.*wild\s+goose\s+chase.*'
-  message: 'Animal violence language in string: "wild goose chase". Consider: "futile search", "pointless pursuit", "fool''s errand".'
+  message: 'Animal violence language in string: "wild goose chase". Casts pursuing a living bird as a pointless annoyance. ''Futile search'' or ''fool''s errand'' says the same thing without the hunting framing. Consider: "futile search", "pointless pursuit", "fool''s errand".'
   languages:
   - javascript
   - typescript
@@ -100,13 +105,14 @@ rules:
     category: inclusive-language
     subcategory: animal-violence
     alternative: 'futile search'
-- id: animal-violence.javascript.string.like-shooting-fish-in-a-barrel
+    reason: 'Casts pursuing a living bird as a pointless annoyance. ''Futile search'' or ''fool''s errand'' says the same thing without the hunting framing.'
+- id: animal-violence.javascript.string.shooting-fish-in-a-barrel
   patterns:
   - pattern: $S
   - metavariable-regex:
       metavariable: $S
-      regex: '.*like\s+shooting\s+fish\s+in\s+a\s+barrel.*'
-  message: 'Animal violence language in string: "like shooting fish in a barrel". Consider: "trivially easy", "like taking candy from a baby", "effortless" (autofix available).'
+      regex: '.*(like\s+)?shoot(ing)?\s+fish\s+in\s+a\s+barrel.*'
+  message: 'Animal violence language in string: "shooting fish in a barrel". Mass-killing imagery used to mean ''easy.'' ''Trivially easy'' or ''a sure thing'' says the same thing without it. Consider: "trivially easy", "a sure thing", "no challenge at all" (autofix available).'
   languages:
   - javascript
   - typescript
@@ -115,8 +121,9 @@ rules:
     category: inclusive-language
     subcategory: animal-violence
     alternative: 'trivially easy'
+    reason: 'Mass-killing imagery used to mean ''easy.'' ''Trivially easy'' or ''a sure thing'' says the same thing without it.'
   fix-regex:
-    regex: 'like\s+shooting\s+fish\s+in\s+a\s+barrel'
+    regex: '(like\s+)?shoot(ing)?\s+fish\s+in\s+a\s+barrel'
     replacement: 'trivially easy'
 - id: animal-violence.javascript.string.flog-a-dead-horse
   patterns:
@@ -124,7 +131,7 @@ rules:
   - metavariable-regex:
       metavariable: $S
       regex: '.*flog(ging)?\s+a\s+dead\s+horse.*'
-  message: 'Animal violence language in string: "flog a dead horse". Consider: "belabor the point", "waste effort on a settled matter", "repeat unnecessarily" (autofix available).'
+  message: 'Animal violence language in string: "flog a dead horse". Describes whipping an animal''s corpse — the same image as ''beat a dead horse''. ''Belabor the point'' is a direct replacement. Consider: "belabor the point", "waste effort on a settled matter", "repeat unnecessarily" (autofix available).'
   languages:
   - javascript
   - typescript
@@ -133,16 +140,17 @@ rules:
     category: inclusive-language
     subcategory: animal-violence
     alternative: 'belabor the point'
+    reason: 'Describes whipping an animal''s corpse — the same image as ''beat a dead horse''. ''Belabor the point'' is a direct replacement.'
   fix-regex:
     regex: 'flog(ging)?\s+a\s+dead\s+horse'
     replacement: 'belabor the point'
-- id: animal-violence.javascript.string.there-are-bigger-fish-to-fry
+- id: animal-violence.javascript.string.bigger-fish-to-fry
   patterns:
   - pattern: $S
   - metavariable-regex:
       metavariable: $S
-      regex: '.*bigger\s+fish\s+to\s+fry.*'
-  message: 'Animal violence language in string: "there are bigger fish to fry". Consider: "more important matters to address", "higher priorities", "bigger issues at hand".'
+      regex: '.*(bigger|other)\s+fish\s+to\s+fry.*'
+  message: 'Animal violence language in string: "bigger fish to fry". Fish-as-food commodification for ''more important things.'' ''More important matters'' says the same thing. Consider: "more important matters to address", "bigger fish to free".'
   languages:
   - javascript
   - typescript
@@ -151,13 +159,14 @@ rules:
     category: inclusive-language
     subcategory: animal-violence
     alternative: 'more important matters to address'
+    reason: 'Fish-as-food commodification for ''more important things.'' ''More important matters'' says the same thing.'
 - id: animal-violence.javascript.string.guinea-pig
   patterns:
   - pattern: $S
   - metavariable-regex:
       metavariable: $S
-      regex: '.*guinea\s+pig.*'
-  message: 'Animal violence language in string: "guinea pig". Consider: "test subject", "first to try", "early adopter" (autofix available).'
+      regex: '.*\b(?:guinea\s+pig)\b.*'
+  message: 'Animal violence language in string: "guinea pig". Refers to using guinea pigs as expendable test subjects in harmful experiments. ''Test subject'' or ''early adopter'' is more precise in technical contexts. Consider: "test subject", "first to try", "early adopter" (autofix available).'
   languages:
   - javascript
   - typescript
@@ -166,61 +175,17 @@ rules:
     category: inclusive-language
     subcategory: animal-violence
     alternative: 'test subject'
+    reason: 'Refers to using guinea pigs as expendable test subjects in harmful experiments. ''Test subject'' or ''early adopter'' is more precise in technical contexts.'
   fix-regex:
-    regex: 'guinea\s+pig'
+    regex: '\b(?:guinea\s+pig)\b'
     replacement: 'test subject'
-- id: animal-violence.javascript.string.hold-your-horses
-  patterns:
-  - pattern: $S
-  - metavariable-regex:
-      metavariable: $S
-      regex: '.*hold\s+your\s+horses.*'
-  message: 'Animal violence language in string: "hold your horses". Consider: "wait a moment", "slow down", "be patient".'
-  languages:
-  - javascript
-  - typescript
-  severity: INFO
-  metadata:
-    category: inclusive-language
-    subcategory: animal-violence
-    alternative: 'wait a moment'
-- id: animal-violence.javascript.string.the-elephant-in-the-room
-  patterns:
-  - pattern: $S
-  - metavariable-regex:
-      metavariable: $S
-      regex: '.*the\s+elephant\s+in\s+the\s+room.*'
-  message: 'Animal violence language in string: "the elephant in the room". Consider: "the obvious issue", "the unaddressed problem".'
-  languages:
-  - javascript
-  - typescript
-  severity: INFO
-  metadata:
-    category: inclusive-language
-    subcategory: animal-violence
-    alternative: 'the obvious issue'
-- id: animal-violence.javascript.string.straight-from-the-horses-mouth
-  patterns:
-  - pattern: $S
-  - metavariable-regex:
-      metavariable: $S
-      regex: '.*straight\s+from\s+the\s+horse''?s\s+mouth.*'
-  message: 'Animal violence language in string: "straight from the horse''s mouth". Consider: "directly from the source", "firsthand", "from the authority".'
-  languages:
-  - javascript
-  - typescript
-  severity: INFO
-  metadata:
-    category: inclusive-language
-    subcategory: animal-violence
-    alternative: 'directly from the source'
 - id: animal-violence.javascript.string.bring-home-the-bacon
   patterns:
   - pattern: $S
   - metavariable-regex:
       metavariable: $S
       regex: '.*(?:bring(?:ing|s)?|brought)\s+home\s+the\s+bacon.*'
-  message: 'Animal violence language in string: "bring home the bacon". Consider: "bring home the results", "earn a living", "win the prize" (autofix available).'
+  message: 'Animal violence language in string: "bring home the bacon". Describes slaughtered pig flesh as the fruit of success. ''Bring home the results'' or ''earn a living'' carries the same meaning. Consider: "bring home the results", "earn a living", "win the prize" (autofix available).'
   languages:
   - javascript
   - typescript
@@ -229,16 +194,17 @@ rules:
     category: inclusive-language
     subcategory: animal-violence
     alternative: 'bring home the results'
+    reason: 'Describes slaughtered pig flesh as the fruit of success. ''Bring home the results'' or ''earn a living'' carries the same meaning.'
   fix-regex:
     regex: '(?:bring(?:ing|s)?|brought)\s+home\s+the\s+bacon'
     replacement: 'bring home the results'
-- id: animal-violence.javascript.string.take-the-bull-by-the-horns
+- id: animal-violence.javascript.string.take-the-bull-by-horns
   patterns:
   - pattern: $S
   - metavariable-regex:
       metavariable: $S
-      regex: '.*(?:take|taking|took)\s+the\s+bull\s+by\s+the\s+horns.*'
-  message: 'Animal violence language in string: "take the bull by the horns". Consider: "face the challenge head-on", "tackle the problem directly", "seize the opportunity" (autofix available).'
+      regex: '.*tak(e|ing|es|en)\s+the\s+bull\s+by\s+the\s+horns|took\s+the\s+bull\s+by\s+the\s+horns.*'
+  message: 'Animal violence language in string: "take the bull by the horns". Bullfighting/rodeo imagery. ''Tackle the problem directly'' or ''face it head-on'' is cleaner. Consider: "tackle the problem directly", "face it head-on", "confront the issue" (autofix available).'
   languages:
   - javascript
   - typescript
@@ -246,17 +212,18 @@ rules:
   metadata:
     category: inclusive-language
     subcategory: animal-violence
-    alternative: 'face the challenge head-on'
+    alternative: 'tackle the problem directly'
+    reason: 'Bullfighting/rodeo imagery. ''Tackle the problem directly'' or ''face it head-on'' is cleaner.'
   fix-regex:
-    regex: '(?:take|taking|took)\s+the\s+bull\s+by\s+the\s+horns'
-    replacement: 'face the challenge head-on'
-- id: animal-violence.javascript.string.like-lambs-to-the-slaughter
+    regex: 'tak(e|ing|es|en)\s+the\s+bull\s+by\s+the\s+horns|took\s+the\s+bull\s+by\s+the\s+horns'
+    replacement: 'tackle the problem directly'
+- id: animal-violence.javascript.string.lambs-to-slaughter
   patterns:
   - pattern: $S
   - metavariable-regex:
       metavariable: $S
-      regex: '.*like\s+lambs?\s+to\s+(the\s+)?slaughter.*'
-  message: 'Animal violence language in string: "like lambs to the slaughter". Consider: "without resistance", "blindly following", "unknowingly walking into danger" (autofix available).'
+      regex: '.*(like\s+(a\s+)?)?lambs?\s+to\s+the\s+slaughter.*'
+  message: 'Animal violence language in string: "lambs to the slaughter". Direct slaughter imagery. ''Without resistance'' or ''unknowingly walking into danger'' captures the same meaning. Consider: "without resistance", "unknowingly walking into danger", "defenseless" (autofix available).'
   languages:
   - javascript
   - typescript
@@ -265,16 +232,17 @@ rules:
     category: inclusive-language
     subcategory: animal-violence
     alternative: 'without resistance'
+    reason: 'Direct slaughter imagery. ''Without resistance'' or ''unknowingly walking into danger'' captures the same meaning.'
   fix-regex:
-    regex: 'like\s+lambs?\s+to\s+(the\s+)?slaughter'
+    regex: '(like\s+(a\s+)?)?lambs?\s+to\s+the\s+slaughter'
     replacement: 'without resistance'
 - id: animal-violence.javascript.string.no-room-to-swing-a-cat
   patterns:
   - pattern: $S
   - metavariable-regex:
       metavariable: $S
-      regex: '.*no\s+room\s+to\s+swing\s+a\s+cat.*'
-  message: 'Animal violence language in string: "no room to swing a cat". Consider: "very cramped", "extremely tight space", "barely any room" (autofix available).'
+      regex: '.*(no|not\s+enough)\s+room\s+to\s+swing\s+a\s+cat.*'
+  message: 'Animal violence language in string: "no room to swing a cat". Violent animal imagery for ''cramped.'' ''Extremely tight space'' says it directly. Consider: "extremely tight space", "very cramped" (autofix available).'
   languages:
   - javascript
   - typescript
@@ -282,17 +250,18 @@ rules:
   metadata:
     category: inclusive-language
     subcategory: animal-violence
-    alternative: 'very cramped'
+    alternative: 'extremely tight space'
+    reason: 'Violent animal imagery for ''cramped.'' ''Extremely tight space'' says it directly.'
   fix-regex:
-    regex: 'no\s+room\s+to\s+swing\s+a\s+cat'
-    replacement: 'very cramped'
+    regex: '(no|not\s+enough)\s+room\s+to\s+swing\s+a\s+cat'
+    replacement: 'extremely tight space'
 - id: animal-violence.javascript.string.red-herring
   patterns:
   - pattern: $S
   - metavariable-regex:
       metavariable: $S
-      regex: '.*red\s+herring.*'
-  message: 'Animal violence language in string: "red herring". Consider: "distraction", "false lead", "misleading clue".'
+      regex: '.*\b(?:red\s+herring)\b.*'
+  message: 'Animal violence language in string: "red herring". Originates from dead, smoked fish reportedly used to train hunting dogs. ''Distraction'' or ''false lead'' communicates the idea directly. Consider: "distraction", "false lead", "misleading clue".'
   languages:
   - javascript
   - typescript
@@ -301,13 +270,14 @@ rules:
     category: inclusive-language
     subcategory: animal-violence
     alternative: 'distraction'
+    reason: 'Originates from dead, smoked fish reportedly used to train hunting dogs. ''Distraction'' or ''false lead'' communicates the idea directly.'
 - id: animal-violence.javascript.string.curiosity-killed-the-cat
   patterns:
   - pattern: $S
   - metavariable-regex:
       metavariable: $S
       regex: '.*curiosity\s+killed\s+the\s+cat.*'
-  message: 'Animal violence language in string: "curiosity killed the cat". Consider: "curiosity backfired", "being nosy caused trouble", "curiosity led to trouble" (autofix available).'
+  message: 'Animal violence language in string: "curiosity killed the cat". A direct reference to killing a cat, used as a cautionary phrase. ''Curiosity backfired'' or ''being nosy caused trouble'' says the same thing. Consider: "curiosity backfired", "being nosy caused trouble", "curiosity led to trouble" (autofix available).'
   languages:
   - javascript
   - typescript
@@ -316,16 +286,17 @@ rules:
     category: inclusive-language
     subcategory: animal-violence
     alternative: 'curiosity backfired'
+    reason: 'A direct reference to killing a cat, used as a cautionary phrase. ''Curiosity backfired'' or ''being nosy caused trouble'' says the same thing.'
   fix-regex:
     regex: 'curiosity\s+killed\s+the\s+cat'
     replacement: 'curiosity backfired'
-- id: animal-violence.javascript.string.like-a-chicken-with-its-head-cut-off
+- id: animal-violence.javascript.string.chicken-head-cut-off
   patterns:
   - pattern: $S
   - metavariable-regex:
       metavariable: $S
-      regex: '.*like\s+a\s+chicken\s+with\s+(its|their)\s+head\s+cut\s+off.*'
-  message: 'Animal violence language in string: "like a chicken with its head cut off". Consider: "in a panic", "running around chaotically", "in complete disarray" (autofix available).'
+      regex: '.*(running\s+around\s+)?like\s+a\s+chicken\s+with\s+(its|their)\s+head\s+cut\s+off.*'
+  message: 'Animal violence language in string: "like a chicken with its head cut off". Graphic slaughter imagery used to describe panic. ''In a panic'' or ''like your hair is on fire'' captures the same thing. Consider: "like your hair is on fire", "in a panic", "frantic and aimless" (autofix available).'
   languages:
   - javascript
   - typescript
@@ -333,17 +304,18 @@ rules:
   metadata:
     category: inclusive-language
     subcategory: animal-violence
-    alternative: 'in a panic'
+    alternative: 'like your hair is on fire'
+    reason: 'Graphic slaughter imagery used to describe panic. ''In a panic'' or ''like your hair is on fire'' captures the same thing.'
   fix-regex:
-    regex: 'like\s+a\s+chicken\s+with\s+(its|their)\s+head\s+cut\s+off'
-    replacement: 'in a panic'
-- id: animal-violence.javascript.string.your-goose-is-cooked
+    regex: '(running\s+around\s+)?like\s+a\s+chicken\s+with\s+(its|their)\s+head\s+cut\s+off'
+    replacement: 'like your hair is on fire'
+- id: animal-violence.javascript.string.goose-is-cooked
   patterns:
   - pattern: $S
   - metavariable-regex:
       metavariable: $S
-      regex: '.*(your|their|his|her)\s+goose\s+is\s+cooked.*'
-  message: 'Animal violence language in string: "your goose is cooked". Consider: "you''re in trouble", "your fate is sealed", "it''s over for you" (autofix available).'
+      regex: '.*(your|their|his|her|my|our)\s+goose\s+is\s+cooked.*'
+  message: 'Animal violence language in string: "your goose is cooked". Killing-and-cooking imagery used to mean someone is in trouble. ''You''re in trouble'' says it directly. Consider: "you''re in trouble", "you''re done for", "you''re dead in the water" (autofix available).'
   languages:
   - javascript
   - typescript
@@ -352,16 +324,17 @@ rules:
     category: inclusive-language
     subcategory: animal-violence
     alternative: 'you''re in trouble'
+    reason: 'Killing-and-cooking imagery used to mean someone is in trouble. ''You''re in trouble'' says it directly.'
   fix-regex:
-    regex: '(your|their|his|her)\s+goose\s+is\s+cooked'
+    regex: '(your|their|his|her|my|our)\s+goose\s+is\s+cooked'
     replacement: 'you''re in trouble'
-- id: animal-violence.javascript.string.throw-someone-to-the-wolves
+- id: animal-violence.javascript.string.throw-to-wolves
   patterns:
   - pattern: $S
   - metavariable-regex:
       metavariable: $S
-      regex: '.*throw(ing|n)?\s+\w+\s+to\s+the\s+wolves.*'
-  message: 'Animal violence language in string: "throw someone to the wolves". Consider: "abandon to criticism", "leave to face hostility alone", "sacrifice someone" (autofix available).'
+      regex: '.*thr(ow|owing|own|ew)(\s+(someone|them|him|her|us|me))?\s+to\s+the\s+wolves.*'
+  message: 'Animal violence language in string: "throw someone to the wolves". Frames a person as prey. ''Abandon to criticism'' or ''leave exposed'' carries the same meaning without the imagery. Consider: "abandon to criticism", "sacrifice someone", "leave exposed" (autofix available).'
   languages:
   - javascript
   - typescript
@@ -370,8 +343,9 @@ rules:
     category: inclusive-language
     subcategory: animal-violence
     alternative: 'abandon to criticism'
+    reason: 'Frames a person as prey. ''Abandon to criticism'' or ''leave exposed'' carries the same meaning without the imagery.'
   fix-regex:
-    regex: 'throw(ing|n)?\s+\w+\s+to\s+the\s+wolves'
+    regex: 'thr(ow|owing|own|ew)(\s+(someone|them|him|her|us|me))?\s+to\s+the\s+wolves'
     replacement: 'abandon to criticism'
 - id: animal-violence.javascript.string.hook-line-and-sinker
   patterns:
@@ -379,7 +353,7 @@ rules:
   - metavariable-regex:
       metavariable: $S
       regex: '.*hook,?\s+line,?\s+and\s+sinker.*'
-  message: 'Animal violence language in string: "hook, line, and sinker". Consider: "completely", "without question", "fell for it entirely" (autofix available).'
+  message: 'Animal violence language in string: "hook, line, and sinker". References the equipment used to hook and kill fish. ''Completely'' or ''without question'' conveys total buy-in without the fishing imagery. Consider: "completely", "without question", "fell for it entirely" (autofix available).'
   languages:
   - javascript
   - typescript
@@ -388,16 +362,17 @@ rules:
     category: inclusive-language
     subcategory: animal-violence
     alternative: 'completely'
+    reason: 'References the equipment used to hook and kill fish. ''Completely'' or ''without question'' conveys total buy-in without the fishing imagery.'
   fix-regex:
     regex: 'hook,?\s+line,?\s+and\s+sinker'
     replacement: 'completely'
-- id: animal-violence.javascript.string.clip-someones-wings
+- id: animal-violence.javascript.string.clip-wings
   patterns:
   - pattern: $S
   - metavariable-regex:
       metavariable: $S
-      regex: '.*clip(ping|ped)?\s+(\w+(''s)?\s+)?wings.*'
-  message: 'Animal violence language in string: "clip someone''s wings". Consider: "restrict someone''s freedom", "limit someone''s options", "hold someone back" (autofix available).'
+      regex: '.*clip(s|ped|ping)?\s+(someone''s|their|his|her)?\s*wings.*'
+  message: 'Animal violence language in string: "clip someone''s wings". Wing-clipping is a real physical mutilation done to captive birds. ''Restrict freedom'' or ''limit options'' says the same thing directly. Consider: "restrict freedom", "limit options", "hold back" (autofix available).'
   languages:
   - javascript
   - typescript
@@ -405,17 +380,18 @@ rules:
   metadata:
     category: inclusive-language
     subcategory: animal-violence
-    alternative: 'restrict someone''s freedom'
+    alternative: 'restrict freedom'
+    reason: 'Wing-clipping is a real physical mutilation done to captive birds. ''Restrict freedom'' or ''limit options'' says the same thing directly.'
   fix-regex:
-    regex: 'clip(ping|ped)?\s+(\w+(''s)?\s+)?wings'
-    replacement: 'restrict someone''s freedom'
-- id: animal-violence.javascript.string.the-straw-that-broke-the-camels-back
+    regex: 'clip(s|ped|ping)?\s+(someone''s|their|his|her)?\s*wings'
+    replacement: 'restrict freedom'
+- id: animal-violence.javascript.string.straw-that-broke-camels-back
   patterns:
   - pattern: $S
   - metavariable-regex:
       metavariable: $S
-      regex: '.*(the\s+)?straw\s+that\s+broke\s+the\s+camel''?s\s+back.*'
-  message: 'Animal violence language in string: "the straw that broke the camel''s back". Consider: "the tipping point", "the breaking point", "the final provocation" (autofix available).'
+      regex: '.*straw\s+that\s+broke\s+the\s+camel''?s\s+back|last\s+straw.*'
+  message: 'Animal violence language in string: "straw that broke the camel''s back". Overloading a pack animal until its back breaks. ''Tipping point'' or ''breaking point'' carries the same meaning. Consider: "tipping point", "breaking point", "final blow" (autofix available).'
   languages:
   - javascript
   - typescript
@@ -423,17 +399,18 @@ rules:
   metadata:
     category: inclusive-language
     subcategory: animal-violence
-    alternative: 'the tipping point'
+    alternative: 'tipping point'
+    reason: 'Overloading a pack animal until its back breaks. ''Tipping point'' or ''breaking point'' carries the same meaning.'
   fix-regex:
-    regex: '(the\s+)?straw\s+that\s+broke\s+the\s+camel''?s\s+back'
-    replacement: 'the tipping point'
-- id: animal-violence.javascript.string.a-bird-in-the-hand-is-worth-two-in-the-bush
+    regex: 'straw\s+that\s+broke\s+the\s+camel''?s\s+back|last\s+straw'
+    replacement: 'tipping point'
+- id: animal-violence.javascript.string.a-bird-in-the-hand
   patterns:
   - pattern: $S
   - metavariable-regex:
       metavariable: $S
-      regex: '.*bird\s+in\s+(the|a)\s+hand\s+(is\s+)?worth\s+two\s+in\s+the\s+bush.*'
-  message: 'Animal violence language in string: "a bird in the hand is worth two in the bush". Consider: "a sure thing beats a possibility", "certainty over speculation".'
+      regex: '.*(a\s+)?bird\s+in\s+the\s+hand(\s+is\s+worth)?.*'
+  message: 'Animal violence language in string: "a bird in the hand". References trapping wild birds. ''A sure thing beats a possibility'' carries the same meaning. Consider: "a sure thing beats a possibility", "a guaranteed outcome is worth more".'
   languages:
   - javascript
   - typescript
@@ -442,13 +419,14 @@ rules:
     category: inclusive-language
     subcategory: animal-violence
     alternative: 'a sure thing beats a possibility'
+    reason: 'References trapping wild birds. ''A sure thing beats a possibility'' carries the same meaning.'
 - id: animal-violence.javascript.string.eat-crow
   patterns:
   - pattern: $S
   - metavariable-regex:
       metavariable: $S
-      regex: '.*eat(ing)?\s+crow.*'
-  message: 'Animal violence language in string: "eat crow". Consider: "admit being wrong", "swallow one''s pride", "accept humiliation" (autofix available).'
+      regex: '.*\b(?:eat(ing)?\s+crow)\b.*'
+  message: 'Animal violence language in string: "eat crow". References eating a killed bird as humiliating punishment. ''Admit being wrong'' or ''swallow one''s pride'' says the same thing directly. Consider: "admit being wrong", "swallow one''s pride", "accept humiliation" (autofix available).'
   languages:
   - javascript
   - typescript
@@ -457,16 +435,17 @@ rules:
     category: inclusive-language
     subcategory: animal-violence
     alternative: 'admit being wrong'
+    reason: 'References eating a killed bird as humiliating punishment. ''Admit being wrong'' or ''swallow one''s pride'' says the same thing directly.'
   fix-regex:
-    regex: 'eat(ing)?\s+crow'
+    regex: '\b(?:eat(ing)?\s+crow)\b'
     replacement: 'admit being wrong'
 - id: animal-violence.javascript.string.fight-like-cats-and-dogs
   patterns:
   - pattern: $S
   - metavariable-regex:
       metavariable: $S
-      regex: '.*fight(ing)?\s+like\s+cats\s+and\s+dogs.*'
-  message: 'Animal violence language in string: "fight like cats and dogs". Consider: "constantly argue", "clash frequently", "have constant conflict" (autofix available).'
+      regex: '.*f(ight|ights|ighting|ought)\s+like\s+cats\s+and\s+dogs.*'
+  message: 'Animal violence language in string: "fight like cats and dogs". Animal-fighting imagery. ''Constantly argue'' or ''clash frequently'' says it directly. Consider: "constantly argue", "clash frequently" (autofix available).'
   languages:
   - javascript
   - typescript
@@ -475,8 +454,9 @@ rules:
     category: inclusive-language
     subcategory: animal-violence
     alternative: 'constantly argue'
+    reason: 'Animal-fighting imagery. ''Constantly argue'' or ''clash frequently'' says it directly.'
   fix-regex:
-    regex: 'fight(ing)?\s+like\s+cats\s+and\s+dogs'
+    regex: 'f(ight|ights|ighting|ought)\s+like\s+cats\s+and\s+dogs'
     replacement: 'constantly argue'
 - id: animal-violence.javascript.string.take-the-bait
   patterns:
@@ -484,7 +464,7 @@ rules:
   - metavariable-regex:
       metavariable: $S
       regex: '.*(?:take|taking|took)\s+the\s+bait.*'
-  message: 'Animal violence language in string: "take the bait". Consider: "fall for it", "be lured in", "be deceived".'
+  message: 'Animal violence language in string: "take the bait". References baiting hooks and traps to catch and kill animals. ''Fall for it'' or ''be deceived'' is more direct. Consider: "fall for it", "be lured in", "be deceived".'
   languages:
   - javascript
   - typescript
@@ -493,13 +473,14 @@ rules:
     category: inclusive-language
     subcategory: animal-violence
     alternative: 'fall for it'
-- id: animal-violence.javascript.string.dont-count-your-chickens-before-they-hatch
+    reason: 'References baiting hooks and traps to catch and kill animals. ''Fall for it'' or ''be deceived'' is more direct.'
+- id: animal-violence.javascript.string.dont-count-your-chickens
   patterns:
   - pattern: $S
   - metavariable-regex:
       metavariable: $S
-      regex: '.*don''?t\s+count\s+your\s+chickens.*'
-  message: 'Animal violence language in string: "don''t count your chickens before they hatch". Consider: "don''t assume success prematurely", "wait for confirmed results", "don''t get ahead of yourself".'
+      regex: '.*(don''?t\s+)?count(ing)?\s+your\s+chickens(\s+before)?.*'
+  message: 'Animal violence language in string: "don''t count your chickens". Commodity framing of chickens as a yield to be counted. ''Don''t assume success prematurely'' says it directly. Consider: "don''t assume success prematurely", "don''t celebrate too early".'
   languages:
   - javascript
   - typescript
@@ -508,13 +489,14 @@ rules:
     category: inclusive-language
     subcategory: animal-violence
     alternative: 'don''t assume success prematurely'
+    reason: 'Commodity framing of chickens as a yield to be counted. ''Don''t assume success prematurely'' says it directly.'
 - id: animal-violence.javascript.string.livestock
   patterns:
   - pattern: $S
   - metavariable-regex:
       metavariable: $S
-      regex: '.*livestock.*'
-  message: 'Animal violence language in string: "livestock". Consider: "farmed animals", "animals raised for food" (autofix available).'
+      regex: '.*\b(?:livestock)\b.*'
+  message: 'Animal violence language in string: "livestock". Commodity framing that groups sentient beings as ''stock.'' ''Farmed animals'' keeps the meaning without the commodity framing. Consider: "farmed animals" (autofix available).'
   languages:
   - javascript
   - typescript
@@ -523,16 +505,17 @@ rules:
     category: inclusive-language
     subcategory: industry-euphemism
     alternative: 'farmed animals'
+    reason: 'Commodity framing that groups sentient beings as ''stock.'' ''Farmed animals'' keeps the meaning without the commodity framing.'
   fix-regex:
-    regex: 'livestock'
+    regex: '\b(?:livestock)\b'
     replacement: 'farmed animals'
 - id: animal-violence.javascript.string.poultry
   patterns:
   - pattern: $S
   - metavariable-regex:
       metavariable: $S
-      regex: '.*poultry.*'
-  message: 'Animal violence language in string: "poultry". Consider: "farmed birds", "chickens", "chickens and turkeys" (autofix available).'
+      regex: '.*\b(?:poultry)\b.*'
+  message: 'Animal violence language in string: "poultry". Commodity framing for farmed birds. ''Farmed birds'' or the specific species keeps the meaning without the commodity framing. Consider: "farmed birds", "chickens and turkeys" (autofix available).'
   languages:
   - javascript
   - typescript
@@ -541,16 +524,17 @@ rules:
     category: inclusive-language
     subcategory: industry-euphemism
     alternative: 'farmed birds'
+    reason: 'Commodity framing for farmed birds. ''Farmed birds'' or the specific species keeps the meaning without the commodity framing.'
   fix-regex:
-    regex: 'poultry'
+    regex: '\b(?:poultry)\b'
     replacement: 'farmed birds'
 - id: animal-violence.javascript.string.gestation-crate
   patterns:
   - pattern: $S
   - metavariable-regex:
       metavariable: $S
-      regex: '.*gestation crates?.*'
-  message: 'Animal violence language in string: "gestation crate". Consider: "pregnancy cage", "pregnancy cages" (autofix available).'
+      regex: '.*gestation\s+(crate|stall)s?.*'
+  message: 'Animal violence language in string: "gestation crate". Industry euphemism for a metal enclosure so small a pregnant sow cannot turn around for her entire 3.5-month pregnancy. ''Pregnancy cage'' is accurate. Consider: "pregnancy cage" (autofix available).'
   languages:
   - javascript
   - typescript
@@ -559,16 +543,17 @@ rules:
     category: inclusive-language
     subcategory: industry-euphemism
     alternative: 'pregnancy cage'
+    reason: 'Industry euphemism for a metal enclosure so small a pregnant sow cannot turn around for her entire 3.5-month pregnancy. ''Pregnancy cage'' is accurate.'
   fix-regex:
-    regex: 'gestation crates?'
+    regex: 'gestation\s+(crate|stall)s?'
     replacement: 'pregnancy cage'
 - id: animal-violence.javascript.string.depopulation
   patterns:
   - pattern: $S
   - metavariable-regex:
       metavariable: $S
-      regex: '.*depopulat(ion|ed|ing).*'
-  message: 'Animal violence language in string: "depopulation". Consider: "mass killing", "killed en masse", "killing en masse" (autofix available).'
+      regex: '.*\b(?:depopulat(ion|ed|ing))\b.*'
+  message: 'Animal violence language in string: "depopulation". Industry euphemism for killing entire flocks or herds at once. ''Mass killing'' is the accurate term. (Suppressed in database or population-statistics contexts where the word refers to removing records.) Consider: "mass killing", "killed en masse" (autofix available).'
   languages:
   - javascript
   - typescript
@@ -577,16 +562,17 @@ rules:
     category: inclusive-language
     subcategory: industry-euphemism
     alternative: 'mass killing'
+    reason: 'Industry euphemism for killing entire flocks or herds at once. ''Mass killing'' is the accurate term. (Suppressed in database or population-statistics contexts where the word refers to removing records.)'
   fix-regex:
-    regex: 'depopulat(ion|ed|ing)'
+    regex: '\b(?:depopulat(ion|ed|ing))\b'
     replacement: 'mass killing'
 - id: animal-violence.javascript.string.processing-plant
   patterns:
   - pattern: $S
   - metavariable-regex:
       metavariable: $S
-      regex: '.*processing (plants?|facilit(y|ies)).*'
-  message: 'Animal violence language in string: "processing plant". Consider: "slaughterhouse", "slaughterhouses" (autofix available).'
+      regex: '.*(meat[\s-]?packing|meat|packing|processing)\s+(plant|facility)s?.*'
+  message: 'Animal violence language in string: "meat plant". Industry euphemisms for slaughterhouse. ''Slaughterhouse'' is the accurate term. (Suppressed in clearly non-animal contexts like data or chemical processing.) Consider: "slaughterhouse" (autofix available).'
   languages:
   - javascript
   - typescript
@@ -595,16 +581,17 @@ rules:
     category: inclusive-language
     subcategory: industry-euphemism
     alternative: 'slaughterhouse'
+    reason: 'Industry euphemisms for slaughterhouse. ''Slaughterhouse'' is the accurate term. (Suppressed in clearly non-animal contexts like data or chemical processing.)'
   fix-regex:
-    regex: 'processing (plants?|facilit(y|ies))'
+    regex: '(meat[\s-]?packing|meat|packing|processing)\s+(plant|facility)s?'
     replacement: 'slaughterhouse'
 - id: animal-violence.javascript.string.farrowing-crate
   patterns:
   - pattern: $S
   - metavariable-regex:
       metavariable: $S
-      regex: '.*farrowing crates?.*'
-  message: 'Animal violence language in string: "farrowing crate". Consider: "birthing cage", "birthing cages" (autofix available).'
+      regex: '.*farrowing\s+(crate|stall)s?.*'
+  message: 'Animal violence language in string: "farrowing crate". Industry euphemism for the metal cage confining a sow during birth and nursing. ''Birthing cage'' is accurate. Consider: "birthing cage" (autofix available).'
   languages:
   - javascript
   - typescript
@@ -613,16 +600,17 @@ rules:
     category: inclusive-language
     subcategory: industry-euphemism
     alternative: 'birthing cage'
+    reason: 'Industry euphemism for the metal cage confining a sow during birth and nursing. ''Birthing cage'' is accurate.'
   fix-regex:
-    regex: 'farrowing crates?'
+    regex: 'farrowing\s+(crate|stall)s?'
     replacement: 'birthing cage'
 - id: animal-violence.javascript.string.battery-cage
   patterns:
   - pattern: $S
   - metavariable-regex:
       metavariable: $S
-      regex: '.*battery cages?.*'
-  message: 'Animal violence language in string: "battery cage". Consider: "small wire cage", "small wire cages", "confined cage", "confined cages" (autofix available).'
+      regex: '.*battery[\s-]cage[ds]?.*'
+  message: 'Animal violence language in string: "battery cage". Industry euphemism for wire enclosures that give each hen less floor space than a sheet of paper. ''Small wire cage'' describes what it is. Consider: "small wire cage", "confined cage" (autofix available).'
   languages:
   - javascript
   - typescript
@@ -631,16 +619,17 @@ rules:
     category: inclusive-language
     subcategory: industry-euphemism
     alternative: 'small wire cage'
+    reason: 'Industry euphemism for wire enclosures that give each hen less floor space than a sheet of paper. ''Small wire cage'' describes what it is.'
   fix-regex:
-    regex: 'battery cages?'
+    regex: 'battery[\s-]cage[ds]?'
     replacement: 'small wire cage'
 - id: animal-violence.javascript.string.spent-hen
   patterns:
   - pattern: $S
   - metavariable-regex:
       metavariable: $S
-      regex: '.*spent hens?.*'
-  message: 'Animal violence language in string: "spent hen". Consider: "discarded hen", "discarded hens", "hen killed after egg production declines" (autofix available).'
+      regex: '.*spent\s+hens?.*'
+  message: 'Animal violence language in string: "spent hen". ''Spent'' frames the hen as a depleted resource. Naming what actually happens — she is killed when her egg production falls — is more accurate. Consider: "hen killed after egg production declines" (autofix available).'
   languages:
   - javascript
   - typescript
@@ -648,17 +637,18 @@ rules:
   metadata:
     category: inclusive-language
     subcategory: industry-euphemism
-    alternative: 'discarded hen'
+    alternative: 'hen killed after egg production declines'
+    reason: '''Spent'' frames the hen as a depleted resource. Naming what actually happens — she is killed when her egg production falls — is more accurate.'
   fix-regex:
-    regex: 'spent hens?'
-    replacement: 'discarded hen'
+    regex: 'spent\s+hens?'
+    replacement: 'hen killed after egg production declines'
 - id: animal-violence.javascript.string.humane-slaughter
   patterns:
   - pattern: $S
   - metavariable-regex:
       metavariable: $S
-      regex: '.*(humane(ly)? (slaughter(ed)?|kill(ing|ed))).*'
-  message: 'Animal violence language in string: "humane slaughter". Consider: "slaughter", "slaughtered", "killing", "killed" (autofix available).'
+      regex: '.*humane(ly)?\s+(slaughter(ed)?|killing|death).*'
+  message: 'Animal violence language in string: "humane slaughter". Industry oxymoron — a killing cannot be ''humane'' to the one being killed. Drop the modifier and use ''slaughter'' or ''killing.'' Consider: "slaughter", "killing" (autofix available).'
   languages:
   - javascript
   - typescript
@@ -667,16 +657,17 @@ rules:
     category: inclusive-language
     subcategory: industry-euphemism
     alternative: 'slaughter'
+    reason: 'Industry oxymoron — a killing cannot be ''humane'' to the one being killed. Drop the modifier and use ''slaughter'' or ''killing.'''
   fix-regex:
-    regex: '(humane(ly)? (slaughter(ed)?|kill(ing|ed)))'
+    regex: 'humane(ly)?\s+(slaughter(ed)?|killing|death)'
     replacement: 'slaughter'
-- id: animal-violence.javascript.string.broiler
+- id: animal-violence.javascript.string.broiler-chicken
   patterns:
   - pattern: $S
   - metavariable-regex:
       metavariable: $S
-      regex: '.*broilers?.*'
-  message: 'Animal violence language in string: "broiler". Consider: "chicken raised for meat", "chickens raised for meat", "meat chicken", "meat chickens" (autofix available).'
+      regex: '.*\b(?:broiler\s+(chickens?|hens?)|broilers)\b.*'
+  message: 'Animal violence language in string: "broiler chicken". Industry term that defines a chicken by its commercial purpose. ''Chicken raised for meat'' is the human-readable version. (The kitchen appliance is not flagged.) Consider: "chicken raised for meat" (autofix available).'
   languages:
   - javascript
   - typescript
@@ -685,8 +676,9 @@ rules:
     category: inclusive-language
     subcategory: industry-euphemism
     alternative: 'chicken raised for meat'
+    reason: 'Industry term that defines a chicken by its commercial purpose. ''Chicken raised for meat'' is the human-readable version. (The kitchen appliance is not flagged.)'
   fix-regex:
-    regex: 'broilers?'
+    regex: '\b(?:broiler\s+(chickens?|hens?)|broilers)\b'
     replacement: 'chicken raised for meat'
 - id: animal-violence.javascript.string.dont-be-a-chicken
   patterns:
@@ -694,7 +686,7 @@ rules:
   - metavariable-regex:
       metavariable: $S
       regex: '.*don''?t\s+be\s+a\s+chicken.*'
-  message: 'Animal violence language in string: "don''t be a chicken". Consider: "don''t hesitate", "be brave", "go for it" (autofix available).'
+  message: 'Animal violence language in string: "don''t be a chicken". Uses a chicken as an insult for cowardice. ''Don''t hesitate'' or ''be brave'' is direct and doesn''t rely on a demeaning stereotype. Consider: "don''t hesitate", "be brave", "go for it" (autofix available).'
   languages:
   - javascript
   - typescript
@@ -703,67 +695,17 @@ rules:
     category: inclusive-language
     subcategory: animal-violence
     alternative: 'don''t hesitate'
+    reason: 'Uses a chicken as an insult for cowardice. ''Don''t hesitate'' or ''be brave'' is direct and doesn''t rely on a demeaning stereotype.'
   fix-regex:
     regex: 'don''?t\s+be\s+a\s+chicken'
     replacement: 'don''t hesitate'
-- id: animal-violence.javascript.string.pig
-  patterns:
-  - pattern: $S
-  - metavariable-regex:
-      metavariable: $S
-      regex: '.*(code|memory|resource)\s+pig.*'
-  message: 'Animal violence language in string: "pig". Consider: "resource-intensive", "bloated", "heavy consumer" (autofix available).'
-  languages:
-  - javascript
-  - typescript
-  severity: WARNING
-  metadata:
-    category: inclusive-language
-    subcategory: animal-violence
-    alternative: 'resource-intensive'
-  fix-regex:
-    regex: '(code|memory|resource)\s+pig'
-    replacement: 'resource-intensive'
-- id: animal-violence.javascript.string.cowboy-coding
-  patterns:
-  - pattern: $S
-  - metavariable-regex:
-      metavariable: $S
-      regex: '.*cowboy\s+cod(ing|er).*'
-  message: 'Animal violence language in string: "cowboy coding". Consider: "undisciplined coding", "ad-hoc development", "code without process".'
-  languages:
-  - javascript
-  - typescript
-  severity: INFO
-  metadata:
-    category: inclusive-language
-    subcategory: animal-violence
-    alternative: 'undisciplined coding'
-- id: animal-violence.javascript.string.code-monkey
-  patterns:
-  - pattern: $S
-  - metavariable-regex:
-      metavariable: $S
-      regex: '.*code\s+monkeys?.*'
-  message: 'Animal violence language in string: "code monkey". Consider: "developer", "programmer", "engineer" (autofix available).'
-  languages:
-  - javascript
-  - typescript
-  severity: WARNING
-  metadata:
-    category: inclusive-language
-    subcategory: animal-violence
-    alternative: 'developer'
-  fix-regex:
-    regex: 'code\s+monkeys?'
-    replacement: 'developer'
 - id: animal-violence.javascript.string.badger-someone
   patterns:
   - pattern: $S
   - metavariable-regex:
       metavariable: $S
-      regex: '.*badger(ed|ing|s)?.*'
-  message: 'Animal violence language in string: "badger someone". Consider: "pester", "pressure", "harass".'
+      regex: '.*\b(?:badger(ed|ing|s)?)\b.*'
+  message: 'Animal violence language in string: "badger someone". Comes from badger-baiting, a blood sport where dogs were set on captive badgers. ''Pester'' or ''pressure'' carries the same meaning without the origin. Consider: "pester", "pressure", "harass".'
   languages:
   - javascript
   - typescript
@@ -772,13 +714,14 @@ rules:
     category: inclusive-language
     subcategory: animal-violence
     alternative: 'pester'
+    reason: 'Comes from badger-baiting, a blood sport where dogs were set on captive badgers. ''Pester'' or ''pressure'' carries the same meaning without the origin.'
 - id: animal-violence.javascript.string.ferret-out
   patterns:
   - pattern: $S
   - metavariable-regex:
       metavariable: $S
-      regex: '.*ferret(ed|ing)?\s+out.*'
-  message: 'Animal violence language in string: "ferret out". Consider: "uncover", "discover", "dig up".'
+      regex: '.*\b(?:ferret(ed|ing)?\s+out)\b.*'
+  message: 'Animal violence language in string: "ferret out". Refers to the historical use of ferrets to flush rabbits out of burrows to be killed. ''Uncover'' or ''dig up'' works just as well. Consider: "uncover", "discover", "dig up".'
   languages:
   - javascript
   - typescript
@@ -787,46 +730,33 @@ rules:
     category: inclusive-language
     subcategory: animal-violence
     alternative: 'uncover'
+    reason: 'Refers to the historical use of ferrets to flush rabbits out of burrows to be killed. ''Uncover'' or ''dig up'' works just as well.'
 - id: animal-violence.javascript.string.cattle-vs-pets
   patterns:
   - pattern: $S
   - metavariable-regex:
       metavariable: $S
-      regex: '.*cattle\s+(vs?\.?|versus)\s+pets?.*'
-  message: 'Animal violence language in string: "cattle vs. pets". Consider: "ephemeral vs. persistent", "disposable vs. unique", "numbered vs. named" (autofix available).'
+      regex: '.*cattle[,]?\s+(not|vs\.?|versus)\s+pets|pets\s+not\s+cattle.*'
+  message: 'Animal violence language in string: "cattle not pets". Infrastructure metaphor that Google''s own style guide flags for removal as ''figurative language that relates to the slaughter of animals.'' ''Ephemeral vs. persistent'' or ''disposable vs. unique'' captures the same architectural concept. Consider: "ephemeral vs. persistent", "disposable vs. unique", "numbered vs. named" (autofix available).'
   languages:
   - javascript
   - typescript
   severity: WARNING
   metadata:
     category: inclusive-language
-    subcategory: animal-violence
+    subcategory: industry-euphemism
     alternative: 'ephemeral vs. persistent'
+    reason: 'Infrastructure metaphor that Google''s own style guide flags for removal as ''figurative language that relates to the slaughter of animals.'' ''Ephemeral vs. persistent'' or ''disposable vs. unique'' captures the same architectural concept.'
   fix-regex:
-    regex: 'cattle\s+(vs?\.?|versus)\s+pets?'
+    regex: 'cattle[,]?\s+(not|vs\.?|versus)\s+pets|pets\s+not\s+cattle'
     replacement: 'ephemeral vs. persistent'
-- id: animal-violence.javascript.string.pet-project
-  patterns:
-  - pattern: $S
-  - metavariable-regex:
-      metavariable: $S
-      regex: '.*pet\s+project.*'
-  message: 'Animal violence language in string: "pet project". Consider: "side project", "passion project".'
-  languages:
-  - javascript
-  - typescript
-  severity: INFO
-  metadata:
-    category: inclusive-language
-    subcategory: animal-violence
-    alternative: 'side project'
 - id: animal-violence.javascript.string.canary-in-a-coal-mine
   patterns:
   - pattern: $S
   - metavariable-regex:
       metavariable: $S
       regex: '.*canary\s+in\s+(a|the)\s+coal\s+mine.*'
-  message: 'Animal violence language in string: "canary in a coal mine". Consider: "early warning signal", "leading indicator", "sentinel".'
+  message: 'Animal violence language in string: "canary in a coal mine". Refers to canaries historically placed in coal mines to die first as a warning to miners. ''Early warning signal'' or ''sentinel'' conveys the meaning without the harm. Consider: "early warning signal", "leading indicator", "sentinel".'
   languages:
   - javascript
   - typescript
@@ -835,46 +765,14 @@ rules:
     category: inclusive-language
     subcategory: animal-violence
     alternative: 'early warning signal'
-- id: animal-violence.javascript.string.dogfooding
+    reason: 'Refers to canaries historically placed in coal mines to die first as a warning to miners. ''Early warning signal'' or ''sentinel'' conveys the meaning without the harm.'
+- id: animal-violence.javascript.string.fishing-expedition
   patterns:
   - pattern: $S
   - metavariable-regex:
       metavariable: $S
-      regex: '.*dog\s?food(ing)?.*'
-  message: 'Animal violence language in string: "dogfooding". Consider: "self-hosting", "eating your own cooking", "using internally".'
-  languages:
-  - javascript
-  - typescript
-  severity: INFO
-  metadata:
-    category: inclusive-language
-    subcategory: animal-violence
-    alternative: 'self-hosting'
-- id: animal-violence.javascript.string.herding-cats
-  patterns:
-  - pattern: $S
-  - metavariable-regex:
-      metavariable: $S
-      regex: '.*herding\s+cats.*'
-  message: 'Animal violence language in string: "herding cats". Consider: "coordinating independent contributors", "managing a distributed effort", "organizing chaos" (autofix available).'
-  languages:
-  - javascript
-  - typescript
-  severity: WARNING
-  metadata:
-    category: inclusive-language
-    subcategory: animal-violence
-    alternative: 'coordinating independent contributors'
-  fix-regex:
-    regex: 'herding\s+cats'
-    replacement: 'coordinating independent contributors'
-- id: animal-violence.javascript.string.go-on-a-fishing-expedition
-  patterns:
-  - pattern: $S
-  - metavariable-regex:
-      metavariable: $S
-      regex: '.*fishing\s+expedition.*'
-  message: 'Animal violence language in string: "go on a fishing expedition". Consider: "exploratory investigation", "unfocused search", "speculative inquiry" (autofix available).'
+      regex: '.*fishing\s+expeditions?.*'
+  message: 'Animal violence language in string: "fishing expedition". Frames speculative inquiry as fishing — the metaphor softens the catch. ''Exploratory investigation'' is clearer, especially in legal writing. Consider: "exploratory investigation", "speculative inquiry", "unfocused search" (autofix available).'
   languages:
   - javascript
   - typescript
@@ -883,16 +781,17 @@ rules:
     category: inclusive-language
     subcategory: animal-violence
     alternative: 'exploratory investigation'
+    reason: 'Frames speculative inquiry as fishing — the metaphor softens the catch. ''Exploratory investigation'' is clearer, especially in legal writing.'
   fix-regex:
-    regex: 'fishing\s+expedition'
+    regex: 'fishing\s+expeditions?'
     replacement: 'exploratory investigation'
 - id: animal-violence.javascript.string.sacred-cow
   patterns:
   - pattern: $S
   - metavariable-regex:
       metavariable: $S
-      regex: '.*sacred\s+cows?.*'
-  message: 'Animal violence language in string: "sacred cow". Consider: "unquestioned belief", "untouchable topic", "protected assumption" (autofix available).'
+      regex: '.*\b(?:sacred\s+cows?)\b.*'
+  message: 'Animal violence language in string: "sacred cow". Treats cattle as objects in an ''untouchable'' metaphor while also trivializing Hindu beliefs. ''Unquestioned belief'' or ''protected assumption'' avoids both issues. Consider: "unquestioned belief", "untouchable topic", "protected assumption" (autofix available).'
   languages:
   - javascript
   - typescript
@@ -901,16 +800,17 @@ rules:
     category: inclusive-language
     subcategory: animal-violence
     alternative: 'unquestioned belief'
+    reason: 'Treats cattle as objects in an ''untouchable'' metaphor while also trivializing Hindu beliefs. ''Unquestioned belief'' or ''protected assumption'' avoids both issues.'
   fix-regex:
-    regex: 'sacred\s+cows?'
+    regex: '\b(?:sacred\s+cows?)\b'
     replacement: 'unquestioned belief'
 - id: animal-violence.javascript.string.scapegoat
   patterns:
   - pattern: $S
   - metavariable-regex:
       metavariable: $S
-      regex: '.*scapegoat(ed|ing|s)?.*'
-  message: 'Animal violence language in string: "scapegoat". Consider: "blame target", "fall person", "wrongly blamed" (autofix available).'
+      regex: '.*\b(?:scapegoat(ed|ing|s)?)\b.*'
+  message: 'Animal violence language in string: "scapegoat". Originates from the ritual sacrifice of goats to carry away blame. ''Blame target'' or ''wrongly blamed'' is more precise. Consider: "blame target", "fall person", "wrongly blamed" (autofix available).'
   languages:
   - javascript
   - typescript
@@ -919,31 +819,17 @@ rules:
     category: inclusive-language
     subcategory: animal-violence
     alternative: 'blame target'
+    reason: 'Originates from the ritual sacrifice of goats to carry away blame. ''Blame target'' or ''wrongly blamed'' is more precise.'
   fix-regex:
-    regex: 'scapegoat(ed|ing|s)?'
+    regex: '\b(?:scapegoat(ed|ing|s)?)\b'
     replacement: 'blame target'
-- id: animal-violence.javascript.string.rat-race
-  patterns:
-  - pattern: $S
-  - metavariable-regex:
-      metavariable: $S
-      regex: '.*rat\s+race.*'
-  message: 'Animal violence language in string: "rat race". Consider: "daily grind", "competitive treadmill", "endless hustle".'
-  languages:
-  - javascript
-  - typescript
-  severity: INFO
-  metadata:
-    category: inclusive-language
-    subcategory: animal-violence
-    alternative: 'daily grind'
 - id: animal-violence.javascript.string.dead-cat-bounce
   patterns:
   - pattern: $S
   - metavariable-regex:
       metavariable: $S
       regex: '.*dead[\s_-]?cat[\s_-]?bounce.*'
-  message: 'Animal violence language in string: "dead cat bounce". Consider: "temporary rebound", "false recovery", "brief uptick" (autofix available).'
+  message: 'Animal violence language in string: "dead cat bounce". A financial term built on the image of a dead cat. ''Temporary rebound'' or ''false recovery'' is more professional and avoids the image. Consider: "temporary rebound", "false recovery", "brief uptick" (autofix available).'
   languages:
   - javascript
   - typescript
@@ -952,6 +838,7 @@ rules:
     category: inclusive-language
     subcategory: animal-violence
     alternative: 'temporary rebound'
+    reason: 'A financial term built on the image of a dead cat. ''Temporary rebound'' or ''false recovery'' is more professional and avoids the image.'
   fix-regex:
     regex: 'dead[\s_-]?cat[\s_-]?bounce'
     replacement: 'temporary rebound'
@@ -960,8 +847,8 @@ rules:
   - pattern: $S
   - metavariable-regex:
       metavariable: $S
-      regex: '.*dog[\s-]eat[\s-]dog.*'
-  message: 'Animal violence language in string: "dog-eat-dog". Consider: "ruthlessly competitive", "cutthroat", "fiercely competitive".'
+      regex: '.*\b(?:dog[\s-]eat[\s-]dog)\b.*'
+  message: 'Animal violence language in string: "dog-eat-dog". Frames dogs as inherently violent toward each other as a model for competition. ''Ruthlessly competitive'' or ''cutthroat'' conveys the meaning without the stereotype. Consider: "ruthlessly competitive", "cutthroat", "fiercely competitive".'
   languages:
   - javascript
   - typescript
@@ -970,13 +857,14 @@ rules:
     category: inclusive-language
     subcategory: animal-violence
     alternative: 'ruthlessly competitive'
+    reason: 'Frames dogs as inherently violent toward each other as a model for competition. ''Ruthlessly competitive'' or ''cutthroat'' conveys the meaning without the stereotype.'
 - id: animal-violence.javascript.string.whack-a-mole
   patterns:
   - pattern: $S
   - metavariable-regex:
       metavariable: $S
-      regex: '.*whack[\s-]a[\s-]mole.*'
-  message: 'Animal violence language in string: "whack-a-mole". Consider: "recurring problem", "endless loop", "unwinnable game".'
+      regex: '.*\b(?:whack[\s-]a[\s-]mole)\b.*'
+  message: 'Animal violence language in string: "whack-a-mole". References a game built around repeatedly striking animals as they pop up. ''Recurring problem'' or ''endless loop'' describes the pattern more precisely. Consider: "recurring problem", "endless loop", "unwinnable game".'
   languages:
   - javascript
   - typescript
@@ -985,31 +873,33 @@ rules:
     category: inclusive-language
     subcategory: animal-violence
     alternative: 'recurring problem'
+    reason: 'References a game built around repeatedly striking animals as they pop up. ''Recurring problem'' or ''endless loop'' describes the pattern more precisely.'
 - id: animal-violence.javascript.string.cash-cow
   patterns:
   - pattern: $S
   - metavariable-regex:
       metavariable: $S
       regex: '.*cash\s+cows?.*'
-  message: 'Animal violence language in string: "cash cow". Consider: "profit center", "reliable revenue source", "money maker" (autofix available).'
+  message: 'Animal violence language in string: "cash cow". Treats a cow as a thing to be extracted from for profit. ''Moneymaker'' or ''profit center'' carries the same meaning. Consider: "moneymaker", "profit center", "reliable revenue source" (autofix available).'
   languages:
   - javascript
   - typescript
   severity: WARNING
   metadata:
     category: inclusive-language
-    subcategory: animal-violence
-    alternative: 'profit center'
+    subcategory: industry-euphemism
+    alternative: 'moneymaker'
+    reason: 'Treats a cow as a thing to be extracted from for profit. ''Moneymaker'' or ''profit center'' carries the same meaning.'
   fix-regex:
     regex: 'cash\s+cows?'
-    replacement: 'profit center'
+    replacement: 'moneymaker'
 - id: animal-violence.javascript.string.sacrificial-lamb
   patterns:
   - pattern: $S
   - metavariable-regex:
       metavariable: $S
-      regex: '.*sacrificial\s+lambs?.*'
-  message: 'Animal violence language in string: "sacrificial lamb". Consider: "expendable person", "person set up to fail", "someone sacrificed for others" (autofix available).'
+      regex: '.*\b(?:sacrificial\s+lambs?)\b.*'
+  message: 'Animal violence language in string: "sacrificial lamb". References the ritual slaughter of lambs. ''Expendable person'' or ''someone sacrificed for others'' communicates the metaphor directly. Consider: "expendable person", "person set up to fail", "someone sacrificed for others" (autofix available).'
   languages:
   - javascript
   - typescript
@@ -1018,16 +908,17 @@ rules:
     category: inclusive-language
     subcategory: animal-violence
     alternative: 'expendable person'
+    reason: 'References the ritual slaughter of lambs. ''Expendable person'' or ''someone sacrificed for others'' communicates the metaphor directly.'
   fix-regex:
-    regex: 'sacrificial\s+lambs?'
+    regex: '\b(?:sacrificial\s+lambs?)\b'
     replacement: 'expendable person'
 - id: animal-violence.javascript.string.sitting-duck
   patterns:
   - pattern: $S
   - metavariable-regex:
       metavariable: $S
-      regex: '.*sitting\s+ducks?.*'
-  message: 'Animal violence language in string: "sitting duck". Consider: "easy target", "vulnerable target", "exposed" (autofix available).'
+      regex: '.*\b(?:sitting\s+ducks?)\b.*'
+  message: 'Animal violence language in string: "sitting duck". Hunting imagery — a duck in the open, easy to shoot. ''Easy target'' or ''vulnerable target'' says the same thing. Consider: "easy target", "vulnerable target", "exposed" (autofix available).'
   languages:
   - javascript
   - typescript
@@ -1036,16 +927,17 @@ rules:
     category: inclusive-language
     subcategory: animal-violence
     alternative: 'easy target'
+    reason: 'Hunting imagery — a duck in the open, easy to shoot. ''Easy target'' or ''vulnerable target'' says the same thing.'
   fix-regex:
-    regex: 'sitting\s+ducks?'
+    regex: '\b(?:sitting\s+ducks?)\b'
     replacement: 'easy target'
 - id: animal-violence.javascript.string.open-season
   patterns:
   - pattern: $S
   - metavariable-regex:
       metavariable: $S
-      regex: '.*open\s+season.*'
-  message: 'Animal violence language in string: "open season". Consider: "free-for-all", "unrestricted criticism", "no holds barred" (autofix available).'
+      regex: '.*\b(?:open\s+season)\b.*'
+  message: 'Animal violence language in string: "open season". Refers to the legal hunting period when killing animals is permitted. ''Free-for-all'' or ''no holds barred'' conveys the meaning without the hunting framing. Consider: "free-for-all", "unrestricted criticism", "no holds barred" (autofix available).'
   languages:
   - javascript
   - typescript
@@ -1054,34 +946,36 @@ rules:
     category: inclusive-language
     subcategory: animal-violence
     alternative: 'free-for-all'
+    reason: 'Refers to the legal hunting period when killing animals is permitted. ''Free-for-all'' or ''no holds barred'' conveys the meaning without the hunting framing.'
   fix-regex:
-    regex: 'open\s+season'
+    regex: '\b(?:open\s+season)\b'
     replacement: 'free-for-all'
 - id: animal-violence.javascript.string.put-out-to-pasture
   patterns:
   - pattern: $S
   - metavariable-regex:
       metavariable: $S
-      regex: '.*put(ting)?\s+(\w+\s+)?out\s+to\s+pasture.*'
-  message: 'Animal violence language in string: "put out to pasture". Consider: "retire", "phase out", "sunset" (autofix available).'
+      regex: '.*put(s|ting)?(\s+(him|her|them))?\s+out\s+to\s+pasture.*'
+  message: 'Animal violence language in string: "put out to pasture". Refers to the farm practice of disposing of animals once they''re no longer productive. ''Retire,'' ''phase out,'' or ''sunset'' is clearer and carries no harm. Consider: "retire", "phase out", "sunset" (autofix available).'
   languages:
   - javascript
   - typescript
   severity: WARNING
   metadata:
     category: inclusive-language
-    subcategory: animal-violence
+    subcategory: industry-euphemism
     alternative: 'retire'
+    reason: 'Refers to the farm practice of disposing of animals once they''re no longer productive. ''Retire,'' ''phase out,'' or ''sunset'' is clearer and carries no harm.'
   fix-regex:
-    regex: 'put(ting)?\s+(\w+\s+)?out\s+to\s+pasture'
+    regex: 'put(s|ting)?(\s+(him|her|them))?\s+out\s+to\s+pasture'
     replacement: 'retire'
 - id: animal-violence.javascript.string.dead-duck
   patterns:
   - pattern: $S
   - metavariable-regex:
       metavariable: $S
-      regex: '.*dead\s+ducks?.*'
-  message: 'Animal violence language in string: "dead duck". Consider: "lost cause", "doomed effort", "foregone conclusion".'
+      regex: '.*\b(?:dead\s+ducks?)\b.*'
+  message: 'Animal violence language in string: "dead duck". Hunting imagery — a duck that has been shot and killed. ''Lost cause'' or ''doomed effort'' is just as expressive. Consider: "lost cause", "doomed effort", "foregone conclusion".'
   languages:
   - javascript
   - typescript
@@ -1090,76 +984,14 @@ rules:
     category: inclusive-language
     subcategory: animal-violence
     alternative: 'lost cause'
-- id: animal-violence.javascript.string.kill-process
-  patterns:
-  - pattern: $S
-  - metavariable-regex:
-      metavariable: $S
-      regex: '.*kill\s+(the\s+)?process.*'
-  message: 'Animal violence language in string: "kill process". Consider: "terminate the process", "stop the process", "end the process".'
-  languages:
-  - javascript
-  - typescript
-  severity: INFO
-  metadata:
-    category: inclusive-language
-    subcategory: animal-violence
-    alternative: 'terminate the process'
-- id: animal-violence.javascript.string.kill-the-server
-  patterns:
-  - pattern: $S
-  - metavariable-regex:
-      metavariable: $S
-      regex: '.*kill\s+(the\s+)?server.*'
-  message: 'Animal violence language in string: "kill the server". Consider: "stop the server", "shut down the server", "terminate the server".'
-  languages:
-  - javascript
-  - typescript
-  severity: INFO
-  metadata:
-    category: inclusive-language
-    subcategory: animal-violence
-    alternative: 'stop the server'
-- id: animal-violence.javascript.string.nuke
-  patterns:
-  - pattern: $S
-  - metavariable-regex:
-      metavariable: $S
-      regex: '.*nuke\s+(it|the|this|that|everything).*'
-  message: 'Animal violence language in string: "nuke". Consider: "delete completely", "wipe clean", "remove entirely" (autofix available).'
-  languages:
-  - javascript
-  - typescript
-  severity: WARNING
-  metadata:
-    category: inclusive-language
-    subcategory: animal-violence
-    alternative: 'delete completely'
-  fix-regex:
-    regex: 'nuke\s+(it|the|this|that|everything)'
-    replacement: 'delete completely'
-- id: animal-violence.javascript.string.abort
-  patterns:
-  - pattern: $S
-  - metavariable-regex:
-      metavariable: $S
-      regex: '.*abort(ed|ing)?.*'
-  message: 'Animal violence language in string: "abort". Consider: "cancel", "stop", "halt".'
-  languages:
-  - javascript
-  - typescript
-  severity: INFO
-  metadata:
-    category: inclusive-language
-    subcategory: animal-violence
-    alternative: 'cancel'
+    reason: 'Hunting imagery — a duck that has been shot and killed. ''Lost cause'' or ''doomed effort'' is just as expressive.'
 - id: animal-violence.javascript.string.cull
   patterns:
   - pattern: $S
   - metavariable-regex:
       metavariable: $S
-      regex: '.*cull(ed|ing|s)?.*'
-  message: 'Animal violence language in string: "cull". Consider: "remove", "prune", "trim", "filter out" (autofix available).'
+      regex: '.*\b(?:cull(ed|ing|s)?)\b.*'
+  message: 'Animal violence language in string: "cull". Euphemism used in wildlife management and farming for mass killing. ''Remove'', ''prune'', ''trim'', or ''filter out'' is accurate in technical contexts. Consider: "remove", "prune", "trim", "filter out" (autofix available).'
   languages:
   - javascript
   - typescript
@@ -1168,52 +1000,33 @@ rules:
     category: inclusive-language
     subcategory: animal-violence
     alternative: 'remove'
+    reason: 'Euphemism used in wildlife management and farming for mass killing. ''Remove'', ''prune'', ''trim'', or ''filter out'' is accurate in technical contexts.'
   fix-regex:
-    regex: 'cull(ed|ing|s)?'
+    regex: '\b(?:cull(ed|ing|s)?)\b'
     replacement: 'remove'
-- id: animal-violence.javascript.string.master-slave
+- id: animal-violence.javascript.string.veal
   patterns:
   - pattern: $S
   - metavariable-regex:
       metavariable: $S
-      regex: '.*(master|slave).*'
-  message: 'Animal violence language in string: "master/slave". Consider: "primary/replica", "leader/follower", "controller/worker" (autofix available).'
+      regex: '.*\b(?:veal(\s+cal(f|ves))?)\b.*'
+  message: 'Animal violence language in string: "veal". ''Veal'' softens ''slaughtered-calf flesh'' via a Norman-French borrowing. In advocacy or industry-critical writing, ''calf flesh'' names what it is. (Suppressed in recipes and cooking contexts.) Consider: "calf flesh", "calf meat".'
   languages:
   - javascript
   - typescript
-  severity: WARNING
+  severity: INFO
   metadata:
     category: inclusive-language
-    subcategory: animal-violence
-    alternative: 'primary/replica'
-  fix-regex:
-    regex: '(master|slave)'
-    replacement: 'primary/replica'
-- id: animal-violence.javascript.string.whitelist-blacklist
+    subcategory: industry-euphemism
+    alternative: 'calf flesh'
+    reason: '''Veal'' softens ''slaughtered-calf flesh'' via a Norman-French borrowing. In advocacy or industry-critical writing, ''calf flesh'' names what it is. (Suppressed in recipes and cooking contexts.)'
+- id: animal-violence.javascript.string.lame-duck
   patterns:
   - pattern: $S
   - metavariable-regex:
       metavariable: $S
-      regex: '.*(white|black)list.*'
-  message: 'Animal violence language in string: "whitelist/blacklist". Consider: "allowlist/denylist", "permit list/block list", "inclusion list/exclusion list" (autofix available).'
-  languages:
-  - javascript
-  - typescript
-  severity: WARNING
-  metadata:
-    category: inclusive-language
-    subcategory: animal-violence
-    alternative: 'allowlist/denylist'
-  fix-regex:
-    regex: '(white|black)list'
-    replacement: 'allowlist/denylist'
-- id: animal-violence.javascript.string.grandfathered
-  patterns:
-  - pattern: $S
-  - metavariable-regex:
-      metavariable: $S
-      regex: '.*grandfather(ed|ing)?.*'
-  message: 'Animal violence language in string: "grandfathered". Consider: "legacy", "exempt", "pre-existing".'
+      regex: '.*\b(?:lame[\s-]duck)\b.*'
+  message: 'Animal violence language in string: "lame duck". Combines an ableist adjective with a reference to a bird unable to fly due to injury. ''Outgoing'', ''transitional'', or ''ineffective'' is more precise. Consider: "outgoing", "transitional", "ineffective".'
   languages:
   - javascript
   - typescript
@@ -1221,14 +1034,15 @@ rules:
   metadata:
     category: inclusive-language
     subcategory: animal-violence
-    alternative: 'legacy'
-- id: animal-violence.javascript.string.veal
+    alternative: 'outgoing'
+    reason: 'Combines an ableist adjective with a reference to a bird unable to fly due to injury. ''Outgoing'', ''transitional'', or ''ineffective'' is more precise.'
+- id: animal-violence.javascript.string.debeaking
   patterns:
   - pattern: $S
   - metavariable-regex:
       metavariable: $S
-      regex: '.*veal.*'
-  message: 'Animal violence language in string: "veal". Consider: "calf flesh", "flesh from calves" (autofix available).'
+      regex: '.*\b(?:debeak(ing|ed)|beak\s+(trimming|trim|conditioning))\b.*'
+  message: 'Animal violence language in string: "debeaking". Industry euphemism for slicing or burning off hens'' beaks, typically without anesthesia. ''Beak amputation'' names what actually happens. Consider: "beak amputation", "beak mutilation" (autofix available).'
   languages:
   - javascript
   - typescript
@@ -1236,7 +1050,1773 @@ rules:
   metadata:
     category: inclusive-language
     subcategory: industry-euphemism
-    alternative: 'calf flesh'
+    alternative: 'beak amputation'
+    reason: 'Industry euphemism for slicing or burning off hens'' beaks, typically without anesthesia. ''Beak amputation'' names what actually happens.'
   fix-regex:
-    regex: 'veal'
-    replacement: 'calf flesh'
+    regex: '\b(?:debeak(ing|ed)|beak\s+(trimming|trim|conditioning))\b'
+    replacement: 'beak amputation'
+- id: animal-violence.javascript.string.dehorning
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*\b(?:dehorn(ing|ed)|disbud(ding|ded))\b.*'
+  message: 'Animal violence language in string: "dehorning". Industry term for removing cattle horns, typically without anesthesia. ''Horn amputation'' is accurate. Consider: "horn amputation", "horn removal" (autofix available).'
+  languages:
+  - javascript
+  - typescript
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'horn amputation'
+    reason: 'Industry term for removing cattle horns, typically without anesthesia. ''Horn amputation'' is accurate.'
+  fix-regex:
+    regex: '\b(?:dehorn(ing|ed)|disbud(ding|ded))\b'
+    replacement: 'horn amputation'
+- id: animal-violence.javascript.string.tail-docking
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*tail[\s-]docking|tail\s+docked|docked\s+tail.*'
+  message: 'Animal violence language in string: "tail docking". Amputating pigs'', sheep''s, or dogs'' tails. ''Tail amputation'' is the accurate term. Consider: "tail amputation" (autofix available).'
+  languages:
+  - javascript
+  - typescript
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'tail amputation'
+    reason: 'Amputating pigs'', sheep''s, or dogs'' tails. ''Tail amputation'' is the accurate term.'
+  fix-regex:
+    regex: 'tail[\s-]docking|tail\s+docked|docked\s+tail'
+    replacement: 'tail amputation'
+- id: animal-violence.javascript.string.ear-notching
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*ear[\s-]notch(ing|ed).*'
+  message: 'Animal violence language in string: "ear notching". Industry identification practice of cutting notches in animals'' ears. ''Ear mutilation'' names what it is. Consider: "ear mutilation".'
+  languages:
+  - javascript
+  - typescript
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'ear mutilation'
+    reason: 'Industry identification practice of cutting notches in animals'' ears. ''Ear mutilation'' names what it is.'
+- id: animal-violence.javascript.string.ventilation-shutdown
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*ventilation\s+shutdown(\s+plus)?|VSD\+|VSD\s+plus.*'
+  message: 'Animal violence language in string: "ventilation shutdown". Industry term for killing entire flocks by cutting off airflow — the animals die from suffocation and heat. ''Mass killing by suffocation'' is the accurate term. (Suppressed in HVAC contexts.) Consider: "mass killing by suffocation", "heat-and-suffocation killing" (autofix available).'
+  languages:
+  - javascript
+  - typescript
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'mass killing by suffocation'
+    reason: 'Industry term for killing entire flocks by cutting off airflow — the animals die from suffocation and heat. ''Mass killing by suffocation'' is the accurate term. (Suppressed in HVAC contexts.)'
+  fix-regex:
+    regex: 'ventilation\s+shutdown(\s+plus)?|VSD\+|VSD\s+plus'
+    replacement: 'mass killing by suffocation'
+- id: animal-violence.javascript.string.maceration
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*(maceration\s+of\s+chicks|chick\s+maceration|macerat(ed|ing)\s+chicks).*'
+  message: 'Animal violence language in string: "maceration of chicks". Industry euphemism for killing day-old male chicks by grinding them alive. Say what the process is. (Bare ''maceration'' in culinary or chemistry contexts is not flagged.) Consider: "grinding newborn chicks alive", "chick grinding" (autofix available).'
+  languages:
+  - javascript
+  - typescript
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'grinding newborn chicks alive'
+    reason: 'Industry euphemism for killing day-old male chicks by grinding them alive. Say what the process is. (Bare ''maceration'' in culinary or chemistry contexts is not flagged.)'
+  fix-regex:
+    regex: '(maceration\s+of\s+chicks|chick\s+maceration|macerat(ed|ing)\s+chicks)'
+    replacement: 'grinding newborn chicks alive'
+- id: animal-violence.javascript.string.abattoir
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*\b(?:abattoirs?)\b.*'
+  message: 'Animal violence language in string: "abattoir". French-derived euphemism for slaughterhouse. ''Slaughterhouse'' is the accurate English term. Consider: "slaughterhouse" (autofix available).'
+  languages:
+  - javascript
+  - typescript
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'slaughterhouse'
+    reason: 'French-derived euphemism for slaughterhouse. ''Slaughterhouse'' is the accurate English term.'
+  fix-regex:
+    regex: '\b(?:abattoirs?)\b'
+    replacement: 'slaughterhouse'
+- id: animal-violence.javascript.string.rendering-plant
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*rendering\s+(plant|facility)s?.*'
+  message: 'Animal violence language in string: "rendering plant". Facility that processes animal bodies — roadkill, downed animals, slaughter byproducts — into meal, fat, and tallow. Naming it accurately makes the supply chain visible. (Only the full compound ''rendering plant'' / ''rendering facility'' is flagged; bare ''rendering'' for graphics or UI is not.) Consider: "animal-body processing plant", "carcass-processing facility".'
+  languages:
+  - javascript
+  - typescript
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'animal-body processing plant'
+    reason: 'Facility that processes animal bodies — roadkill, downed animals, slaughter byproducts — into meal, fat, and tallow. Naming it accurately makes the supply chain visible. (Only the full compound ''rendering plant'' / ''rendering facility'' is flagged; bare ''rendering'' for graphics or UI is not.)'
+- id: animal-violence.javascript.string.stockyard
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*\b(?:stockyards?)\b.*'
+  message: 'Animal violence language in string: "stockyard". Euphemism for pre-slaughter holding pens. ''Slaughterhouse pens'' describes what the facility actually is. Consider: "slaughterhouse pens", "live-animal market".'
+  languages:
+  - javascript
+  - typescript
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'slaughterhouse pens'
+    reason: 'Euphemism for pre-slaughter holding pens. ''Slaughterhouse pens'' describes what the facility actually is.'
+- id: animal-violence.javascript.string.laying-hen
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*(laying|layer)\s+hens?.*'
+  message: 'Animal violence language in string: "laying hen". Defines a hen by her egg-laying function. When sex and species are relevant, ''hen'' is sufficient. Consider: "hen" (autofix available).'
+  languages:
+  - javascript
+  - typescript
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'hen'
+    reason: 'Defines a hen by her egg-laying function. When sex and species are relevant, ''hen'' is sufficient.'
+  fix-regex:
+    regex: '(laying|layer)\s+hens?'
+    replacement: 'hen'
+- id: animal-violence.javascript.string.use-category-naming
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*(dairy|beef)\s+(cow|cows|cattle)|meat\s+(birds?|rabbits?|goats?).*'
+  message: 'Animal violence language in string: "dairy cow". Defines an animal by the product humans extract from them. The species name alone is sufficient unless the use is actively relevant. Consider: "cow", "the species name alone" (autofix available).'
+  languages:
+  - javascript
+  - typescript
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'cow'
+    reason: 'Defines an animal by the product humans extract from them. The species name alone is sufficient unless the use is actively relevant.'
+  fix-regex:
+    regex: '(dairy|beef)\s+(cow|cows|cattle)|meat\s+(birds?|rabbits?|goats?)'
+    replacement: 'cow'
+- id: animal-violence.javascript.string.brood-sow
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*brood\s+sows?|breeding\s+(stock|pair).*'
+  message: 'Animal violence language in string: "brood sow". Defines a female animal by her reproductive function. Name the individual directly where possible. Consider: "pregnant pig", "nursing mother pig" (autofix available).'
+  languages:
+  - javascript
+  - typescript
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'pregnant pig'
+    reason: 'Defines a female animal by her reproductive function. Name the individual directly where possible.'
+  fix-regex:
+    regex: 'brood\s+sows?|breeding\s+(stock|pair)'
+    replacement: 'pregnant pig'
+- id: animal-violence.javascript.string.cattle-call
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*cattle\s+calls?.*'
+  message: 'Animal violence language in string: "cattle call". Likens human applicants to livestock being herded. ''Open call'' or ''mass audition'' carries the same meaning without the framing. Consider: "open call", "mass audition" (autofix available).'
+  languages:
+  - javascript
+  - typescript
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'open call'
+    reason: 'Likens human applicants to livestock being herded. ''Open call'' or ''mass audition'' carries the same meaning without the framing.'
+  fix-regex:
+    regex: 'cattle\s+calls?'
+    replacement: 'open call'
+- id: animal-violence.javascript.string.pet-project
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*pet\s+projects?.*'
+  message: 'Animal violence language in string: "pet project". Carries over the property framing of ''pet'' (something owned) to the project. ''Side project'' or ''passion project'' captures the same idea without the ownership framing. Consider: "side project", "passion project".'
+  languages:
+  - javascript
+  - typescript
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'side project'
+    reason: 'Carries over the property framing of ''pet'' (something owned) to the project. ''Side project'' or ''passion project'' captures the same idea without the ownership framing.'
+- id: animal-violence.javascript.string.humanely-raised
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*humanely\s+(raised|produced|farmed).*'
+  message: 'Animal violence language in string: "humanely raised". USDA-unregulated marketing label — companies define their own standards, and the actual conditions often differ little from factory farming. Describe the actual conditions where possible. Consider: "factory-farmed", "raised in [specific conditions]" (autofix available).'
+  languages:
+  - javascript
+  - typescript
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'factory-farmed'
+    reason: 'USDA-unregulated marketing label — companies define their own standards, and the actual conditions often differ little from factory farming. Describe the actual conditions where possible.'
+  fix-regex:
+    regex: 'humanely\s+(raised|produced|farmed)'
+    replacement: 'factory-farmed'
+- id: animal-violence.javascript.string.free-range
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*free[\s-]rang(e|ing)|free[\s-]roaming.*'
+  message: 'Animal violence language in string: "free-range". USDA requires only ''access to outdoors'' — often a small door to a small porch that most birds never use. The label does not guarantee meaningful outdoor life. Consider: "minimally accessible outdoor pen", "outdoor access (USDA minimum)" (autofix available).'
+  languages:
+  - javascript
+  - typescript
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'minimally accessible outdoor pen'
+    reason: 'USDA requires only ''access to outdoors'' — often a small door to a small porch that most birds never use. The label does not guarantee meaningful outdoor life.'
+  fix-regex:
+    regex: 'free[\s-]rang(e|ing)|free[\s-]roaming'
+    replacement: 'minimally accessible outdoor pen'
+- id: animal-violence.javascript.string.pasture-raised
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*pasture[\s-]raised|pastured.*'
+  message: 'Animal violence language in string: "pasture-raised". Not USDA-regulated; the meaning depends on whichever certifier the producer chooses. Name the certifier and the actual conditions where possible. Consider: "raised on pasture (certifier-dependent)" (autofix available).'
+  languages:
+  - javascript
+  - typescript
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'raised on pasture (certifier-dependent)'
+    reason: 'Not USDA-regulated; the meaning depends on whichever certifier the producer chooses. Name the certifier and the actual conditions where possible.'
+  fix-regex:
+    regex: 'pasture[\s-]raised|pastured'
+    replacement: 'raised on pasture (certifier-dependent)'
+- id: animal-violence.javascript.string.grass-fed
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*grass[\s-](fed|finished).*'
+  message: 'Animal violence language in string: "grass-fed". Describes the cattle''s feed, not their welfare. Slaughter, transport, and mother-calf separation happen the same way. The USDA dropped its ''grass-fed'' definition in 2016; current usage is producer-defined. Consider: "grass-fed (USDA definition dropped 2016)", "forage-finished".'
+  languages:
+  - javascript
+  - typescript
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'grass-fed (USDA definition dropped 2016)'
+    reason: 'Describes the cattle''s feed, not their welfare. Slaughter, transport, and mother-calf separation happen the same way. The USDA dropped its ''grass-fed'' definition in 2016; current usage is producer-defined.'
+- id: animal-violence.javascript.string.cage-free-for-meat
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*cage[\s-]free\s+(chicken|turkey|meat|pork|beef).*'
+  message: 'Animal violence language in string: "cage-free chicken". Meaningless for meat birds — broiler chickens and turkeys are almost never caged in industrial production. The label implies a welfare improvement that doesn''t exist. (Cage-free for eggs IS a meaningful distinction; that usage is not flagged.) Consider: "crowded indoor housing", "barn-raised" (autofix available).'
+  languages:
+  - javascript
+  - typescript
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'crowded indoor housing'
+    reason: 'Meaningless for meat birds — broiler chickens and turkeys are almost never caged in industrial production. The label implies a welfare improvement that doesn''t exist. (Cage-free for eggs IS a meaningful distinction; that usage is not flagged.)'
+  fix-regex:
+    regex: 'cage[\s-]free\s+(chicken|turkey|meat|pork|beef)'
+    replacement: 'crowded indoor housing'
+- id: animal-violence.javascript.string.humane-certifications
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*Certified\s+Humane|Animal\s+Welfare\s+Approved|Global\s+Animal\s+Partnership|American\s+Humane\s+Certified|One\s+Health\s+Certified|GAP\s+(certified|Step(\s+\d)?).*'
+  message: 'Animal violence language in string: "Certified Humane". Third-party welfare certifications with widely varying standards — some are meaningful (Animal Welfare Approved), others are marketing (American Humane Certified). Name the specific standard if relevant. Consider: "name the certifier and standard".'
+  languages:
+  - javascript
+  - typescript
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'name the certifier and standard'
+    reason: 'Third-party welfare certifications with widely varying standards — some are meaningful (Animal Welfare Approved), others are marketing (American Humane Certified). Name the specific standard if relevant.'
+- id: animal-violence.javascript.string.ethically-sourced-animal
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*(ethically|responsibly)\s+sourced\s+(meat|dairy|eggs|beef|pork|chicken)|happy\s+(meat|cows?).*'
+  message: 'Animal violence language in string: "ethically sourced meat". Marketing language without a standard definition when applied to animal products. ''Ethically sourced'' meat has no USDA definition. Describe the actual practices instead. (The phrase applied to coffee, chocolate, or textiles is not flagged.) Consider: "describe the actual farm practices".'
+  languages:
+  - javascript
+  - typescript
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'describe the actual farm practices'
+    reason: 'Marketing language without a standard definition when applied to animal products. ''Ethically sourced'' meat has no USDA definition. Describe the actual practices instead. (The phrase applied to coffee, chocolate, or textiles is not flagged.)'
+- id: animal-violence.javascript.string.dolphin-safe
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*dolphin[\s-]safe|line[\s-]caught|pole[\s-](and[\s-]line[\s-])?caught|sustainab(ly\s+caught|le\s+seafood).*'
+  message: 'Animal violence language in string: "dolphin-safe". Addresses specific bycatch concerns but not fish suffering. Fish feel pain, suffocate on deck, or are crushed in nets regardless of how the boat avoids catching dolphins or catches fish one at a time. Consider: "name the specific fishing method and bycatch statistics".'
+  languages:
+  - javascript
+  - typescript
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'name the specific fishing method and bycatch statistics'
+    reason: 'Addresses specific bycatch concerns but not fish suffering. Fish feel pain, suffocate on deck, or are crushed in nets regardless of how the boat avoids catching dolphins or catches fish one at a time.'
+- id: animal-violence.javascript.string.feed-to-predators
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*(feed|fed|feeding)\s+to\s+the\s+(lions|sharks|dogs).*'
+  message: 'Animal violence language in string: "feed to the lions". Human-as-prey imagery. ''Sacrifice'' or ''leave exposed'' captures the same meaning. Consider: "sacrifice", "leave exposed", "abandon to attack" (autofix available).'
+  languages:
+  - javascript
+  - typescript
+  severity: ERROR
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'sacrifice'
+    reason: 'Human-as-prey imagery. ''Sacrifice'' or ''leave exposed'' captures the same meaning.'
+  fix-regex:
+    regex: '(feed|fed|feeding)\s+to\s+the\s+(lions|sharks|dogs)'
+    replacement: 'sacrifice'
+- id: animal-violence.javascript.string.pig-to-slaughter
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*(like\s+(a\s+)?)?pigs?\s+to\s+slaughter.*'
+  message: 'Animal violence language in string: "like a pig to slaughter". Direct slaughter imagery. ''Defenseless'' or ''walking into disaster'' captures the same meaning. Consider: "defenseless", "walking into disaster" (autofix available).'
+  languages:
+  - javascript
+  - typescript
+  severity: ERROR
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'defenseless'
+    reason: 'Direct slaughter imagery. ''Defenseless'' or ''walking into disaster'' captures the same meaning.'
+  fix-regex:
+    regex: '(like\s+(a\s+)?)?pigs?\s+to\s+slaughter'
+    replacement: 'defenseless'
+- id: animal-violence.javascript.string.turkey-shoot
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*turkey[\s-]shoot.*'
+  message: 'Animal violence language in string: "turkey shoot". One-sided-slaughter imagery for an easy win. ''Walkover'' or ''trivially easy win'' carries the same meaning. Consider: "trivially easy win", "no-contest situation", "walkover" (autofix available).'
+  languages:
+  - javascript
+  - typescript
+  severity: ERROR
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'trivially easy win'
+    reason: 'One-sided-slaughter imagery for an easy win. ''Walkover'' or ''trivially easy win'' carries the same meaning.'
+  fix-regex:
+    regex: 'turkey[\s-]shoot'
+    replacement: 'trivially easy win'
+- id: animal-violence.javascript.string.fox-guarding-henhouse
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*fox(es)?\s+(guarding\s+the|in\s+the)\s+hen[\s-]?house.*'
+  message: 'Animal violence language in string: "fox guarding the henhouse". Frames predation as an inevitable natural order. ''Conflict of interest'' or ''wrong person in charge'' is the actual point being made. Consider: "conflict of interest", "the wrong person in charge" (autofix available).'
+  languages:
+  - javascript
+  - typescript
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'conflict of interest'
+    reason: 'Frames predation as an inevitable natural order. ''Conflict of interest'' or ''wrong person in charge'' is the actual point being made.'
+  fix-regex:
+    regex: 'fox(es)?\s+(guarding\s+the|in\s+the)\s+hen[\s-]?house'
+    replacement: 'conflict of interest'
+- id: animal-violence.javascript.string.bull-in-china-shop
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*(like\s+a\s+)?bull\s+in\s+a\s+china\s+shop.*'
+  message: 'Animal violence language in string: "bull in a china shop". Bull-as-clumsy-brute stereotype — actually originates from a cartoon, not reality. ''Clumsy disruption'' or ''careless and destructive'' is more accurate. Consider: "tornado in a glass factory", "clumsy disruption", "careless and destructive" (autofix available).'
+  languages:
+  - javascript
+  - typescript
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'tornado in a glass factory'
+    reason: 'Bull-as-clumsy-brute stereotype — actually originates from a cartoon, not reality. ''Clumsy disruption'' or ''careless and destructive'' is more accurate.'
+  fix-regex:
+    regex: '(like\s+a\s+)?bull\s+in\s+a\s+china\s+shop'
+    replacement: 'tornado in a glass factory'
+- id: animal-violence.javascript.string.build-a-better-mousetrap
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*build(s|ing)?\s+a\s+better\s+mousetrap|better\s+mousetrap.*'
+  message: 'Animal violence language in string: "build a better mousetrap". Mouse-killing device as innovation metaphor. ''Invent something better'' or ''build a better mouse pad'' captures the idea. Consider: "build a better mouse pad", "invent something better" (autofix available).'
+  languages:
+  - javascript
+  - typescript
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'build a better mouse pad'
+    reason: 'Mouse-killing device as innovation metaphor. ''Invent something better'' or ''build a better mouse pad'' captures the idea.'
+  fix-regex:
+    regex: 'build(s|ing)?\s+a\s+better\s+mousetrap|better\s+mousetrap'
+    replacement: 'build a better mouse pad'
+- id: animal-violence.javascript.string.packed-like-sardines
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*(packed|squeezed)\s+(in\s+)?like\s+sardines.*'
+  message: 'Animal violence language in string: "packed in like sardines". Accurately describes industrial fishing and canning — the ''imagery'' is the reality. ''Tightly crowded'' or ''packed in like pickles'' works without invoking it. Consider: "packed in like pickles", "tightly crowded", "crammed together" (autofix available).'
+  languages:
+  - javascript
+  - typescript
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'packed in like pickles'
+    reason: 'Accurately describes industrial fishing and canning — the ''imagery'' is the reality. ''Tightly crowded'' or ''packed in like pickles'' works without invoking it.'
+  fix-regex:
+    regex: '(packed|squeezed)\s+(in\s+)?like\s+sardines'
+    replacement: 'packed in like pickles'
+- id: animal-violence.javascript.string.pull-the-wool
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*pull(s|ing|ed)?\s+the\s+wool\s+over.*'
+  message: 'Animal violence language in string: "pull the wool over". Wool (sheep exploitation) as a deception metaphor. ''Deceive'' or ''mislead'' is direct and clearer. Consider: "deceive", "mislead", "pull the polyester over your eyes" (autofix available).'
+  languages:
+  - javascript
+  - typescript
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'deceive'
+    reason: 'Wool (sheep exploitation) as a deception metaphor. ''Deceive'' or ''mislead'' is direct and clearer.'
+  fix-regex:
+    regex: 'pull(s|ing|ed)?\s+the\s+wool\s+over'
+    replacement: 'deceive'
+- id: animal-violence.javascript.string.lipstick-on-a-pig
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*(put(s|ting)?\s+)?lipstick\s+on\s+a\s+pig.*'
+  message: 'Animal violence language in string: "lipstick on a pig". Frames pigs as ugly objects. ''Superficially improve'' or ''disguise the flaw'' is the actual meaning. Consider: "superficially improve", "disguise the flaw", "dress up a bad product" (autofix available).'
+  languages:
+  - javascript
+  - typescript
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'superficially improve'
+    reason: 'Frames pigs as ugly objects. ''Superficially improve'' or ''disguise the flaw'' is the actual meaning.'
+  fix-regex:
+    regex: '(put(s|ting)?\s+)?lipstick\s+on\s+a\s+pig'
+    replacement: 'superficially improve'
+- id: animal-violence.javascript.string.silk-purse-sows-ear
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*silk\s+purse\s+(out\s+of|from)\s+a\s+sow''s\s+ear.*'
+  message: 'Animal violence language in string: "silk purse out of a sow''s ear". Pig body parts framed as worthless. ''Transform something unpromising'' carries the same meaning. Consider: "diamond bracelet out of a lump of coal", "transform something unpromising" (autofix available).'
+  languages:
+  - javascript
+  - typescript
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'diamond bracelet out of a lump of coal'
+    reason: 'Pig body parts framed as worthless. ''Transform something unpromising'' carries the same meaning.'
+  fix-regex:
+    regex: 'silk\s+purse\s+(out\s+of|from)\s+a\s+sow''s\s+ear'
+    replacement: 'diamond bracelet out of a lump of coal'
+- id: animal-violence.javascript.string.black-sheep
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*black\s+sheep.*'
+  message: 'Animal violence language in string: "black sheep". Commodifies sheep coat color as a family-shame metaphor, with racial baggage. ''Outlier'' or ''odd one out'' works. Consider: "outlier", "misfit", "odd one out" (autofix available).'
+  languages:
+  - javascript
+  - typescript
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'outlier'
+    reason: 'Commodifies sheep coat color as a family-shame metaphor, with racial baggage. ''Outlier'' or ''odd one out'' works.'
+  fix-regex:
+    regex: 'black\s+sheep'
+    replacement: 'outlier'
+- id: animal-violence.javascript.string.wolf-in-sheeps-clothing
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*wol(f|ves)\s+in\s+sheep''?s\s+clothing.*'
+  message: 'Animal violence language in string: "wolf in sheep''s clothing". Wolves-as-deceivers trope. ''Hidden threat'' or ''deceiver in disguise'' carries the same meaning. Consider: "deceiver in disguise", "hidden threat", "threat wearing a friendly face" (autofix available).'
+  languages:
+  - javascript
+  - typescript
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'deceiver in disguise'
+    reason: 'Wolves-as-deceivers trope. ''Hidden threat'' or ''deceiver in disguise'' carries the same meaning.'
+  fix-regex:
+    regex: 'wol(f|ves)\s+in\s+sheep''?s\s+clothing'
+    replacement: 'deceiver in disguise'
+- id: animal-violence.javascript.string.chicken-out
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*chicken(s|ed|ing)\s+out|chicken\s+out.*'
+  message: 'Animal violence language in string: "chicken out". Chicken-as-coward framing. ''Back out'' or ''lose nerve'' carries the same meaning. Consider: "back out", "lose nerve", "get cold feet" (autofix available).'
+  languages:
+  - javascript
+  - typescript
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'back out'
+    reason: 'Chicken-as-coward framing. ''Back out'' or ''lose nerve'' carries the same meaning.'
+  fix-regex:
+    regex: 'chicken(s|ed|ing)\s+out|chicken\s+out'
+    replacement: 'back out'
+- id: animal-violence.javascript.string.feeding-frenzy
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*feeding\s+frenz(y|ies).*'
+  message: 'Animal violence language in string: "feeding frenzy". Shark-predation imagery used for human behavior. ''Chaotic rush'' or ''scramble to exploit'' carries the same meaning. Consider: "chaotic rush", "scramble to exploit", "uncontrolled grab" (autofix available).'
+  languages:
+  - javascript
+  - typescript
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'chaotic rush'
+    reason: 'Shark-predation imagery used for human behavior. ''Chaotic rush'' or ''scramble to exploit'' carries the same meaning.'
+  fix-regex:
+    regex: 'feeding\s+frenz(y|ies)'
+    replacement: 'chaotic rush'
+- id: animal-violence.javascript.string.blood-in-the-water
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*(smell[s]?\s+)?blood\s+in\s+the\s+water.*'
+  message: 'Animal violence language in string: "blood in the water". Shark-predation imagery. ''Signs of weakness'' or ''vulnerability visible'' carries the same meaning. Consider: "signs of weakness", "vulnerability visible", "sensing a kill" (autofix available).'
+  languages:
+  - javascript
+  - typescript
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'signs of weakness'
+    reason: 'Shark-predation imagery. ''Signs of weakness'' or ''vulnerability visible'' carries the same meaning.'
+  fix-regex:
+    regex: '(smell[s]?\s+)?blood\s+in\s+the\s+water'
+    replacement: 'signs of weakness'
+- id: animal-violence.javascript.string.circling-vultures
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*(circl(e|ing)\s+(like\s+)?vultures|vultures\s+circling).*'
+  message: 'Animal violence language in string: "circling like vultures". Species defamation — the ''circling vulture'' framing is factually wrong (vultures are ecological cleaners, not predators) and has driven real persecution; vulture populations are crashing globally. ''Waiting to exploit'' carries the same meaning. Consider: "waiting to exploit", "hovering opportunistically", "waiting for weakness" (autofix available).'
+  languages:
+  - javascript
+  - typescript
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'waiting to exploit'
+    reason: 'Species defamation — the ''circling vulture'' framing is factually wrong (vultures are ecological cleaners, not predators) and has driven real persecution; vulture populations are crashing globally. ''Waiting to exploit'' carries the same meaning.'
+  fix-regex:
+    regex: '(circl(e|ing)\s+(like\s+)?vultures|vultures\s+circling)'
+    replacement: 'waiting to exploit'
+- id: animal-violence.javascript.string.madder-than-wet-hen
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*mad(der)?\s+(than|as)\s+a\s+wet\s+hen.*'
+  message: 'Animal violence language in string: "madder than a wet hen". References the farm practice of dunking broody hens in water to break their nesting instinct. ''Furious'' or ''livid'' says it directly. Consider: "furious", "livid", "seething" (autofix available).'
+  languages:
+  - javascript
+  - typescript
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'furious'
+    reason: 'References the farm practice of dunking broody hens in water to break their nesting instinct. ''Furious'' or ''livid'' says it directly.'
+  fix-regex:
+    regex: 'mad(der)?\s+(than|as)\s+a\s+wet\s+hen'
+    replacement: 'furious'
+- id: animal-violence.javascript.string.code-monkey
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*code\s+monkeys?.*'
+  message: 'Animal violence language in string: "code monkey". Frames programmers as trained animals, and compounds with the long history of ''monkey'' used as a racial slur. ''Developer'' or ''engineer'' is the accurate term. Consider: "developer", "programmer", "engineer" (autofix available).'
+  languages:
+  - javascript
+  - typescript
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'developer'
+    reason: 'Frames programmers as trained animals, and compounds with the long history of ''monkey'' used as a racial slur. ''Developer'' or ''engineer'' is the accurate term.'
+  fix-regex:
+    regex: 'code\s+monkeys?'
+    replacement: 'developer'
+- id: animal-violence.javascript.string.hog-resource
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*(memory|CPU|bandwidth|resource|disk|space)\s+hog|hogging\s+(memory|CPU|bandwidth|resources|the)|hogs\s+the|hog\s+the\s+spotlight.*'
+  message: 'Animal violence language in string: "memory hog". Builds on the pig-as-greedy stereotype (pigs are actually selective eaters). ''Resource-intensive'' or ''monopolizes'' is more accurate and avoids the framing. Consider: "resource-intensive", "heavy consumer", "monopolizes", "dominates" (autofix available).'
+  languages:
+  - javascript
+  - typescript
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'resource-intensive'
+    reason: 'Builds on the pig-as-greedy stereotype (pigs are actually selective eaters). ''Resource-intensive'' or ''monopolizes'' is more accurate and avoids the framing.'
+  fix-regex:
+    regex: '(memory|CPU|bandwidth|resource|disk|space)\s+hog|hogging\s+(memory|CPU|bandwidth|resources|the)|hogs\s+the|hog\s+the\s+spotlight'
+    replacement: 'resource-intensive'
+- id: animal-violence.javascript.string.pigheaded
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*\b(?:pig[\s-]?headed(ness)?)\b.*'
+  message: 'Animal violence language in string: "pigheaded". Pig-as-stubborn stereotype (pigs are intelligent, not stubborn). ''Obstinate'' or ''unreasonable'' says it directly. Consider: "obstinate", "inflexible", "unreasonable" (autofix available).'
+  languages:
+  - javascript
+  - typescript
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'obstinate'
+    reason: 'Pig-as-stubborn stereotype (pigs are intelligent, not stubborn). ''Obstinate'' or ''unreasonable'' says it directly.'
+  fix-regex:
+    regex: '\b(?:pig[\s-]?headed(ness)?)\b'
+    replacement: 'obstinate'
+- id: animal-violence.javascript.string.eat-like-a-pig
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*eat(s|ing|e)?\s+like\s+a\s+pig|ate\s+like\s+a\s+pig|pig(s|ged|ging)?\s+out.*'
+  message: 'Animal violence language in string: "eat like a pig". Pig-as-glutton stereotype (actually wrong — pigs are selective eaters in natural conditions). ''Overeat'' or ''gorge'' says the same thing. Consider: "overeat", "gorge", "eat voraciously" (autofix available).'
+  languages:
+  - javascript
+  - typescript
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'overeat'
+    reason: 'Pig-as-glutton stereotype (actually wrong — pigs are selective eaters in natural conditions). ''Overeat'' or ''gorge'' says the same thing.'
+  fix-regex:
+    regex: 'eat(s|ing|e)?\s+like\s+a\s+pig|ate\s+like\s+a\s+pig|pig(s|ged|ging)?\s+out'
+    replacement: 'overeat'
+- id: animal-violence.javascript.string.son-of-a-bitch
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*sons?[\s-]of[\s-]a[\s-]bitch|sons\s+of\s+bitches.*'
+  message: 'Animal violence language in string: "son of a bitch". Female-dog insult that compounds misogyny with species defamation. A specific descriptor is clearer and doesn''t land on anyone''s mother or on dogs. Consider: "specific descriptor" (autofix available).'
+  languages:
+  - javascript
+  - typescript
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'specific descriptor'
+    reason: 'Female-dog insult that compounds misogyny with species defamation. A specific descriptor is clearer and doesn''t land on anyone''s mother or on dogs.'
+  fix-regex:
+    regex: 'sons?[\s-]of[\s-]a[\s-]bitch|sons\s+of\s+bitches'
+    replacement: 'specific descriptor'
+- id: animal-violence.javascript.string.sheeple
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*\b(?:sheeple)\b.*'
+  message: 'Animal violence language in string: "sheeple". Coined term meaning ''sheep-people'' — dehumanizes the target while defaming sheep (who are actually complex social animals). ''Conformists'' or ''uncritical crowd'' carries the same meaning. Consider: "conformists", "unquestioning followers", "uncritical crowd" (autofix available).'
+  languages:
+  - javascript
+  - typescript
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'conformists'
+    reason: 'Coined term meaning ''sheep-people'' — dehumanizes the target while defaming sheep (who are actually complex social animals). ''Conformists'' or ''uncritical crowd'' carries the same meaning.'
+  fix-regex:
+    regex: '\b(?:sheeple)\b'
+    replacement: 'conformists'
+- id: animal-violence.javascript.string.loan-shark
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*(loan|card)[\s-]sharks?.*'
+  message: 'Animal violence language in string: "loan shark". Species-as-predator trope applied to exploitative humans, which misrepresents sharks and provides a convenient framing for financial harm. ''Predatory lender'' or ''hustler'' is direct and more accurate. Consider: "predatory lender", "hustler", "card hustler" (autofix available).'
+  languages:
+  - javascript
+  - typescript
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'predatory lender'
+    reason: 'Species-as-predator trope applied to exploitative humans, which misrepresents sharks and provides a convenient framing for financial harm. ''Predatory lender'' or ''hustler'' is direct and more accurate.'
+  fix-regex:
+    regex: '(loan|card)[\s-]sharks?'
+    replacement: 'predatory lender'
+- id: animal-violence.javascript.string.vulture-capitalist
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*vulture\s+(capitalist|capitalism|fund)s?.*'
+  message: 'Animal violence language in string: "vulture capitalist". Species defamation that drives real-world vulture persecution — global vulture populations are crashing largely from this kind of cultural framing. ''Predatory investor'' names the behavior without defaming an ecologically critical species. Consider: "predatory investor", "scavenger capitalist", "distressed-debt investor" (autofix available).'
+  languages:
+  - javascript
+  - typescript
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'predatory investor'
+    reason: 'Species defamation that drives real-world vulture persecution — global vulture populations are crashing largely from this kind of cultural framing. ''Predatory investor'' names the behavior without defaming an ecologically critical species.'
+  fix-regex:
+    regex: 'vulture\s+(capitalist|capitalism|fund)s?'
+    replacement: 'predatory investor'
+- id: animal-violence.javascript.string.weasel-words
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*weasel\s+words?|weasel(s|ed|ing)?\s+out.*'
+  message: 'Animal violence language in string: "weasel words". Species-as-deceitful trope. ''Evasive language'' or ''slippery phrasing'' is more direct. (Wikipedia''s Manual of Style uses ''weasel words'' as an internal term of art; that context is suppressed.) Consider: "evasive language", "evade", "slippery phrasing".'
+  languages:
+  - javascript
+  - typescript
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'evasive language'
+    reason: 'Species-as-deceitful trope. ''Evasive language'' or ''slippery phrasing'' is more direct. (Wikipedia''s Manual of Style uses ''weasel words'' as an internal term of art; that context is suppressed.)'
+- id: animal-violence.javascript.string.leech-off
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*leech(es|ed|ing)?\s+off|bloodsuckers?.*'
+  message: 'Animal violence language in string: "leech off". Species-as-parasite trope. ''Freeload'' or ''mooch'' is direct. (Bare ''leech'' in medical contexts — leeches are still used in some surgeries — is not flagged.) Consider: "freeload", "mooch", "exploit", "parasitic" (autofix available).'
+  languages:
+  - javascript
+  - typescript
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'freeload'
+    reason: 'Species-as-parasite trope. ''Freeload'' or ''mooch'' is direct. (Bare ''leech'' in medical contexts — leeches are still used in some surgeries — is not flagged.)'
+  fix-regex:
+    regex: 'leech(es|ed|ing)?\s+off|bloodsuckers?'
+    replacement: 'freeload'
+- id: animal-violence.javascript.string.monkey-business
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*monkey\s+business|monkey(s|ing|ed)?\s+around|(make|makes|making|made)\s+a\s+monkey\s+of.*'
+  message: 'Animal violence language in string: "monkey business". Primate-as-foolish stereotype with a long racial history. ''Mischief'' or ''fool around'' is direct and doesn''t carry the baggage. Consider: "mischief", "fool around", "tamper with", "make a fool of" (autofix available).'
+  languages:
+  - javascript
+  - typescript
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'mischief'
+    reason: 'Primate-as-foolish stereotype with a long racial history. ''Mischief'' or ''fool around'' is direct and doesn''t carry the baggage.'
+  fix-regex:
+    regex: 'monkey\s+business|monkey(s|ing|ed)?\s+around|(make|makes|making|made)\s+a\s+monkey\s+of'
+    replacement: 'mischief'
+- id: animal-violence.javascript.string.not-my-monkeys
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*not\s+my\s+(circus[,]?\s+not\s+my\s+monkeys?|monkeys?|circus).*'
+  message: 'Animal violence language in string: "not my circus, not my monkeys". Direct reference to circus-animal exploitation. ''Not my problem'' carries the same meaning. Consider: "not my problem", "not my concern", "not my mess to clean up".'
+  languages:
+  - javascript
+  - typescript
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'not my problem'
+    reason: 'Direct reference to circus-animal exploitation. ''Not my problem'' carries the same meaning.'
+- id: animal-violence.javascript.string.bird-brain
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*\b(?:bird[\s-]?brain(ed)?)\b.*'
+  message: 'Animal violence language in string: "bird brain". Bird-as-stupid stereotype (corvids and parrots rank among the most cognitively sophisticated non-human animals). ''Forgetful'' or ''absent-minded'' is more accurate. Consider: "forgetful", "absent-minded", "scatter-brained".'
+  languages:
+  - javascript
+  - typescript
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'forgetful'
+    reason: 'Bird-as-stupid stereotype (corvids and parrots rank among the most cognitively sophisticated non-human animals). ''Forgetful'' or ''absent-minded'' is more accurate.'
+- id: animal-violence.javascript.string.foie-gras
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*foie[\s-]gras.*'
+  message: 'Animal violence language in string: "foie gras". French for ''fat liver''; obscures that the product comes from force-feeding ducks or geese until their livers enlarge to ten times normal size. Name the process. Consider: "force-fed duck liver", "force-fed goose liver" (autofix available).'
+  languages:
+  - javascript
+  - typescript
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'force-fed duck liver'
+    reason: 'French for ''fat liver''; obscures that the product comes from force-feeding ducks or geese until their livers enlarge to ten times normal size. Name the process.'
+  fix-regex:
+    regex: 'foie[\s-]gras'
+    replacement: 'force-fed duck liver'
+- id: animal-violence.javascript.string.chevon
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*\b(?:chevon)\b.*'
+  message: 'Animal violence language in string: "chevon". Marketing-constructed word (coined in the 1920s) to make goat meat palatable to Anglophone consumers. ''Goat flesh'' or ''goat meat'' is accurate. Consider: "goat flesh", "goat meat" (autofix available).'
+  languages:
+  - javascript
+  - typescript
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'goat flesh'
+    reason: 'Marketing-constructed word (coined in the 1920s) to make goat meat palatable to Anglophone consumers. ''Goat flesh'' or ''goat meat'' is accurate.'
+  fix-regex:
+    regex: '\b(?:chevon)\b'
+    replacement: 'goat flesh'
+- id: animal-violence.javascript.string.sweetbread
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*\b(?:sweetbreads?)\b.*'
+  message: 'Animal violence language in string: "sweetbread". Opaque culinary term for calf or lamb thymus or pancreas. Naming the organ is clearer. (Suppressed in recipe/cooking contexts.) Consider: "calf thymus", "calf pancreas", "lamb thymus".'
+  languages:
+  - javascript
+  - typescript
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'calf thymus'
+    reason: 'Opaque culinary term for calf or lamb thymus or pancreas. Naming the organ is clearer. (Suppressed in recipe/cooking contexts.)'
+- id: animal-violence.javascript.string.mutton
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*\b(?:mutton)\b.*'
+  message: 'Animal violence language in string: "mutton". ''Mutton'' obscures the species. ''Sheep flesh'' names it. (Suppressed in recipe contexts.) Consider: "sheep flesh", "sheep meat".'
+  languages:
+  - javascript
+  - typescript
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'sheep flesh'
+    reason: '''Mutton'' obscures the species. ''Sheep flesh'' names it. (Suppressed in recipe contexts.)'
+- id: animal-violence.javascript.string.venison
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*\b(?:venison)\b.*'
+  message: 'Animal violence language in string: "venison". ''Venison'' obscures the species. ''Deer flesh'' names it. (Suppressed in recipe or hunting-regulation contexts.) Consider: "deer flesh", "deer meat".'
+  languages:
+  - javascript
+  - typescript
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'deer flesh'
+    reason: '''Venison'' obscures the species. ''Deer flesh'' names it. (Suppressed in recipe or hunting-regulation contexts.)'
+- id: animal-violence.javascript.string.squab
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*\b(?:squabs?)\b.*'
+  message: 'Animal violence language in string: "squab". Marketing term for young pigeon raised for slaughter. ''Pigeon flesh'' names what it is. (Suppressed in recipe contexts.) Consider: "pigeon flesh", "young pigeon meat".'
+  languages:
+  - javascript
+  - typescript
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'pigeon flesh'
+    reason: 'Marketing term for young pigeon raised for slaughter. ''Pigeon flesh'' names what it is. (Suppressed in recipe contexts.)'
+- id: animal-violence.javascript.string.spare-ribs
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*\b(?:spare[\s-]?ribs)\b.*'
+  message: 'Animal violence language in string: "spare ribs". ''Spare'' frames body parts as disposable/extra. ''Pig ribs'' is accurate. (Suppressed in recipe/BBQ contexts.) Consider: "pig ribs".'
+  languages:
+  - javascript
+  - typescript
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'pig ribs'
+    reason: '''Spare'' frames body parts as disposable/extra. ''Pig ribs'' is accurate. (Suppressed in recipe/BBQ contexts.)'
+- id: animal-violence.javascript.string.leather-product
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*\b(?:(genuine|real|top[\s-]grain|full[\s-]grain)?\s*leather)\b.*'
+  message: 'Animal violence language in string: "leather". ''Leather'' obscures that the material is the skin of a killed cow (or pig, sheep, etc.). In advocacy or supply-chain writing, naming it is clearer. Suppressed in fashion/product contexts where the industry term is expected. Consider: "cow skin", "animal skin", "vegan leather", "synthetic leather", "plant leather".'
+  languages:
+  - javascript
+  - typescript
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'cow skin'
+    reason: '''Leather'' obscures that the material is the skin of a killed cow (or pig, sheep, etc.). In advocacy or supply-chain writing, naming it is clearer. Suppressed in fashion/product contexts where the industry term is expected.'
+- id: animal-violence.javascript.string.wool-product
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*\b(?:(merino\s+|lambs)?wool)\b.*'
+  message: 'Animal violence language in string: "wool". ''Wool'' obscures that the fiber is sheep hair, usually from sheep bred for extreme coat yields (mulesing, shearing injury, eventual slaughter). Advocacy writing names it directly. Suppressed in textile/fashion contexts. Consider: "sheep hair", "synthetic fiber", "plant fiber".'
+  languages:
+  - javascript
+  - typescript
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'sheep hair'
+    reason: '''Wool'' obscures that the fiber is sheep hair, usually from sheep bred for extreme coat yields (mulesing, shearing injury, eventual slaughter). Advocacy writing names it directly. Suppressed in textile/fashion contexts.'
+- id: animal-violence.javascript.string.down-feathers
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*down\s+(feathers|jacket|comforter|pillow|filling)|(goose|duck)\s+down.*'
+  message: 'Animal violence language in string: "down feathers". Down is plucked from ducks and geese, often while alive and distressed. ''Plant-based insulation'' or ''synthetic fill'' describes the alternative. Bare ''down'' (direction) is NOT flagged — only product compounds. Consider: "plant-based insulation", "synthetic fill", "recycled fill".'
+  languages:
+  - javascript
+  - typescript
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'plant-based insulation'
+    reason: 'Down is plucked from ducks and geese, often while alive and distressed. ''Plant-based insulation'' or ''synthetic fill'' describes the alternative. Bare ''down'' (direction) is NOT flagged — only product compounds.'
+- id: animal-violence.javascript.string.cashmere-mohair-angora
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*\b(?:cashmere|mohair|angora)\b.*'
+  message: 'Animal violence language in string: "cashmere". Luxury-marketing names that obscure the animal source. Cashmere and mohair come from goats; angora comes from rabbits (who are often plucked live and injured). Naming the species is clearer in advocacy writing. Consider: "goat hair", "rabbit hair", "recycled fiber", "synthetic alternative".'
+  languages:
+  - javascript
+  - typescript
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'goat hair'
+    reason: 'Luxury-marketing names that obscure the animal source. Cashmere and mohair come from goats; angora comes from rabbits (who are often plucked live and injured). Naming the species is clearer in advocacy writing.'
+- id: animal-violence.javascript.string.silk-product
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*\b(?:(pure\s+|mulberry\s+|raw\s+)?silk)\b.*'
+  message: 'Animal violence language in string: "silk". Silk production typically requires boiling silkworms alive inside their cocoons to prevent the thread from breaking. Peace silk, plant silk, and synthetics avoid this. Suppressed in textile/fashion contexts. Consider: "plant silk", "peace silk", "synthetic silk", "recycled fiber".'
+  languages:
+  - javascript
+  - typescript
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'plant silk'
+    reason: 'Silk production typically requires boiling silkworms alive inside their cocoons to prevent the thread from breaking. Peace silk, plant silk, and synthetics avoid this. Suppressed in textile/fashion contexts.'
+- id: animal-violence.javascript.string.royal-jelly-beeswax
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*royal\s+jelly|beeswax|propolis.*'
+  message: 'Animal violence language in string: "royal jelly". Bee products are extracted through industrial beekeeping, which involves queen-clipping, smoke stressing, and often the destruction of hives. Plant-based waxes (candelilla, carnauba, soy) serve most of the same purposes. Consider: "plant alternative", "candelilla wax", "carnauba wax", "soy wax".'
+  languages:
+  - javascript
+  - typescript
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'plant alternative'
+    reason: 'Bee products are extracted through industrial beekeeping, which involves queen-clipping, smoke stressing, and often the destruction of hives. Plant-based waxes (candelilla, carnauba, soy) serve most of the same purposes.'
+- id: animal-violence.javascript.string.downed-animal
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*down(ed|er)\s+(animal|cow|cattle|pig)s?.*'
+  message: 'Animal violence language in string: "downed animal". ''Downed'' uses passive voice to elide why the animal is on the ground — untreated injury or illness in transport or on the farm. ''Too sick to walk'' names the condition. Consider: "animal too sick or injured to walk", "collapsed animal" (autofix available).'
+  languages:
+  - javascript
+  - typescript
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'animal too sick or injured to walk'
+    reason: '''Downed'' uses passive voice to elide why the animal is on the ground — untreated injury or illness in transport or on the farm. ''Too sick to walk'' names the condition.'
+  fix-regex:
+    regex: 'down(ed|er)\s+(animal|cow|cattle|pig)s?'
+    replacement: 'animal too sick or injured to walk'
+- id: animal-violence.javascript.string.forced-insemination
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*(artificial|forced)\s+insemination|AI\s+in\s+(cattle|cows|dairy|pigs|sheep|swine).*'
+  message: 'Animal violence language in string: "artificial insemination". Industry-standard procedure involving restraint and reproductive invasion. ''Forced impregnation'' is the accurate term when the animal cannot consent. (The bare abbreviation ''AI'' is not flagged — too much overlap with artificial intelligence. The rule fires only on the specific animal-ag compounds.) Consider: "forced impregnation".'
+  languages:
+  - javascript
+  - typescript
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'forced impregnation'
+    reason: 'Industry-standard procedure involving restraint and reproductive invasion. ''Forced impregnation'' is the accurate term when the animal cannot consent. (The bare abbreviation ''AI'' is not flagged — too much overlap with artificial intelligence. The rule fires only on the specific animal-ag compounds.)'
+- id: animal-violence.javascript.string.farrowing-as-process
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*\b(?:farrow(ing|ed))\b.*'
+  message: 'Animal violence language in string: "farrowing". Industry verb that erases the individual animal giving birth. ''Giving birth'' is the plain-language version. (The compound ''farrowing crate'' is flagged by its own rule.) Consider: "giving birth (for pigs)", "piglet-birthing".'
+  languages:
+  - javascript
+  - typescript
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'giving birth (for pigs)'
+    reason: 'Industry verb that erases the individual animal giving birth. ''Giving birth'' is the plain-language version. (The compound ''farrowing crate'' is flagged by its own rule.)'
+- id: animal-violence.javascript.string.live-export
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*live\s+(export(s|ing)?|transport|shipment).*'
+  message: 'Animal violence language in string: "live export". Industry term for loading animals onto ships or trucks for days-to-weeks journeys to overseas slaughter. ''Transport to slaughter'' names the destination. Consider: "transport to slaughter", "export for slaughter" (autofix available).'
+  languages:
+  - javascript
+  - typescript
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'transport to slaughter'
+    reason: 'Industry term for loading animals onto ships or trucks for days-to-weeks journeys to overseas slaughter. ''Transport to slaughter'' names the destination.'
+  fix-regex:
+    regex: 'live\s+(export(s|ing)?|transport|shipment)'
+    replacement: 'transport to slaughter'
+- id: animal-violence.javascript.string.meat-industry-self-naming
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*(pork|beef|dairy|poultry|veal|egg)\s+industry.*'
+  message: 'Animal violence language in string: "pork industry". Each term names the product rather than the species it comes from. Naming the species (e.g. ''pig-flesh industry'') makes the supply chain visible. Low priority — use in advocacy writing, not general documentation. Consider: "pig-flesh industry", "cow-flesh industry", "cow-milk industry", "chicken-flesh industry".'
+  languages:
+  - javascript
+  - typescript
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'pig-flesh industry'
+    reason: 'Each term names the product rather than the species it comes from. Naming the species (e.g. ''pig-flesh industry'') makes the supply chain visible. Low priority — use in advocacy writing, not general documentation.'
+- id: animal-violence.javascript.string.trophy-hunting
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*trophy\s+(hunt(ing|er|ers)?|kill(s)?).*'
+  message: 'Animal violence language in string: "trophy hunting". Frames a killed animal as an achievement to be displayed. ''Killing for display'' or ''recreational killing'' names the activity. Consider: "killing for display", "recreational killing" (autofix available).'
+  languages:
+  - javascript
+  - typescript
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'killing for display'
+    reason: 'Frames a killed animal as an achievement to be displayed. ''Killing for display'' or ''recreational killing'' names the activity.'
+  fix-regex:
+    regex: 'trophy\s+(hunt(ing|er|ers)?|kill(s)?)'
+    replacement: 'killing for display'
+- id: animal-violence.javascript.string.big-game-hunter
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*big[\s-]game\s+hunt(ing|er|ers)?.*'
+  message: 'Animal violence language in string: "big-game hunter". ''Big game'' frames large wild animals as sport objects existing for human recreation. ''Large-animal hunter'' names it; better still, name the species (elephant, lion, rhino). Consider: "large-animal hunter", "elephant/lion/rhino hunter" (autofix available).'
+  languages:
+  - javascript
+  - typescript
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'large-animal hunter'
+    reason: '''Big game'' frames large wild animals as sport objects existing for human recreation. ''Large-animal hunter'' names it; better still, name the species (elephant, lion, rhino).'
+  fix-regex:
+    regex: 'big[\s-]game\s+hunt(ing|er|ers)?'
+    replacement: 'large-animal hunter'
+- id: animal-violence.javascript.string.sport-fishing
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*sport[\s]?fishing|recreational\s+fishing|game\s+fishing.*'
+  message: 'Animal violence language in string: "sport fishing". ''Sport'' frames killing fish as leisure. In contexts critical of the activity, ''recreational killing of fish'' is accurate. (In neutral angling-industry writing, the scanner adds noise; tune the context or disable in those files.) Consider: "recreational fishing (if literal)", "recreational killing of fish".'
+  languages:
+  - javascript
+  - typescript
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'recreational fishing (if literal)'
+    reason: '''Sport'' frames killing fish as leisure. In contexts critical of the activity, ''recreational killing of fish'' is accurate. (In neutral angling-industry writing, the scanner adds noise; tune the context or disable in those files.)'
+- id: animal-violence.javascript.string.catch-and-release
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*catch[\s-]and[\s-]release.*'
+  message: 'Animal violence language in string: "catch and release". Frames hook injury, exhaustion, and stress as harmless. Studies show significant post-release mortality, especially for species caught from deep water. ''Capture and release'' is more neutral. Consider: "capture and release", "captured and released (with injury)".'
+  languages:
+  - javascript
+  - typescript
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'capture and release'
+    reason: 'Frames hook injury, exhaustion, and stress as harmless. Studies show significant post-release mortality, especially for species caught from deep water. ''Capture and release'' is more neutral.'
+- id: animal-violence.javascript.string.thin-the-herd
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*thin(s|ning|ned)?\s+(out\s+)?the\s+herd.*'
+  message: 'Animal violence language in string: "thin the herd". Culling euphemism that softens ''kill off selected animals.'' ''Kill off'' says it directly. Consider: "reduce numbers by killing", "kill off".'
+  languages:
+  - javascript
+  - typescript
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'reduce numbers by killing'
+    reason: 'Culling euphemism that softens ''kill off selected animals.'' ''Kill off'' says it directly.'
+- id: animal-violence.javascript.string.humane-trap-removal
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*humane\s+(traps?|removal|control).*'
+  message: 'Animal violence language in string: "humane trap". ''Humane'' sanitizes the practice. Say whether it''s lethal or non-lethal directly — ''non-lethal trap'' is clearer and testable. Consider: "non-lethal trap", "non-lethal removal", "live-catch trap".'
+  languages:
+  - javascript
+  - typescript
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'non-lethal trap'
+    reason: '''Humane'' sanitizes the practice. Say whether it''s lethal or non-lethal directly — ''non-lethal trap'' is clearer and testable.'
+- id: animal-violence.javascript.string.lethal-control
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*lethal\s+(removal|control|management).*'
+  message: 'Animal violence language in string: "lethal removal". Bureaucratic language for killing programs. ''Killing program'' says it plainly. Consider: "killing program", "culling program" (autofix available).'
+  languages:
+  - javascript
+  - typescript
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'killing program'
+    reason: 'Bureaucratic language for killing programs. ''Killing program'' says it plainly.'
+  fix-regex:
+    regex: 'lethal\s+(removal|control|management)'
+    replacement: 'killing program'
+- id: animal-violence.javascript.string.fur-facility
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*(fur|mink|fox)\s+(farms?|ranch(es)?).*'
+  message: 'Animal violence language in string: "fur farm". ''Farm'' or ''ranch'' evokes pastoral imagery; these are intensive confinement facilities where animals live in wire cages before being gassed or electrocuted. Name them directly. Consider: "mink confinement facility", "fox confinement facility", "fur-industry facility" (autofix available).'
+  languages:
+  - javascript
+  - typescript
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'mink confinement facility'
+    reason: '''Farm'' or ''ranch'' evokes pastoral imagery; these are intensive confinement facilities where animals live in wire cages before being gassed or electrocuted. Name them directly.'
+  fix-regex:
+    regex: '(fur|mink|fox)\s+(farms?|ranch(es)?)'
+    replacement: 'mink confinement facility'
+- id: animal-violence.javascript.string.fur-bearing-animal
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*fur[\s-]bearing\s+animals?.*'
+  message: 'Animal violence language in string: "fur-bearing animal". Defines wild animals by a human use. Naming the species (foxes, minks, coyotes, bobcats, chinchillas) is clearer. Consider: "named species", "fur-industry species".'
+  languages:
+  - javascript
+  - typescript
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'named species'
+    reason: 'Defines wild animals by a human use. Naming the species (foxes, minks, coyotes, bobcats, chinchillas) is clearer.'
+- id: animal-violence.javascript.string.bycatch
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*\b(?:by[\s-]?catch)\b.*'
+  message: 'Animal violence language in string: "bycatch". Neutralizes the massive incidental killing of non-target marine species — hundreds of thousands of dolphins, sea turtles, seabirds, and sharks each year. ''Incidental killing'' names it. Consider: "incidental killing", "non-target marine deaths" (autofix available).'
+  languages:
+  - javascript
+  - typescript
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'incidental killing'
+    reason: 'Neutralizes the massive incidental killing of non-target marine species — hundreds of thousands of dolphins, sea turtles, seabirds, and sharks each year. ''Incidental killing'' names it.'
+  fix-regex:
+    regex: '\b(?:by[\s-]?catch)\b'
+    replacement: 'incidental killing'
+- id: animal-violence.javascript.string.fish-stocks
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*fish(ery)?\s+stocks?.*'
+  message: 'Animal violence language in string: "fish stocks". Commodity framing of marine life as a renewable resource. ''Fish populations'' is neutral and accurate. Consider: "fish populations", "wild fish numbers".'
+  languages:
+  - javascript
+  - typescript
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'fish populations'
+    reason: 'Commodity framing of marine life as a renewable resource. ''Fish populations'' is neutral and accurate.'
+- id: animal-violence.javascript.string.aquaculture
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*\b(?:aquaculture|fish\s+farming)\b.*'
+  message: 'Animal violence language in string: "aquaculture". Neutral-sounding framing for intensive fish confinement and slaughter. In advocacy writing, ''industrial fish farming'' is more accurate. Consider: "industrial fish farming", "intensive fish confinement".'
+  languages:
+  - javascript
+  - typescript
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'industrial fish farming'
+    reason: 'Neutral-sounding framing for intensive fish confinement and slaughter. In advocacy writing, ''industrial fish farming'' is more accurate.'
+- id: animal-violence.javascript.string.cry-wolf
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*cr(y|ied|ying|ies)\s+wolf.*'
+  message: 'Animal violence language in string: "cry wolf". Rooted in Aesop''s fable, the phrase reinforces the wolf-as-menace framing that has driven centuries of wolf persecution. ''Raise false alarms'' captures the meaning. Consider: "raise false alarms", "create alert fatigue", "sound unjustified alerts".'
+  languages:
+  - javascript
+  - typescript
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'raise false alarms'
+    reason: 'Rooted in Aesop''s fable, the phrase reinforces the wolf-as-menace framing that has driven centuries of wolf persecution. ''Raise false alarms'' captures the meaning.'
+- id: animal-violence.javascript.string.pecking-order
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*pecking\s+orders?.*'
+  message: 'Animal violence language in string: "pecking order". Derived from the actual behavior of hens in confinement, where crowding causes injurious pecking. ''Hierarchy'' or ''chain of command'' captures the same idea. Consider: "hierarchy", "chain of command", "ranking" (autofix available).'
+  languages:
+  - javascript
+  - typescript
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'hierarchy'
+    reason: 'Derived from the actual behavior of hens in confinement, where crowding causes injurious pecking. ''Hierarchy'' or ''chain of command'' captures the same idea.'
+  fix-regex:
+    regex: 'pecking\s+orders?'
+    replacement: 'hierarchy'
+- id: animal-violence.javascript.string.play-cat-and-mouse
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*play(s|ing|ed)?\s+cat\s+and\s+mouse|(cat\s+and\s+mouse\s+game|game\s+of\s+cat\s+and\s+mouse).*'
+  message: 'Animal violence language in string: "play cat and mouse". Predator-prey torture metaphor — the game is about prolonging the suffering. ''Drawn-out pursuit'' captures the meaning. Consider: "drawn-out pursuit", "back-and-forth chase", "evasive pursuit" (autofix available).'
+  languages:
+  - javascript
+  - typescript
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'drawn-out pursuit'
+    reason: 'Predator-prey torture metaphor — the game is about prolonging the suffering. ''Drawn-out pursuit'' captures the meaning.'
+  fix-regex:
+    regex: 'play(s|ing|ed)?\s+cat\s+and\s+mouse|(cat\s+and\s+mouse\s+game|game\s+of\s+cat\s+and\s+mouse)'
+    replacement: 'drawn-out pursuit'
+- id: animal-violence.javascript.string.cat-who-swallowed-canary
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*cat\s+(that|who)\s+(swallowed|ate)\s+the\s+canary|canary[\s-]eating\s+grin.*'
+  message: 'Animal violence language in string: "cat that swallowed the canary". Predation imagery — a dead canary is the joke''s punchline. ''Smug with secret knowledge'' captures it. Consider: "smug with secret knowledge", "self-satisfied grin" (autofix available).'
+  languages:
+  - javascript
+  - typescript
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'smug with secret knowledge'
+    reason: 'Predation imagery — a dead canary is the joke''s punchline. ''Smug with secret knowledge'' captures it.'
+  fix-regex:
+    regex: 'cat\s+(that|who)\s+(swallowed|ate)\s+the\s+canary|canary[\s-]eating\s+grin'
+    replacement: 'smug with secret knowledge'
+- id: animal-violence.javascript.string.chomping-at-the-bit
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*(chomping|champing|chomps|champs)\s+at\s+the\s+bit.*'
+  message: 'Animal violence language in string: "chomping at the bit". References the metal ''bit'' forced into a horse''s mouth; the phrase describes the horse''s attempt to relieve it. ''Eager to start'' says the same thing. Consider: "eager to start", "impatient to begin", "raring to go".'
+  languages:
+  - javascript
+  - typescript
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'eager to start'
+    reason: 'References the metal ''bit'' forced into a horse''s mouth; the phrase describes the horse''s attempt to relieve it. ''Eager to start'' says the same thing.'
+- id: animal-violence.javascript.string.whip-into-shape
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*whip(s|ped|ping)?\s+into\s+shape.*'
+  message: 'Animal violence language in string: "whip into shape". Whip-violence imagery from animal training. ''Get organized'' or ''restore order'' is direct. (Political ''whip'' and culinary ''whip'' — different usage — are suppressed.) Consider: "get organized", "demand discipline", "restore order".'
+  languages:
+  - javascript
+  - typescript
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'get organized'
+    reason: 'Whip-violence imagery from animal training. ''Get organized'' or ''restore order'' is direct. (Political ''whip'' and culinary ''whip'' — different usage — are suppressed.)'
+- id: animal-violence.javascript.string.whale-on
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*whal(e|es|ing|ed)\s+on.*'
+  message: 'Animal violence language in string: "whale on". Whaling (whale slaughter) as metaphor for repeated hitting. ''Pummel'' or ''hammer'' is direct. Consider: "pummel", "beat up", "hammer" (autofix available).'
+  languages:
+  - javascript
+  - typescript
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'pummel'
+    reason: 'Whaling (whale slaughter) as metaphor for repeated hitting. ''Pummel'' or ''hammer'' is direct.'
+  fix-regex:
+    regex: 'whal(e|es|ing|ed)\s+on'
+    replacement: 'pummel'
+- id: animal-violence.javascript.string.fish-or-cut-bait
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*fish\s+or\s+cut\s+bait.*'
+  message: 'Animal violence language in string: "fish or cut bait". Fishing imagery. ''Decide'' or ''commit or move on'' is direct. Consider: "decide", "commit or move on".'
+  languages:
+  - javascript
+  - typescript
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'decide'
+    reason: 'Fishing imagery. ''Decide'' or ''commit or move on'' is direct.'
+- id: animal-violence.javascript.string.pull-rabbit-out-of-hat
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*pull(s|ing|ed)?\s+a\s+rabbit\s+out\s+of\s+a\s+hat.*'
+  message: 'Animal violence language in string: "pull a rabbit out of a hat". Stage magic often uses live rabbits kept in distressing conditions. ''Magically solve'' or ''produce unexpectedly'' carries the meaning without referencing the practice. Consider: "pull a coin out of an ear", "magically solve", "produce unexpectedly".'
+  languages:
+  - javascript
+  - typescript
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'pull a coin out of an ear'
+    reason: 'Stage magic often uses live rabbits kept in distressing conditions. ''Magically solve'' or ''produce unexpectedly'' carries the meaning without referencing the practice.'
+- id: animal-violence.javascript.string.walking-on-eggshells
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*walk(s|ing|ed)?\s+on\s+eggshells.*'
+  message: 'Animal violence language in string: "walking on eggshells". Commodifies eggs as fragile objects; erases the laying-hen origin. ''Walking on thin ice'' carries the same meaning. Consider: "walking on thin ice", "treading carefully", "being extra cautious".'
+  languages:
+  - javascript
+  - typescript
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'walking on thin ice'
+    reason: 'Commodifies eggs as fragile objects; erases the laying-hen origin. ''Walking on thin ice'' carries the same meaning.'
+- id: animal-violence.javascript.string.put-a-horse-out-of-misery
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*put\s+(a|the)\s+\S+\s+out\s+of\s+(its|their|the)\s+misery|put\s+(it|them)\s+out\s+of\s+(its|their)\s+misery|put\s+out\s+of\s+(its|their|the)\s+misery.*'
+  message: 'Animal violence language in string: "put a horse out of its misery". Horse-killing idiom. ''End the suffering'' carries the same meaning without the imagery. Consider: "end the suffering", "end it mercifully", "conclude a painful situation".'
+  languages:
+  - javascript
+  - typescript
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'end the suffering'
+    reason: 'Horse-killing idiom. ''End the suffering'' carries the same meaning without the imagery.'
+- id: animal-violence.javascript.string.kill-the-fatted-calf
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*kill(ing)?\s+the\s+fatted\s+calf.*'
+  message: 'Animal violence language in string: "kill the fatted calf". Biblical animal-sacrifice imagery (Luke 15 — the Prodigal Son). ''Celebrate grandly'' or ''roll out the red carpet'' carries the same meaning. Consider: "celebrate grandly", "roll out the red carpet", "prepare a feast".'
+  languages:
+  - javascript
+  - typescript
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'celebrate grandly'
+    reason: 'Biblical animal-sacrifice imagery (Luke 15 — the Prodigal Son). ''Celebrate grandly'' or ''roll out the red carpet'' carries the same meaning.'
+- id: animal-violence.javascript.string.lemming-investor
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*(acting\s+like\s+lemmings|lemming\s+(investor|investors|behavior)|like\s+lemmings).*'
+  message: 'Animal violence language in string: "acting like lemmings". Based on a Disney hoax — the 1958 ''White Wilderness'' staged lemmings being driven off a cliff. Lemmings don''t mass-suicide. The metaphor defames the species and misleads the reader. Consider: "herd-following investor", "unquestioning crowd", "uncritical followers".'
+  languages:
+  - javascript
+  - typescript
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'herd-following investor'
+    reason: 'Based on a Disney hoax — the 1958 ''White Wilderness'' staged lemmings being driven off a cliff. Lemmings don''t mass-suicide. The metaphor defames the species and misleads the reader.'
+- id: animal-violence.javascript.string.maggot-insult
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*(you|little|filthy|dirty)\s+maggots?.*'
+  message: 'Animal violence language in string: "you maggot". Degrading insect insult. Most uses in documentation are quoting dialogue or user-generated content; otherwise, use a specific descriptor. Consider: "specific descriptor" (autofix available).'
+  languages:
+  - javascript
+  - typescript
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'specific descriptor'
+    reason: 'Degrading insect insult. Most uses in documentation are quoting dialogue or user-generated content; otherwise, use a specific descriptor.'
+  fix-regex:
+    regex: '(you|little|filthy|dirty)\s+maggots?'
+    replacement: 'specific descriptor'
+- id: animal-violence.javascript.string.swine-pejorative
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*(filthy|dirty|you|capitalist|fascist|bourgeois)\s+swine.*'
+  message: 'Animal violence language in string: "filthy swine". Pig-as-degraded pejorative. Naming the actual trait (greedy, exploitative, corrupt) is clearer. (Bare ''swine'' in medical contexts like ''swine flu'' is not flagged.) Consider: "specific descriptor".'
+  languages:
+  - javascript
+  - typescript
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'specific descriptor'
+    reason: 'Pig-as-degraded pejorative. Naming the actual trait (greedy, exploitative, corrupt) is clearer. (Bare ''swine'' in medical contexts like ''swine flu'' is not flagged.)'
+- id: animal-violence.javascript.string.cat-fight
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*\b(?:cat[\s-]?fights?)\b.*'
+  message: 'Animal violence language in string: "cat fight". Gendered insult — almost exclusively applied to women arguing, framing them as cats fighting. ''Heated argument'' or ''altercation'' is neutral. Consider: "heated argument", "altercation", "confrontation" (autofix available).'
+  languages:
+  - javascript
+  - typescript
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'heated argument'
+    reason: 'Gendered insult — almost exclusively applied to women arguing, framing them as cats fighting. ''Heated argument'' or ''altercation'' is neutral.'
+  fix-regex:
+    regex: '\b(?:cat[\s-]?fights?)\b'
+    replacement: 'heated argument'
+- id: animal-violence.javascript.string.humans-and-animals
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*(humans?\s+and\s+animals|animals\s+and\s+(humans?|people)|people\s+and\s+animals|man\s+and\s+beast).*'
+  message: 'Animal violence language in string: "humans and animals". False dichotomy — humans ARE animals. The phrasing reproduces the speciesist framing animal-liberation writing opposes. ''Humans and other animals'' preserves the meaning accurately. Consider: "humans and non-human animals", "humans and other animals", "people and other animals".'
+  languages:
+  - javascript
+  - typescript
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: animal-violence
+    alternative: 'humans and non-human animals'
+    reason: 'False dichotomy — humans ARE animals. The phrasing reproduces the speciesist framing animal-liberation writing opposes. ''Humans and other animals'' preserves the meaning accurately.'
+- id: animal-violence.javascript.string.pet-owner
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*(pet|dog|cat|rabbit|bird)\s+owners?.*'
+  message: 'Animal violence language in string: "pet owner". Property framing — ''owner'' treats sentient beings as possessions. ''Guardian'' preserves the legal and caregiving relationship without the property connotation. Used in legal reform jurisdictions (e.g. Boulder CO, West Hollywood) since the early 2000s. Consider: "pet guardian", "dog guardian", "cat guardian", "human companion".'
+  languages:
+  - javascript
+  - typescript
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'pet guardian'
+    reason: 'Property framing — ''owner'' treats sentient beings as possessions. ''Guardian'' preserves the legal and caregiving relationship without the property connotation. Used in legal reform jurisdictions (e.g. Boulder CO, West Hollywood) since the early 2000s.'
+- id: animal-violence.javascript.string.own-a-pet
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*own(s|ing|ed)?\s+a\s+(pet|dog|cat|rabbit|bird).*'
+  message: 'Animal violence language in string: "own a pet". Property framing applied to companion animals. ''Live with a dog'' or ''share a home with a cat'' captures the relationship without the ownership frame. Consider: "live with a companion animal", "share a home with", "care for a".'
+  languages:
+  - javascript
+  - typescript
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'live with a companion animal'
+    reason: 'Property framing applied to companion animals. ''Live with a dog'' or ''share a home with a cat'' captures the relationship without the ownership frame.'
