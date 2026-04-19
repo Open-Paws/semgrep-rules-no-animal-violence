@@ -136,7 +136,6 @@ semgrep \
 - [vscode-no-animal-violence](https://github.com/Open-Paws/vscode-no-animal-violence) — VS Code extension
 - [reviewdog-no-animal-violence](https://github.com/Open-Paws/reviewdog-no-animal-violence) — inline PR annotations
 - [danger-plugin-no-animal-violence](https://github.com/Open-Paws/danger-plugin-no-animal-violence) — Danger.js integration
-- [Coghlan & Parker (2023)](https://doi.org/10.1007/s43681-023-00380-w) — research on speciesist language in AI training data
 
 ## Architecture
 
@@ -168,8 +167,6 @@ rules:
       category: inclusive-language
       subcategory: animal-violence
       alternative: accomplish two things at once
-      references:
-        - https://doi.org/10.1007/s43681-023-00380-w
 ```
 
 **Language-specific rule anatomy (with autofix)**
@@ -265,7 +262,7 @@ All contributions must use non-speciesist language in code, comments, commit mes
 
 This rule set runs in production CI across Open Paws repositories. The no-animal-violence ecosystem spans nine integration points covering Semgrep, ESLint, Vale, pre-commit, GitHub Actions, VS Code, Reviewdog, and Danger.js.
 
-Research supports the approach: speciesist language in AI training data encodes anthropocentric biases into language models (Coghlan & Parker, 2023). Removing this language from codebases contributes to less biased systems.
+Removing speciesist language from codebases contributes to less biased AI systems, since training data shapes model defaults.
 
 ## License
 
@@ -275,7 +272,6 @@ MIT. See [LICENSE](LICENSE).
 
 Built by [Open Paws](https://openpaws.ai), a 501(c)(3) nonprofit building AI infrastructure for the animal liberation movement.
 
-- [Coghlan, S., & Parker, C. (2023). "Harm to nonhuman animals from AI: a systematic account and framework." *Philosophy & Technology*, 36(2).](https://doi.org/10.1007/s43681-023-00380-w)
 - [Dunayer, J. (2001). *Animal Equality: Language and Liberation*. Ryce Publishing.](https://www.rycepress.com)
 - [PETA. "Not Your Metaphor: Speciesist Language and How to Avoid It."](https://www.peta.org/features/animal-friendly-idioms/)
 
