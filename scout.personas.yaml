@@ -1,0 +1,175 @@
+version: "1"
+interaction: library
+# Semgrep rules detecting speciesist language (62+ patterns) in code, docs, and configs across Python, JS/TS, Go, and generic text.
+
+personas:
+  - id: python-dev-clean
+    name: Developer — Python file with no violations
+    description: >
+      A developer running the Python AST rules against a Python source file
+      that contains no speciesist language. Verifies that a clean file
+      produces zero findings and exits with code 0.
+    environment:
+      runtime: python@3.11
+      os: any
+    flows:
+      - id: scan-clean-python
+        name: Scan a clean Python file
+        steps:
+          - run: pip install semgrep
+          - run: |
+              cat > /tmp/clean_example.py << 'EOF'
+              def process_results(items):
+                  """Aggregate campaign results into a summary."""
+                  return {"total": len(items), "processed": True}
+              EOF
+          - run: >
+              semgrep
+              --config https://raw.githubusercontent.com/Open-Paws/semgrep-rules-no-animal-violence/main/rules/animal-violence-python.yaml
+              /tmp/clean_example.py
+        expected_outcome: >
+          Exit code 0. Zero findings reported. Semgrep prints
+          "Ran X rules on 1 file: 0 findings."
+    assertions:
+      succeeds:
+        - clean Python file produces 0 findings
+        - exit code is 0
+      fails_gracefully:
+        - missing semgrep installation surfaces a clear error before scan begins
+      output_contains:
+        - "0 findings"
+
+  - id: markdown-dev-violations
+    name: Developer — Markdown doc with speciesist idioms
+    description: >
+      A developer running the generic text rules against a Markdown documentation
+      file that contains speciesist idioms. Verifies that each violation is
+      surfaced with the correct rule-id, severity, replacement message, and line number.
+    environment:
+      runtime: python@3.11
+      os: any
+    flows:
+      - id: scan-markdown-violations
+        name: Scan a Markdown file containing speciesist idioms
+        steps:
+          - run: pip install semgrep
+          - run: |
+              cat > /tmp/docs_with_violations.md << 'EOF'
+              # Release Notes
+
+              We killed two birds with one stone by shipping auth and billing together.
+
+              This feature has been beaten to death in previous discussions — time to ship.
+
+              Use guinea pigs from the beta programme for early feedback.
+              EOF
+          - run: >
+              semgrep
+              --config https://raw.githubusercontent.com/Open-Paws/semgrep-rules-no-animal-violence/main/rules/animal-violence-generic.yaml
+              /tmp/docs_with_violations.md
+        expected_outcome: >
+          Exit code 1. Three findings reported, each showing the rule-id
+          (e.g. animal-violence.kill-two-birds-with-one-stone), severity level
+          (ERROR or WARNING), a human-readable message, and the matching line.
+    assertions:
+      succeeds:
+        - each speciesist idiom produces exactly one finding
+        - findings include rule-id, severity, message, and line number
+      fails_gracefully:
+        - unreadable file surfaces a permission or path error, not a silent skip
+      output_contains:
+        - "animal-violence.kill-two-birds-with-one-stone"
+        - "animal-violence.beat-a-dead-horse"
+        - "animal-violence.guinea-pig"
+        - "ERROR"
+        - "WARNING"
+
+  - id: typescript-dev-varnames
+    name: Developer — TypeScript file with speciesist variable names
+    description: >
+      A developer running the JavaScript/TypeScript AST rules against a
+      TypeScript source file that contains speciesist language in string
+      literals and comments. Verifies that the JS/TS rules fire on string
+      literals with autofix suggestions.
+    environment:
+      runtime: python@3.11
+      os: any
+    flows:
+      - id: scan-typescript-violations
+        name: Scan a TypeScript file for speciesist string literals
+        steps:
+          - run: pip install semgrep
+          - run: |
+              cat > /tmp/server_config.ts << 'EOF'
+              // Infrastructure config — ephemeral vs persistent distinction for service tiers
+              const serviceType = "cattle vs pets";
+
+              // Staged deployment — roll out to indicator first
+              const deploymentStrategy = "canary in a coal mine";
+
+              export function getLabel(): string {
+                return "dogfooding internal release";
+              }
+              EOF
+          - run: >
+              semgrep
+              --config https://raw.githubusercontent.com/Open-Paws/semgrep-rules-no-animal-violence/main/rules/animal-violence-javascript.yaml
+              /tmp/server_config.ts
+        expected_outcome: >
+          Findings on the string literals containing "cattle vs pets",
+          "canary in a coal mine", and "dogfooding". Each finding shows a
+          rule-id prefixed animal-violence.js.string.*, severity WARNING,
+          and a suggested alternative in the message.
+    assertions:
+      succeeds:
+        - string literals with speciesist tech jargon produce findings
+        - rule-ids follow the animal-violence.js.string.* naming convention
+      fails_gracefully:
+        - TypeScript syntax errors do not prevent other rules from running
+      output_contains:
+        - "animal-violence.js.string.cattle-vs-pets"
+        - "animal-violence.js.string.canary-in-a-coal-mine"
+        - "animal-violence.js.string.dogfooding"
+        - "WARNING"
+
+  - id: ci-pipeline
+    name: CI Pipeline — Scan all changed files in a PR
+    description: >
+      A GitHub Actions CI job running all four rule configs (generic, Python,
+      JavaScript/TypeScript, Go) against every changed file in a pull request.
+      Exits non-zero on any finding, blocking the merge until violations are
+      resolved.
+    environment:
+      runtime: python@3.11
+      os: ubuntu-latest
+    flows:
+      - id: ci-full-scan
+        name: Run all rules against the full project on PR
+        steps:
+          - run: pip install semgrep
+          - run: git clone https://github.com/Open-Paws/semgrep-rules-no-animal-violence.git /tmp/rules-repo
+          - run: >
+              semgrep
+              --config /tmp/rules-repo/rules/animal-violence-generic.yaml
+              --config /tmp/rules-repo/rules/animal-violence-python.yaml
+              --config /tmp/rules-repo/rules/animal-violence-javascript.yaml
+              --config /tmp/rules-repo/rules/animal-violence-go.yaml
+              --error
+              --json
+              /path/to/changed/files
+        expected_outcome: >
+          If any changed file contains a speciesist pattern, semgrep exits
+          with code 1 and emits a JSON report. Each finding includes check_id,
+          path, start.line, and extra.message. A clean PR exits with code 0.
+    assertions:
+      succeeds:
+        - clean PR produces 0 findings and exits with code 0
+        - JSON output is valid and parseable for downstream reporting
+      fails_gracefully:
+        - PR with violations exits non-zero, blocking merge
+        - individual rule parse errors do not suppress findings from other rules
+      output_contains:
+        - "check_id"
+        - "path"
+        - "extra"
+        - "message"
