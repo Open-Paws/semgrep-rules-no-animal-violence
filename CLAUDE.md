@@ -30,7 +30,7 @@ The ruleset has two complementary layers:
 | `.pre-commit-config.yaml` | Pre-commit hooks: yamllint on rule files, ruff lint + format |
 | `.yamllint.yml` | yamllint config: 200-char line limit (auto-generated lines are long), no document-start |
 | `ruff.toml` | Ruff linter config for Python test files |
-| `.gitmodules` | Declares `open-paws-strategy` as a submodule |
+| `.gitmodules` | Declares `context` as a submodule |
 
 ## Rule Naming Conventions
 
@@ -116,9 +116,9 @@ repos:
         args: [--config, https://github.com/Open-Paws/semgrep-rules-no-animal-violence/blob/main/rules/animal-violence-generic.yaml, --error]
 ```
 
-## open-paws-strategy Submodule
+## context Submodule
 
-This repo contains `open-paws-strategy` as a git submodule (declared in `.gitmodules`). It pulls in the strategy repo so agent context — `.claude/rules/`, `.claude/skills/`, and the strategy docs themselves — is available locally without requiring a separate clone. The submodule is updated automatically by the sync workflow. Do not manually edit files inside the submodule directory.
+This repo contains `context` as a git submodule (declared in `.gitmodules`). It pulls in the strategy repo so agent context — `.claude/rules/`, `.claude/skills/`, and the strategy docs themselves — is available locally without requiring a separate clone. The submodule is updated automatically by the sync workflow. Do not manually edit files inside the submodule directory.
 
 ## Organizational Context
 
