@@ -2055,3 +2055,55 @@ rules:
     reason: 'Property framing applied to companion animals. ''Live with a dog'' or ''share a home with a cat'' captures the relationship without the ownership frame.'
     references:
     - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.aquaculture-harvest
+  pattern-regex: '(fish|shrimp|salmon|tilapia)\s+harvest(ing)?'
+  message: 'Animal violence language: "fish harvest". Aquaculture euphemism for killing/slaughtering farmed fish/shrimp. ''Harvest'' obscures the mass killing at the end of the grow-out phase. Consider: "fish slaughter", "shrimp slaughter", "salmon slaughter" (autofix available).'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'fish slaughter'
+    reason: 'Aquaculture euphemism for killing/slaughtering farmed fish/shrimp. ''Harvest'' obscures the mass killing at the end of the grow-out phase.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.stocking-density
+  pattern-regex: 'stocking\s+density(ies)?'
+  message: 'Animal violence language: "stocking density". Industry term for extreme overcrowding in aquaculture tanks/ponds/net pens, where fish are packed at densities causing stress, disease, and cannibalism. Consider: "crowding density", "confinement density" (autofix available).'
+  languages:
+  - generic
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'crowding density'
+    reason: 'Industry term for extreme overcrowding in aquaculture tanks/ponds/net pens, where fish are packed at densities causing stress, disease, and cannibalism.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.harvest-size
+  pattern-regex: '(harvest|market)\s+size|slaughter\s+weight'
+  message: 'Animal violence language: "harvest size". Euphemism for the size/weight at which farmed fish/shrimp are killed (''harvested''). Consider: "slaughter size", "killing weight".'
+  languages:
+  - generic
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'slaughter size'
+    reason: 'Euphemism for the size/weight at which farmed fish/shrimp are killed (''harvested'').'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w
+- id: animal-violence.grow-out-phase
+  pattern-regex: 'grow-out\s+(pond|tank|phase)'
+  message: 'Animal violence language: "grow-out pond". Final fattening phase before slaughter in aquaculture. Consider: "fattening pond", "fattening tank".'
+  languages:
+  - generic
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'fattening pond'
+    reason: 'Final fattening phase before slaughter in aquaculture.'
+    references:
+    - https://doi.org/10.1007/s43681-023-00380-w

@@ -2662,3 +2662,69 @@ rules:
     subcategory: industry-euphemism
     alternative: 'live with a companion animal'
     reason: 'Property framing applied to companion animals. ''Live with a dog'' or ''share a home with a cat'' captures the relationship without the ownership frame.'
+- id: animal-violence.python.string.aquaculture-harvest
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*(fish|shrimp|salmon|tilapia)\s+harvest(ing)?.*'
+  message: 'Animal violence language in string: "fish harvest". Aquaculture euphemism for killing/slaughtering farmed fish/shrimp. ''Harvest'' obscures the mass killing at the end of the grow-out phase. Consider: "fish slaughter", "shrimp slaughter", "salmon slaughter" (autofix available).'
+  languages:
+  - python
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'fish slaughter'
+    reason: 'Aquaculture euphemism for killing/slaughtering farmed fish/shrimp. ''Harvest'' obscures the mass killing at the end of the grow-out phase.'
+  fix-regex:
+    regex: '(fish|shrimp|salmon|tilapia)\s+harvest(ing)?'
+    replacement: 'fish slaughter'
+- id: animal-violence.python.string.stocking-density
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*stocking\s+density(ies)?.*'
+  message: 'Animal violence language in string: "stocking density". Industry term for extreme overcrowding in aquaculture tanks/ponds/net pens, where fish are packed at densities causing stress, disease, and cannibalism. Consider: "crowding density", "confinement density" (autofix available).'
+  languages:
+  - python
+  severity: WARNING
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'crowding density'
+    reason: 'Industry term for extreme overcrowding in aquaculture tanks/ponds/net pens, where fish are packed at densities causing stress, disease, and cannibalism.'
+  fix-regex:
+    regex: 'stocking\s+density(ies)?'
+    replacement: 'crowding density'
+- id: animal-violence.python.string.harvest-size
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*(harvest|market)\s+size|slaughter\s+weight.*'
+  message: 'Animal violence language in string: "harvest size". Euphemism for the size/weight at which farmed fish/shrimp are killed (''harvested''). Consider: "slaughter size", "killing weight".'
+  languages:
+  - python
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'slaughter size'
+    reason: 'Euphemism for the size/weight at which farmed fish/shrimp are killed (''harvested'').'
+- id: animal-violence.python.string.grow-out-phase
+  patterns:
+  - pattern: $S
+  - metavariable-regex:
+      metavariable: $S
+      regex: '.*grow-out\s+(pond|tank|phase).*'
+  message: 'Animal violence language in string: "grow-out pond". Final fattening phase before slaughter in aquaculture. Consider: "fattening pond", "fattening tank".'
+  languages:
+  - python
+  severity: INFO
+  metadata:
+    category: inclusive-language
+    subcategory: industry-euphemism
+    alternative: 'fattening pond'
+    reason: 'Final fattening phase before slaughter in aquaculture.'
