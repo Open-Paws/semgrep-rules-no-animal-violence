@@ -2863,7 +2863,7 @@ rules:
   - pattern: $S
   - metavariable-regex:
       metavariable: $S
-      regex: '.*\b(?:fish|shrimp|salmon|tilapia)\s+(?:harvest|market)\s+size\b|\bslaughter\s+weight\b|\bharvest\s+size\b.*'
+      regex: '.*\b(?:fish|shrimp|salmon|tilapia)\s+(?:harvest|market)\s+size\b|\bslaughter\s+weight\b.*'
   message: 'Animal violence language in string: "harvest size". Euphemism for the size/weight at which farmed fish/shrimp are killed (''harvested''). Consider: "slaughter size", "killing weight".'
   languages:
   - javascript

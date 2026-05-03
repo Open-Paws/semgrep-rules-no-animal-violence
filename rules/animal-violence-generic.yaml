@@ -2082,7 +2082,7 @@ rules:
     references:
     - https://doi.org/10.1007/s43681-023-00380-w
 - id: animal-violence.harvest-size
-  pattern-regex: '\b(?:fish|shrimp|salmon|tilapia)\s+(?:harvest|market)\s+size\b|\bslaughter\s+weight\b|\bharvest\s+size\b'
+  pattern-regex: '\b(?:fish|shrimp|salmon|tilapia)\s+(?:harvest|market)\s+size\b|\bslaughter\s+weight\b'
   message: 'Animal violence language: "harvest size". Euphemism for the size/weight at which farmed fish/shrimp are killed (''harvested''). Consider: "slaughter size", "killing weight".'
   languages:
   - generic
