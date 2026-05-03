@@ -2069,7 +2069,7 @@ rules:
     references:
     - https://doi.org/10.1007/s43681-023-00380-w
 - id: animal-violence.stocking-density
-  pattern-regex: 'stocking\s+density(ies)?'
+  pattern-regex: '\bstocking\s+densit(?:y|ies)\b'
   message: 'Animal violence language: "stocking density". Industry term for extreme overcrowding in aquaculture tanks/ponds/net pens, where fish are packed at densities causing stress, disease, and cannibalism. Consider: "crowding density", "confinement density" (autofix available).'
   languages:
   - generic
@@ -2082,7 +2082,7 @@ rules:
     references:
     - https://doi.org/10.1007/s43681-023-00380-w
 - id: animal-violence.harvest-size
-  pattern-regex: '(harvest|market)\s+size|slaughter\s+weight'
+  pattern-regex: '\b(?:fish|shrimp|salmon|tilapia)\s+(?:harvest|market)\s+size\b|\bslaughter\s+weight\b'
   message: 'Animal violence language: "harvest size". Euphemism for the size/weight at which farmed fish/shrimp are killed (''harvested''). Consider: "slaughter size", "killing weight".'
   languages:
   - generic
